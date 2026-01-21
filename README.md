@@ -1,1 +1,2 @@
-# Jean-ChristianAngounou_6_30-10-2025
+# transferOpenClass
+# ceci est un test et aussi un transfere de mon ancien travail pour un meilleur "git"
