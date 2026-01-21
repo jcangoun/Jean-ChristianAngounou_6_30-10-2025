@@ -48,17 +48,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const containerOfSecdHeader = document.createElement("div");
     containerOfSecdHeader.id = "containerOfSecdHeader";
-    const seconHeader = document.getElementById("h2");
-    seconHeader.id = "secondHeader";
+
+////////// Premiere partie du bug login log out a troiter apres ////////
+
+    // const seconHeader = document.getElementById("h2");
+    // seconHeader.id = "secondHeader";
+
+////////// Premiere partie du bug login log out a troiter apres ////////
 
     // const btnModifier = document.createElement("button");
     // btnModifier.id = "btnModifiermodifierProjets";
     // btnModifier.innerText = "Modifier";
     // portfolioSection.prepend(btnModifier);
 
-    btnModifier.style.display = "block";
+/////// deuxieme partie de bug du login log out //////
 
+    btnModifier.style.display = "block";
     portfolioSection.prepend(containerOfSecdHeader);
+
+/////// deuxieme partie de bug du login log out //////
 
     // fetch("https://api.exemple.com/data")
     // .then(response => response.json()) // convertir la réponse en JSON
