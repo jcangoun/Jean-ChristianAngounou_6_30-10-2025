@@ -48,6 +48,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const containerOfSecdHeader = document.createElement("div");
     containerOfSecdHeader.id = "containerOfSecdHeader";
+    const h2 = document.createElement("h2");
+    h2.id = "h2";
+    h2.textContent = "Mes Projets";
+    h2.style.display = "flex";
+    h2.style.alignItems = "center";
+    h2.style.justifyContent = "center";
+
+    const h2span = document.createElement("span");
+    h2span.id = "btModifier";
+    const iconeModifier = document.createElement("i");
+    iconeModifier.classList.add("fa-solid", "fa-pen-to-square");
+    h2span.innerText = " Modifier";    
+    h2span.appendChild(iconeModifier);
+    portfolioSectionprepend(containerOfSecdHeader);
+    containerOfSecdHeader.appendChild(h2);
+    h2.appendChild(h2span);
+
+
+    iconeModifier.style.color = "#000000";
+    iconeModifier.style.fontWeight = 400;
+    iconeModifier.style.fontSize = "16px";
+    iconeModifier.style.margin = "8px";
+
+    //                       //
+    const btnModifier = document.getElementById("btnModifier");
+
+    btnModifier.style.display = "flex";
+    btnModifier.style.justifyContent = "center";
+    btnModifier.style.alignItems = "center";
+    btnModifier.style.fontSize = "16px";
+    btnModifier.style.fontFamily = "Work Sans";
+    btnModifier.style.fontWeight = "400";
+    btnModifier.style.color = "#000000";
+    btnModifier.style.padding = "16px";
+
+
+
 
 ////////// Premiere partie du bug login log out a troiter apres ////////
 
@@ -64,18 +101,10 @@ document.addEventListener("DOMContentLoaded", () => {
 /////// deuxieme partie de bug du login log out //////
 
     btnModifier.style.display = "block";
+    
     portfolioSection.prepend(containerOfSecdHeader);
 
 /////// deuxieme partie de bug du login log out //////
-
-    // fetch("https://api.exemple.com/data")
-    // .then(response => response.json()) // convertir la réponse en JSON
-    // .then(data => {
-    //     console.log(data); // ici tu récupères tes données
-    // })
-    // .catch(error => {
-    //     console.error("Erreur :", error);
-    // });
 
     loginConnection.textContent = "logout";
     loginConnection.addEventListener("click", () => {
