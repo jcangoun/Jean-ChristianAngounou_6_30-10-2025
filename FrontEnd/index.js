@@ -2,13 +2,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const token = localStorage.getItem("token");
   const btnModifier = document.getElementById("btnModifier");
 
-  const portfolio = document.getElementById("portfolio");
+  // mutage portfolio inutil probably
+  // const portfolio = document.getElementById("portfolio");
 
   const filters = document.createElement("div");
   filters.classList.add("filters");
 
   const gallery = document.querySelector(".gallery");
-
   // console.log("Token bon:", token);
 
   const loginConnection = document.getElementById("loginConnection");
@@ -39,23 +39,25 @@ document.addEventListener("DOMContentLoaded", () => {
     modifierBanniere.style.fontSize = "18px";
     modifierBanniere.style.marginRight = "8px";
 
+    // Creation de la section portfolio .. ezst ce utile ? ci dessous .
     const portfolioSection = document.getElementById("portfolio");
 
     const containerOfSecdHeader = document.createElement("div");
     containerOfSecdHeader.id = "containerOfSecdHeader";
-    const h2 = document.createElement("h2");
-    h2.id = "h2";
-    h2.textContent = "Mes Projets";
-    h2.style.display = "flex";
-    h2.style.alignItems = "center";
-    h2.style.justifyContent = "center";
+    // const h2 = document.createElement("h2");
+    // h2.id = "h2";
+    // h2.textContent = "Mes Projets";
+    // h2.style.display = "flex";
+    // h2.style.alignItems = "center";
+    // h2.style.justifyContent = "center";
 
-    const h2span = document.createElement("span");
-    h2span.id = "btModifier";
+    // Je crée le bouton enfant de h2 dont l id sera btnModifier
+    const h2Btn = document.createElement("button");
+    h2Btn.id = "btModifier";
     const iconeModifier = document.createElement("i");
     iconeModifier.classList.add("fa-solid", "fa-pen-to-square");
-    h2span.innerText = " Modifier";    
-    h2span.appendChild(iconeModifier);
+    h2Btn.innerText = " Modifier";    
+    h2Btn.appendChild(iconeModifier);
     portfolioSectionprepend(containerOfSecdHeader);
     containerOfSecdHeader.appendChild(h2);
     h2.appendChild(h2span);
