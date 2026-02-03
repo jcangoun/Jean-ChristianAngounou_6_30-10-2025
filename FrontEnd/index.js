@@ -63,12 +63,16 @@ document.addEventListener("DOMContentLoaded", () => {
     iconeModifier.style.fontSize = "16px";
     iconeModifier.style.margin = "8px";
 
+
+    
     //on na plus que un h2//
+    const h2 = document.querySelector("#portfolio > h2");  
+    h2.id = "h2Projet";
+    h2.style.display = "flex";
+    h2.style.alignItems = "center";
+    h2.style.justitfyContent = "center";
 
-    const h2 = document.querySelector("#portfolio > h2");
-    h2.id = "h2Projet";  
-
-
+    h2.appendChild(h2Btn);
     // const btnModifier = document.getElementById("btnModifier");
 
 
