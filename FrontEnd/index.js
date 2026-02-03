@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const token = localStorage.getItem("token");
   const btnModifier = document.getElementById("btnModifier");
+
   const portfolio = document.getElementById("portfolio");
 
   const filters = document.createElement("div");
@@ -9,12 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const gallery = document.querySelector(".gallery");
 
   // console.log("Token bon:", token);
-  console.log(btnModifier);
-
-  // if (token) {console.log("Utilisateur connecté");}
-  // const modifBanniere = document.createElement("div");
-  // modifBanniere.setAttribute("id", "banniere");
-  // document.body.insertBefore(modifBanniere, document.body.firstChild);
 
   const loginConnection = document.getElementById("loginConnection");
   console.log(loginConnection);
@@ -86,12 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-////////// Premiere partie du bug login log out a troiter apres ////////
+//////////CEci en bas est a effacer --  Premiere partie du bug login log out a traiter apres ////////
 
     // const seconHeader = document.getElementById("h2");
     // seconHeader.id = "secondHeader";
 
-////////// Premiere partie du bug login log out a troiter apres ////////
+////////// A effacer Premiere partie du bug login log out a troiter apres ////////
 
     // const btnModifier = document.createElement("button");
     // btnModifier.id = "btnModifiermodifierProjets";
