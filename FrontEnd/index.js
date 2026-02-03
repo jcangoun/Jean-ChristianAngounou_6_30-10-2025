@@ -48,22 +48,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Je crée le bouton enfant de h2 dont l id sera btnModifier
     const h2Btn = document.createElement("button");
+    //  important la variable qui est bouton prend la variable btnModifier qui est son  id
     h2Btn.id = "btModifier";
     const iconeModifier = document.createElement("i");
     iconeModifier.classList.add("fa-solid", "fa-pen-to-square");
     h2Btn.innerText = " Modifier";   
     // liaison de iconeModifier a son bouton modifier ci dessous puis h2Btn new name pour appelation now
     h2Btn.prepend(iconeModifier);
-h2Btn.stylebackground = "transparent";
-
+    h2Btn.stylebackground = "transparent";
+    h2Btn.style.border = "none";
 
     iconeModifier.style.color = "#000000";
     iconeModifier.style.fontWeight = 400;
     iconeModifier.style.fontSize = "16px";
     iconeModifier.style.margin = "8px";
 
-    //                       //
-    const btnModifier = document.getElementById("btnModifier");
+    //on na plus que un h2//
+
+    const h2 = document.querySelector("#portfolio > h2");
+    h2.id = "h2Projet";  
+
+
+    // const btnModifier = document.getElementById("btnModifier");
 
 
 
