@@ -40,27 +40,21 @@ document.addEventListener("DOMContentLoaded", () => {
     modifierBanniere.style.marginRight = "8px";
 
     // Creation de la section portfolio .. ezst ce utile ? ci dessous .
-    const portfolioSection = document.getElementById("portfolio");
+    // const portfolioSection = document.getElementById("portfolio");
 
     const containerOfSecdHeader = document.createElement("div");
     containerOfSecdHeader.id = "containerOfSecdHeader";
-    // const h2 = document.createElement("h2");
-    // h2.id = "h2";
-    // h2.textContent = "Mes Projets";
-    // h2.style.display = "flex";
-    // h2.style.alignItems = "center";
-    // h2.style.justifyContent = "center";
+
 
     // Je crée le bouton enfant de h2 dont l id sera btnModifier
     const h2Btn = document.createElement("button");
     h2Btn.id = "btModifier";
     const iconeModifier = document.createElement("i");
     iconeModifier.classList.add("fa-solid", "fa-pen-to-square");
-    h2Btn.innerText = " Modifier";    
-    h2Btn.appendChild(iconeModifier);
-    portfolioSectionprepend(containerOfSecdHeader);
-    containerOfSecdHeader.appendChild(h2);
-    h2.appendChild(h2span);
+    h2Btn.innerText = " Modifier";   
+    // liaison de iconeModifier a son bouton modifier ci dessous puis h2Btn new name pour appelation now
+    h2Btn.prepend(iconeModifier);
+h2Btn.stylebackground = "transparent";
 
 
     iconeModifier.style.color = "#000000";
@@ -71,14 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //                       //
     const btnModifier = document.getElementById("btnModifier");
 
-    btnModifier.style.display = "flex";
-    btnModifier.style.justifyContent = "center";
-    btnModifier.style.alignItems = "center";
-    btnModifier.style.fontSize = "16px";
-    btnModifier.style.fontFamily = "Work Sans";
-    btnModifier.style.fontWeight = "400";
-    btnModifier.style.color = "#000000";
-    btnModifier.style.padding = "16px";
+
 
 
 
@@ -97,9 +84,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /////// deuxieme partie de bug du login log out //////
 
-    btnModifier.style.display = "block";
     
-    portfolioSection.prepend(containerOfSecdHeader);
+;
 
 /////// deuxieme partie de bug du login log out //////
 
