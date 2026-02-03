@@ -73,31 +73,10 @@ document.addEventListener("DOMContentLoaded", () => {
     h2.style.justitfyContent = "center";
 
     h2.appendChild(h2Btn);
-    // const btnModifier = document.getElementById("btnModifier");
 
-
-
-
-
-
-//////////CEci en bas est a effacer --  Premiere partie du bug login log out a traiter apres ////////
-
-    // const seconHeader = document.getElementById("h2");
-    // seconHeader.id = "secondHeader";
-
-////////// A effacer Premiere partie du bug login log out a troiter apres ////////
-
-    // const btnModifier = document.createElement("button");
-    // btnModifier.id = "btnModifiermodifierProjets";
-    // btnModifier.innerText = "Modifier";
-    // portfolioSection.prepend(btnModifier);
-
-/////// deuxieme partie de bug du login log out //////
-
-    
-;
-
-/////// deuxieme partie de bug du login log out //////
+    // Creation des boutons de filtre
+    const boutonDeFiltre = document.querySelector("#containersBoutons");
+    boutonDeFiltre.style.display = "flex";
 
     loginConnection.textContent = "logout";
     loginConnection.addEventListener("click", () => {
@@ -106,10 +85,15 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     btnModifier.style.display = "none";
     loginConnection.textContent = "login";
+
+    // quand connecté pas de boutons de filtres
+    boutonDeFiltre.style.display  ="none";
+
     loginConnection.addEventListener("click", () => {
       window.location.href = "./login.html";
     });
 
+    // On met en premiere place enfant dans le porfolio le filtre juste avant gallery
     portfolio.insertBefore(filters, gallery);
 
     createFilters("button", ["filter-btn", "active"], "Tous");
