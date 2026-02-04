@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     h2.id = "h2Projet";
     h2.style.display = "flex";
     h2.style.alignItems = "center";
-    h2.style.justitfyContent = "center";
+    h2.style.justifyContent = "center";
 
     h2.appendChild(h2Btn);
 
