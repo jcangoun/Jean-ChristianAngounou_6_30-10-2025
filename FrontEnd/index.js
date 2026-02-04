@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
     const btnObjets = document.createElement("button");
-    btnObjets.classList.add("btn-filter", "btn-active");
+    btnObjets.classList.add("btn-filter");
     // Je crée le style du bouton Objets 
     btnObjets.style.fontFamily = "Syne";
     btnObjets.style.border = "1px solid #1D6154";
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     boutonDeFiltre.appendChild(btnObjets);
 
     const btnAppartements = document.createElement("button");
-    btnAppartements.classList.add("btn-filter", "btn-active");
+    btnAppartements.classList.add("btn-filter");
     // Je crée le style du bouton Appartements
     btnAppartements.style.fontFamily = "Syne";
     btnAppartements.style.border = "1px solid #1D6154";
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         const btnHotelsRestaurants = document.createElement("button");
-    btnHotelsRestaurants.classList.add("btn-filter", "btn-active");
+    btnHotelsRestaurants.classList.add("btn-filter");
     // Je crée le style du bouton HotelsRestaurants
     btnHotelsRestaurants.style.fontFamily = "Syne";
     btnHotelsRestaurants.style.border = "1px solid #1D6154";
