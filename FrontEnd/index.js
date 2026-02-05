@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     h2Btn.id = "btModifier";
     const iconeModifier = document.createElement("i");
     iconeModifier.classList.add("fa-solid", "fa-pen-to-square");
-    h2Btn.innerText = " Modifier";   
+    h2Btn.innerText = " Modifier";
     // liaison de iconeModifier a son bouton modifier ci dessous puis h2Btn new name pour appelation now
     h2Btn.prepend(iconeModifier);
     h2Btn.style.background = "transparent";
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     iconeModifier.style.margin = "8px";
 
     //on na plus que un h2//
-    const h2 = document.querySelector("#portfolio > h2");  
+    const h2 = document.querySelector("#portfolio > h2");
     h2.id = "h2Projet";
     h2.style.display = "flex";
     h2.style.alignItems = "center";
@@ -79,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // boutonDeFiltre.style.justifyContent = "center";
     // boutonDeFiltre.style.margin = "30px";
 
-
     // const sophieGallery = document.querySelector("#portfolio .gallery");
 
     // portfolio.insertBefore(boutonDeFiltre, sophieGallery);
@@ -87,29 +86,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // const btnAll = document.createElement("button");
     // btnAll.classList.add("btn-filter", "btn-active");
-    // // Je crée le style du bouton all 
+    // // Je crée le style du bouton all
     // btnAll.style.fontFamily = "Syne";
     // btnAll.style.border = "1px solid #1D6154";
     // btnAll.style.color = "#1D6154";
     // btnAll.style.borderRadius = "60px";
     // btnAll.style.padding = "8px 16px";
     // btnAll.style.margin = "5px";
-    
+
     // btnAll.dataset.filter = "all";
     // btnAll.textContent = "Tous";
     // boutonDeFiltre.appendChild(btnAll);
 
-    
     // const btnObjets = document.createElement("button");
     // btnObjets.classList.add("btn-filter");
-    // // Je crée le style du bouton Objets 
+    // // Je crée le style du bouton Objets
     // btnObjets.style.fontFamily = "Syne";
     // btnObjets.style.border = "1px solid #1D6154";
     // btnObjets.style.color = "#1D6154";
     // btnObjets.style.borderRadius = "60px";
     // btnObjets.style.padding = "8px 16px";
     // btnObjets.style.margin = "5px";
-    
+
     // btnObjets.dataset.filter = "objets";
     // btnObjets.textContent = "Objets";
     // boutonDeFiltre.appendChild(btnObjets);
@@ -123,12 +121,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // btnAppartements.style.borderRadius = "60px";
     // btnAppartements.style.padding = "8px 16px";
     // btnAppartements.style.margin = "5px";
-    
+
     // btnAppartements.dataset.filter = "appartements";
 
     // btnAppartements.textContent = "Appartements";
     // boutonDeFiltre.appendChild(btnAppartements);
-
 
     //     const btnHotelsRestaurants = document.createElement("button");
     // btnHotelsRestaurants.classList.add("btn-filter");
@@ -139,30 +136,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // btnHotelsRestaurants.style.borderRadius = "60px";
     // btnHotelsRestaurants.style.padding = "8px 16px";
     // btnHotelsRestaurants.style.margin = "5px";
-    
+
     // btnHotelsRestaurants.dataset.filter = "HotelsRestaurants";
 
     // btnHotelsRestaurants.textContent = "Hotels & Restaurants";
     // boutonDeFiltre.appendChild(btnHotelsRestaurants);
-
 
     loginConnection.textContent = "logout";
     loginConnection.addEventListener("click", () => {
       logout();
     });
   } else {
-
-    
-    // Création section bouton de filtres puis son style, 
-    // Et ensuite respectivement les boutons de filtres enfant et leur style
-    
-    
-    
-
-    
     // quand connecté pas de boutons de filtres
-    
-    
+
     loginConnection.textContent = "login";
     loginConnection.addEventListener("click", () => {
       window.location.href = "./login.html";
@@ -178,6 +164,81 @@ document.addEventListener("DOMContentLoaded", () => {
         categories.forEach((category) => {
           createFilters("button", ["filter-btn"], category.name);
         });
+
+        // // Creation des boutons de filtre
+        const boutonDeFiltre = document.getElementsByClassName("filters")[0];
+        boutonDeFiltre.id = "containersBoutons";
+        boutonDeFiltre.style.display = "flex";
+        boutonDeFiltre.style.justifyContent = "center";
+        boutonDeFiltre.style.margin = "30px";
+
+        const sophieGallery = document.querySelector("#portfolio .gallery");
+
+        portfolio.insertBefore(boutonDeFiltre, sophieGallery);
+        console.log(boutonDeFiltre);
+
+
+        const btnHotelsRestaurants = document.getElementsByClassName("filter-btn")[3];
+    // Je crée le style du 4e et dernier bouton,  HotelsRestaurants
+    btnHotelsRestaurants.style.fontFamily = "Syne";
+    btnHotelsRestaurants.style.border = "1px solid #1D6154";
+    btnHotelsRestaurants.style.color = "#1D6154";
+    btnHotelsRestaurants.style.borderRadius = "60px";
+    btnHotelsRestaurants.style.padding = "8px 16px";
+    btnHotelsRestaurants.style.margin = "5px";
+
+    btnHotelsRestaurants.dataset.filter = "HotelsRestaurants";
+
+    btnHotelsRestaurants.textContent = "Hotels & Restaurants";
+    boutonDeFiltre.appendChild(btnHotelsRestaurants);
+
+
+        const btnAppartements = document.getElementsByClassName("filter-btn")[2];
+    // btnAppartements.classList.add("btn-filter");
+    // Je crée le style du bouton Appartements
+    btnAppartements.style.fontFamily = "Syne";
+    btnAppartements.style.border = "1px solid #1D6154";
+    btnAppartements.style.color = "#1D6154";
+    btnAppartements.style.borderRadius = "60px";
+    btnAppartements.style.padding = "8px 16px";
+    btnAppartements.style.margin = "5px";
+
+    btnAppartements.dataset.filter = "appartements";
+
+    btnAppartements.textContent = "Appartements";
+    boutonDeFiltre.prepend(btnAppartements);
+
+
+        const btnObjets = document.getElementsByClassName("filter-btn")[2];
+    btnObjets.classList.add("btn-filter");
+    // Je crée le style du bouton Objets
+    btnObjets.style.fontFamily = "Syne";
+    btnObjets.style.border = "1px solid #1D6154";
+    btnObjets.style.color = "#1D6154";
+    btnObjets.style.borderRadius = "60px";
+    btnObjets.style.padding = "8px 16px";
+    btnObjets.style.margin = "5px";
+
+    btnObjets.dataset.filter = "objets";
+    btnObjets.textContent = "Objets";
+    boutonDeFiltre.prepend(btnObjets)
+
+
+
+        const btnAll = document.getElementsByClassName("filter-btn")[2];
+    btnAll.classList.add("btn-filter", "btn-active");
+    // Je crée le style du bouton all
+    btnAll.style.fontFamily = "Syne";
+    btnAll.style.border = "1px solid #1D6154";
+    btnAll.style.color = "#1D6154";
+    btnAll.style.borderRadius = "60px";
+    btnAll.style.padding = "8px 16px";
+    btnAll.style.margin = "5px";
+
+    btnAll.dataset.filter = "all";
+    btnAll.textContent = "Tous";
+    boutonDeFiltre.prepend(btnAll);
+
       })
       .catch((error) => {
         console.error("Erreur :", error);
@@ -194,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const gallery = document.querySelector(".gallery");
 
 function createFilters(tag, classes = [], content) {
-    const filters = document.querySelector(".filters");
+  const filters = document.querySelector(".filters");
 
   const filter = document.createElement(tag);
   classes.forEach((classe) => filter.classList.add(classe));
