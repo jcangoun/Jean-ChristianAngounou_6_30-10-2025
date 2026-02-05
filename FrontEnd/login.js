@@ -20,14 +20,16 @@ form.addEventListener("submit", (e) => {
     body: JSON.stringify(user),
   })
     .then((response) => {
+      console.log(response.ok);
       if (!response.ok) {
         if (response.status === 401) {
           error.textContent = "Une erreur est survenue le mot de passe incorrect.";
         } else if (response.status === 404) {
           error.textContent = "Une erreur est survenue. l email est incorrecte.";
         }
+      } else {
+        return response.json();
       }
-      return response.json();
     })
     .then((data) => {
       //  ici je dois récupérer le token
@@ -44,18 +46,6 @@ form.addEventListener("submit", (e) => {
 // le stocker dans le local storage
 const token = localStorage.getItem("token");
 console.log("Token bon :", token);
-// puis rediriger vers la page d accueil
-// window.location.href = "./index.html";
-// if (token) {
-//     // console.log("Utilisateur connecté");
-// // const modifBanniere = document.createElement("div");
-// // modifBanniere.setAttribute("id", "banniere");
-// // modifBanniere.style.display = "flex";
-// // modifBanniere.style.justifyContent = "center";
-// // modifBanniere.style.alignItems = "center";
-// // modifBanniere.style.backgroundColor = "grey";
-// // modifBanniere.style.padding = "16px 8px";
-// }
 
 // puis dans la page d accueil je dois vérifier si le token est présent
 
