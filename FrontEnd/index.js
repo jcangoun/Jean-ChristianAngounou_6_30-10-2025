@@ -2,14 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const token = localStorage.getItem("token");
   const btnModifier = document.getElementById("btnModifier");
 
-  // mutage portfolio inutil probably
-  // const portfolio = document.getElementById("portfolio");
-
   const filters = document.createElement("div");
   filters.classList.add("filters");
 
   const gallery = document.querySelector(".gallery");
-  // console.log("Token bon:", token);
 
   const loginConnection = document.getElementById("loginConnection");
   console.log(loginConnection);
@@ -42,10 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Creation de la section portfolio .. ezst ce utile ? ci dessous .
     // const portfolioSection = document.getElementById("portfolio");
 
-    const containerOfSecdHeader = document.createElement("div");
-    containerOfSecdHeader.id = "containerOfSecdHeader";
-    console.log(containerOfSecdHeader);
-
     // Je crée le bouton enfant de h2 dont l id sera btnModifier
     const h2Btn = document.createElement("button");
     //  important la variable qui est bouton prend la variable btnModifier qui est son  id
@@ -71,76 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     h2.style.justifyContent = "center";
 
     h2.appendChild(h2Btn);
-
-    // // Creation des boutons de filtre
-    // const boutonDeFiltre = document.createElement("div");
-    // boutonDeFiltre.id = "containersBoutons";
-    // boutonDeFiltre.style.display = "flex";
-    // boutonDeFiltre.style.justifyContent = "center";
-    // boutonDeFiltre.style.margin = "30px";
-
-    // const sophieGallery = document.querySelector("#portfolio .gallery");
-
-    // portfolio.insertBefore(boutonDeFiltre, sophieGallery);
-    // console.log(boutonDeFiltre);
-
-    // const btnAll = document.createElement("button");
-    // btnAll.classList.add("btn-filter", "btn-active");
-    // // Je crée le style du bouton all
-    // btnAll.style.fontFamily = "Syne";
-    // btnAll.style.border = "1px solid #1D6154";
-    // btnAll.style.color = "#1D6154";
-    // btnAll.style.borderRadius = "60px";
-    // btnAll.style.padding = "8px 16px";
-    // btnAll.style.margin = "5px";
-
-    // btnAll.dataset.filter = "all";
-    // btnAll.textContent = "Tous";
-    // boutonDeFiltre.appendChild(btnAll);
-
-    // const btnObjets = document.createElement("button");
-    // btnObjets.classList.add("btn-filter");
-    // // Je crée le style du bouton Objets
-    // btnObjets.style.fontFamily = "Syne";
-    // btnObjets.style.border = "1px solid #1D6154";
-    // btnObjets.style.color = "#1D6154";
-    // btnObjets.style.borderRadius = "60px";
-    // btnObjets.style.padding = "8px 16px";
-    // btnObjets.style.margin = "5px";
-
-    // btnObjets.dataset.filter = "objets";
-    // btnObjets.textContent = "Objets";
-    // boutonDeFiltre.appendChild(btnObjets);
-
-    // const btnAppartements = document.createElement("button");
-    // btnAppartements.classList.add("btn-filter");
-    // // Je crée le style du bouton Appartements
-    // btnAppartements.style.fontFamily = "Syne";
-    // btnAppartements.style.border = "1px solid #1D6154";
-    // btnAppartements.style.color = "#1D6154";
-    // btnAppartements.style.borderRadius = "60px";
-    // btnAppartements.style.padding = "8px 16px";
-    // btnAppartements.style.margin = "5px";
-
-    // btnAppartements.dataset.filter = "appartements";
-
-    // btnAppartements.textContent = "Appartements";
-    // boutonDeFiltre.appendChild(btnAppartements);
-
-    //     const btnHotelsRestaurants = document.createElement("button");
-    // btnHotelsRestaurants.classList.add("btn-filter");
-    // // Je crée le style du bouton HotelsRestaurants
-    // btnHotelsRestaurants.style.fontFamily = "Syne";
-    // btnHotelsRestaurants.style.border = "1px solid #1D6154";
-    // btnHotelsRestaurants.style.color = "#1D6154";
-    // btnHotelsRestaurants.style.borderRadius = "60px";
-    // btnHotelsRestaurants.style.padding = "8px 16px";
-    // btnHotelsRestaurants.style.margin = "5px";
-
-    // btnHotelsRestaurants.dataset.filter = "HotelsRestaurants";
-
-    // btnHotelsRestaurants.textContent = "Hotels & Restaurants";
-    // boutonDeFiltre.appendChild(btnHotelsRestaurants);
 
     loginConnection.textContent = "logout";
     loginConnection.addEventListener("click", () => {
@@ -177,68 +99,62 @@ document.addEventListener("DOMContentLoaded", () => {
         portfolio.insertBefore(boutonDeFiltre, sophieGallery);
         console.log(boutonDeFiltre);
 
-
         const btnHotelsRestaurants = document.getElementsByClassName("filter-btn")[3];
-    // Je crée le style du 4e et dernier bouton,  HotelsRestaurants
-    btnHotelsRestaurants.style.fontFamily = "Syne";
-    btnHotelsRestaurants.style.border = "1px solid #1D6154";
-    btnHotelsRestaurants.style.color = "#1D6154";
-    btnHotelsRestaurants.style.borderRadius = "60px";
-    btnHotelsRestaurants.style.padding = "8px 16px";
-    btnHotelsRestaurants.style.margin = "5px";
+        // Je crée le style du 4e et dernier bouton,  HotelsRestaurants
+        btnHotelsRestaurants.style.fontFamily = "Syne";
+        btnHotelsRestaurants.style.border = "1px solid #1D6154";
+        btnHotelsRestaurants.style.color = "#1D6154";
+        btnHotelsRestaurants.style.borderRadius = "60px";
+        btnHotelsRestaurants.style.padding = "8px 16px";
+        btnHotelsRestaurants.style.margin = "5px";
 
-    btnHotelsRestaurants.dataset.filter = "HotelsRestaurants";
+        btnHotelsRestaurants.dataset.filter = "HotelsRestaurants";
 
-    btnHotelsRestaurants.textContent = "Hotels & Restaurants";
-    boutonDeFiltre.appendChild(btnHotelsRestaurants);
-
+        btnHotelsRestaurants.textContent = "Hotels & Restaurants";
+        boutonDeFiltre.appendChild(btnHotelsRestaurants);
 
         const btnAppartements = document.getElementsByClassName("filter-btn")[2];
-    // btnAppartements.classList.add("btn-filter");
-    // Je crée le style du bouton Appartements
-    btnAppartements.style.fontFamily = "Syne";
-    btnAppartements.style.border = "1px solid #1D6154";
-    btnAppartements.style.color = "#1D6154";
-    btnAppartements.style.borderRadius = "60px";
-    btnAppartements.style.padding = "8px 16px";
-    btnAppartements.style.margin = "5px";
+        // btnAppartements.classList.add("btn-filter");
+        // Je crée le style du bouton Appartements
+        btnAppartements.style.fontFamily = "Syne";
+        btnAppartements.style.border = "1px solid #1D6154";
+        btnAppartements.style.color = "#1D6154";
+        btnAppartements.style.borderRadius = "60px";
+        btnAppartements.style.padding = "8px 16px";
+        btnAppartements.style.margin = "5px";
 
-    btnAppartements.dataset.filter = "appartements";
+        btnAppartements.dataset.filter = "appartements";
 
-    btnAppartements.textContent = "Appartements";
-    boutonDeFiltre.prepend(btnAppartements);
-
+        btnAppartements.textContent = "Appartements";
+        boutonDeFiltre.prepend(btnAppartements);
 
         const btnObjets = document.getElementsByClassName("filter-btn")[2];
-    btnObjets.classList.add("btn-filter");
-    // Je crée le style du bouton Objets
-    btnObjets.style.fontFamily = "Syne";
-    btnObjets.style.border = "1px solid #1D6154";
-    btnObjets.style.color = "#1D6154";
-    btnObjets.style.borderRadius = "60px";
-    btnObjets.style.padding = "8px 16px";
-    btnObjets.style.margin = "5px";
+        btnObjets.classList.add("btn-filter");
+        // Je crée le style du bouton Objets
+        btnObjets.style.fontFamily = "Syne";
+        btnObjets.style.border = "1px solid #1D6154";
+        btnObjets.style.color = "#1D6154";
+        btnObjets.style.borderRadius = "60px";
+        btnObjets.style.padding = "8px 16px";
+        btnObjets.style.margin = "5px";
 
-    btnObjets.dataset.filter = "objets";
-    btnObjets.textContent = "Objets";
-    boutonDeFiltre.prepend(btnObjets)
-
-
+        btnObjets.dataset.filter = "objets";
+        btnObjets.textContent = "Objets";
+        boutonDeFiltre.prepend(btnObjets);
 
         const btnAll = document.getElementsByClassName("filter-btn")[2];
-    btnAll.classList.add("btn-filter", "btn-active");
-    // Je crée le style du bouton all
-    btnAll.style.fontFamily = "Syne";
-    btnAll.style.border = "1px solid #1D6154";
-    btnAll.style.color = "#1D6154";
-    btnAll.style.borderRadius = "60px";
-    btnAll.style.padding = "8px 16px";
-    btnAll.style.margin = "5px";
+        btnAll.classList.add("btn-filter", "btn-active");
+        // Je crée le style du bouton all
+        btnAll.style.fontFamily = "Syne";
+        btnAll.style.border = "1px solid #1D6154";
+        btnAll.style.color = "#1D6154";
+        btnAll.style.borderRadius = "60px";
+        btnAll.style.padding = "8px 16px";
+        btnAll.style.margin = "5px";
 
-    btnAll.dataset.filter = "all";
-    btnAll.textContent = "Tous";
-    boutonDeFiltre.prepend(btnAll);
-
+        btnAll.dataset.filter = "all";
+        btnAll.textContent = "Tous";
+        boutonDeFiltre.prepend(btnAll);
       })
       .catch((error) => {
         console.error("Erreur :", error);
@@ -270,6 +186,7 @@ async function works() {
     data.forEach((data) => {
       work(data);
     });
+    handeuleuFilteur();
   } catch (error) {
     console.log(error);
   }
@@ -288,4 +205,35 @@ function work(data) {
   figure.appendChild(img);
   figure.appendChild(figcaption);
   gallery.appendChild(figure);
+}
+
+// Je crée le filtre qui permet d afficher le type choisI et
+//  les styles d affichage du choix effectué
+
+function handeuleuFilteur() {
+  const filters = document.getElementsByClassName("filter-btn");
+  console.log(filters);
+
+  Array.from(filters).forEach((filter, index) => {
+    filter.addEventListener("click", () => {
+      const activeFilter = document.querySelectorAll(".btn-active");
+      activeFilter.forEach((filter) => {
+        filter.classList.remove("btn-active");
+      });
+      filter.classList.add("btn-active");
+      // On crée les cartes
+      const cards = document.querySelectorAll(".gallery figure");
+      cards.forEach((card) => {
+        if (index === 0) {
+          card.style.display = "block";
+        } else {
+          if (card.dataset.categoryId == index) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        }
+      });
+    });
+  });
 }
