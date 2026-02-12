@@ -108,7 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
         btnHotelsRestaurants.style.padding = "8px 16px";
         btnHotelsRestaurants.style.margin = "5px";
 
-        btnHotelsRestaurants.dataset.filter = "HotelsRestaurants";
+        // btnHotelsRestaurants.dataset.filter = "HotelsRestaurants";
+        btnHotelsRestaurants.dataset.filter = "3";
 
         btnHotelsRestaurants.textContent = "Hotels & Restaurants";
         boutonDeFiltre.appendChild(btnHotelsRestaurants);
@@ -123,7 +124,8 @@ document.addEventListener("DOMContentLoaded", () => {
         btnAppartements.style.padding = "8px 16px";
         btnAppartements.style.margin = "5px";
 
-        btnAppartements.dataset.filter = "appartements";
+        // btnAppartements.dataset.filter = "appartements";
+        btnAppartements.dataset.filter = "2";
 
         btnAppartements.textContent = "Appartements";
         boutonDeFiltre.prepend(btnAppartements);
@@ -138,8 +140,10 @@ document.addEventListener("DOMContentLoaded", () => {
         btnObjets.style.padding = "8px 16px";
         btnObjets.style.margin = "5px";
 
-        btnObjets.dataset.filter = "objets";
+        // btnObjets.dataset.filter = "objets";
+        btnObjets.dataset.filter = "1";
         btnObjets.textContent = "Objets";
+
         boutonDeFiltre.prepend(btnObjets);
 
         const btnAll = document.getElementsByClassName("filter-btn")[2];
@@ -147,7 +151,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // Je crée le style du bouton all
         btnAll.style.fontFamily = "Syne";
         btnAll.style.border = "1px solid #1D6154";
-        btnAll.style.color = "#1D6154";
+        
+        // ci desoous deja color white rien a changer 
+        // btnAll.style.color = "#1D6154";
         btnAll.style.borderRadius = "60px";
         btnAll.style.padding = "8px 16px";
         btnAll.style.margin = "5px";
@@ -211,23 +217,23 @@ function work(data) {
 //  les styles d affichage du choix effectué
 
 function handeuleuFilteur() {
-  const filters = document.getElementsByClassName("filter-btn");
-  console.log(filters);
-
-  Array.from(filters).forEach((filter, index) => {
+  const filters = document.querySelectorAll(".filter-btn");
+  filters.forEach((filter) => {
     filter.addEventListener("click", () => {
-      const activeFilter = document.querySelectorAll(".btn-active");
-      activeFilter.forEach((filter) => {
-        filter.classList.remove("btn-active");
-      });
+      // Retirer l'ancien bouton actif
+      document.querySelectorAll(".btn-active").forEach((btn) => {
+        btn.classList.remove("btn-active");
+      }); 
+      // Activer le bouton cliqué
       filter.classList.add("btn-active");
-      // On crée les cartes
+      const filterValue = filter.dataset.filter; // "all", "1", "2", "3"...
       const cards = document.querySelectorAll(".gallery figure");
       cards.forEach((card) => {
-        if (index === 0) {
+        const cardCat = card.dataset.categoryId;
+        if (filterValue === "all") {
           card.style.display = "block";
         } else {
-          if (card.dataset.categoryId == index) {
+          if (cardCat === filterValue) {
             card.style.display = "block";
           } else {
             card.style.display = "none";
