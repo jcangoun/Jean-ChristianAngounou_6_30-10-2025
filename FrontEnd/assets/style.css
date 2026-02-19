@@ -220,3 +220,22 @@ footer nav ul {
 	/* display: none; */
 	/* justify-content: center; */
  }
+
+ .filter {
+	display: flex;
+	justify-content: center;
+	margin: 30px;
+ }
+
+ .filter-btn {
+        font-family: "Syne";
+        border: 1px solid #1D6154;
+        color: #1D6154;
+        border-radius: 60px;
+        padding: 8px 16px;
+        margin: 5px;
+}
+.active {
+	background-color: #1D6154;
+	color: white;
+}
