@@ -81,28 +81,32 @@ document.addEventListener("DOMContentLoaded", () => {
     portfolio.insertBefore(filters, gallery);
 
     createFilters("button", ["filter-btn", "active"], "Tous");
-    createFilters("button", ["filter-btn"], "Objets");
-    createFilters("button", ["filter-btn"], "Appartements");
-    createFilters("button", ["filter-btn"], "Hotels & Restaurants");
     fetch("http://localhost:5678/api/categories")
       .then((response) => response.json())
-      console.log(Response.json)
       .then((categories) => {
         categories.forEach((category) => {
           createFilters("button", ["filter-btn"], category.name);
+          // console.log(createFilters)
         });
 
+// Code Douteux ci dessous -------------
+
         // // Creation des boutons de filtre
-        const boutonDeFiltre = document.getElementsByClassName("filters")[0];
-        boutonDeFiltre.id = "containersBoutons";
-        boutonDeFiltre.style.display = "flex";
-        boutonDeFiltre.style.justifyContent = "center";
-        boutonDeFiltre.style.margin = "30px";
 
-        const sophieGallery = document.querySelector("#portfolio .gallery");
+        // const boutonDeFiltre = document.getElementsByClassName("filters")[0];
+        // boutonDeFiltre.id = "containersBoutons";
+        // boutonDeFiltre.style.display = "flex";
+        // boutonDeFiltre.style.justifyContent = "center";
+        // boutonDeFiltre.style.margin = "30px";
 
-        portfolio.insertBefore(boutonDeFiltre, sophieGallery);
-        // creation sur les boutons filtrés ici dessous
+        // const sophieGallery = document.querySelector("#portfolio .gallery");
+
+        // portfolio.insertBefore(boutonDeFiltre, sophieGallery);
+
+
+        // creation sur les boutons filtrés ici dessus
+
+// Code Douteux ci dessus -------------
 
       })
       .catch((error) => {
@@ -162,29 +166,28 @@ function work(data) {
 function handeuleuFilteur() {
   const filters = document.querySelectorAll("div.filters > button");
   console.log(filters);
-  filters.forEach((filter) => {
+  filters.forEach((filter, index) => {
+
     filter.addEventListener("click", () => {
-      // alert("filtre cliqué : " + filter.textContent);
-      // Retirer l'ancien bouton actif
-      document.querySelectorAll(".btn-active").forEach((btn) => {
-        btn.classList.remove("btn-active");
-      }); 
-      // Activer le bouton cliqué
-      filter.classList.add("btn-active");
-      const filterValue = filter.dataset.filter; // "all", "1", "2", "3"...
+      const activeFilter = document.querySelectorAll(".active");
+
+      activeFilter.forEach((filter) => {
+        filter.classList.remove("active");
+      });
+      filter.classList.add("active");
       const cards = document.querySelectorAll(".gallery figure");
       cards.forEach((card) => {
-        const cardCat = card.dataset.categoryId;
-        if (filterValue === "all") {
+        if (index === 0) {
           card.style.display = "block";
         } else {
-          if (cardCat === filterValue) {
+          if (card.dataset.categoryId == index) {
             card.style.display = "block";
           } else {
             card.style.display = "none";
           }
         }
-      });
-    });
+      })
+
+    })
   });
 }

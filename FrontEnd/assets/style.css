@@ -221,7 +221,7 @@ footer nav ul {
 	/* justify-content: center; */
  }
 
- .filter {
+ .filters {
 	display: flex;
 	justify-content: center;
 	margin: 30px;
