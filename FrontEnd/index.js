@@ -62,8 +62,33 @@ document.addEventListener("DOMContentLoaded", () => {
     h2.style.display = "flex";
     h2.style.alignItems = "center";
     h2.style.justifyContent = "center";
-
     h2.appendChild(h2Btn);
+
+    h2Btn.addEventListener("mouseover", () => {
+      h2Btn.style.color = "red";
+    });
+
+    h2Btn.addEventListener("click", () => {
+      // window.location.href = "./modal.html";
+      const laModale = document.createElement("aside");
+      laModale.id = "laModale";
+      // laModale.style.display = "hidden";
+      laModale.setAttribute("aria-hidden", "true");
+      portfolio.style.position = "fixed";
+      portfolio.style.textContent = "exempleBrut";
+      portfolio.style.top = "0";
+      portfolio.style.right = "0";
+      portfolio.style.display = "flex";
+      portfolio.style.justifyContent = "center";
+      portfolio.style.alignItems = "center";
+      portfolio.style.height = "100%";
+      
+      portfolio.style.maxWidth = "calc(100vw- 20px";
+      portfolio.style.maxHeight = "calc(100vw- 20px";
+      
+      portfolio.insertBefore(laModale, gallery);
+      window.location.href = "#laModale";
+    });
 
     loginConnection.textContent = "logout";
     loginConnection.addEventListener("click", () => {
