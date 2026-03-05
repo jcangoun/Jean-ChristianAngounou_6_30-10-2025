@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Je crée le bouton enfant de h2 dont l id sera btnModifier
     const h2Btn = document.createElement("button");
     //  important la variable qui est bouton prend la variable btnModifier qui est son  id
-    h2Btn.id = "btModifier";
+    h2Btn.id = "btnModifier";
     const iconeModifier = document.createElement("i");
     iconeModifier.classList.add("fa-solid", "fa-pen-to-square");
     h2Btn.innerText = " Modifier";
@@ -71,7 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   } else {
     // quand connecté pas de boutons de filtres
-
     loginConnection.textContent = "login";
     loginConnection.addEventListener("click", () => {
       window.location.href = "./login.html";
@@ -88,29 +87,15 @@ document.addEventListener("DOMContentLoaded", () => {
           createFilters("button", ["filter-btn"], category.name);
           // console.log(createFilters)
         });
-
-// Code Douteux ci dessous -------------
-
-        // // Creation des boutons de filtre
-
-        // const boutonDeFiltre = document.getElementsByClassName("filters")[0];
-        // boutonDeFiltre.id = "containersBoutons";
-        // boutonDeFiltre.style.display = "flex";
-        // boutonDeFiltre.style.justifyContent = "center";
-        // boutonDeFiltre.style.margin = "30px";
-
-        // const sophieGallery = document.querySelector("#portfolio .gallery");
-
-        // portfolio.insertBefore(boutonDeFiltre, sophieGallery);
-
-
-        // creation sur les boutons filtrés ici dessus
-
-// Code Douteux ci dessus -------------
+        handeuleuFilteur();
 
       })
       .catch((error) => {
         console.error("Erreur :", error);
+      });
+      btnModifier.addEventListener("click", () => {
+        window.location.href = "./modal.html";
+        console.log(btnModifier, "ca marche");
       });
   }
 
@@ -136,10 +121,10 @@ async function works() {
     const response = await fetch("http://localhost:5678/api/works");
     const data = await response.json();
     console.log(data);
+
     data.forEach((data) => {
       work(data);
     });
-    handeuleuFilteur();
   } catch (error) {
     console.log(error);
   }
@@ -180,7 +165,7 @@ function handeuleuFilteur() {
         if (index === 0) {
           card.style.display = "block";
         } else {
-          if (card.dataset.categoryId == index) {
+         if (parseInt(card.dataset.categoryId) == index) {
             card.style.display = "block";
           } else {
             card.style.display = "none";
