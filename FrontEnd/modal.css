@@ -3,27 +3,29 @@ body, html {
     padding: 0;
     box-sizing: border-box;
 }
+
 #laModale {
-    position: fixed;
+    /* position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     z-index: 1;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.4); */
 }
 
 modale-wrapper {
-    background-color: #fff;
-    /* margin: 10% auto; */
+    /* background-color: #fff;
+    z-index: 1;
+    margin: 10% auto;
     padding: 20px;
     border: 1px underline #888;
     width: 600px;
-    max-width: calc(100vh - 20px);
     max-height: calc(100vh - 20px);
+    max-width: calc(100vh - 20px); */
 }

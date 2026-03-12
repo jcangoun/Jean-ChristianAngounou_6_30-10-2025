@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     h2Btn.addEventListener("mouseover", () => {
       h2Btn.style.color = "red";
+      h2Btn.style.textContent = "essai";
     });
 
     h2Btn.addEventListener("click", () => {
@@ -74,20 +75,23 @@ document.addEventListener("DOMContentLoaded", () => {
       laModale.id = "laModale";
       // laModale.style.display = "hidden";
       laModale.setAttribute("aria-hidden", "true");
-      portfolio.style.position = "fixed";
-      portfolio.style.textContent = "exempleBrut";
-      portfolio.style.top = "0";
-      portfolio.style.right = "0";
-      portfolio.style.display = "flex";
-      portfolio.style.justifyContent = "center";
-      portfolio.style.alignItems = "center";
-      portfolio.style.height = "100%";
-      
-      portfolio.style.maxWidth = "calc(100vw- 20px";
-      portfolio.style.maxHeight = "calc(100vw- 20px";
-      
-      portfolio.insertBefore(laModale, gallery);
+      // document.body.prepend(laModale);
       window.location.href = "#laModale";
+      
+      // laModale.style.display = "flex";
+      // laModale.style.justifyContent = "center";
+      // laModale.style.alignItems = "center";
+      // laModale.style.margin = "0";
+      // laModale.style.border = "2px solid red";
+      // laModale.style.flex = "100%";
+      // laModale.style.flex = "100%";
+      // laModale.style.top = "0";
+      // laModale.style.right = "0";
+      
+      // laModale.style.maxWidth = "calc(100vw- 20px)";
+      // laModale.style.maxHeight = "calc(100vw- 20px)";
+
+      // portfolio.insertBefore(laModale, gallery);
     });
 
     loginConnection.textContent = "logout";
