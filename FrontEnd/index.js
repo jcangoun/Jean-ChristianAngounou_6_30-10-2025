@@ -1,3 +1,5 @@
+// import "./modal.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const token = localStorage.getItem("token");
   const btnModifier = document.getElementById("btnModifier");
@@ -71,23 +73,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     h2Btn.addEventListener("click", () => {
       // window.location.href = "./modal.html";
+
       const laModale = document.createElement("aside");
-      laModale.id = "laModale";
-      // laModale.style.display = "hidden";
       laModale.setAttribute("aria-hidden", "true");
-      // document.body.prepend(laModale);
-      window.location.href = "#laModale";
-      
-      // laModale.style.display = "flex";
-      // laModale.style.justifyContent = "center";
-      // laModale.style.alignItems = "center";
+      laModale.id = "laModale";
+      laModale.style.display = "flex";
+
+      document.body.prepend(laModale);
+      portfolio.insertBefore(laModale, gallery);
+      laModale.textContent = "coucou la modale";
+      laModale.classList.add("modale-wrapper");
+
+      laModale.style.justifyContent = "center";
+      laModale.style.alignItems = "center";
       // laModale.style.margin = "0";
       // laModale.style.border = "2px solid red";
       // laModale.style.flex = "100%";
       // laModale.style.flex = "100%";
       // laModale.style.top = "0";
       // laModale.style.right = "0";
-      
+
       // laModale.style.maxWidth = "calc(100vw- 20px)";
       // laModale.style.maxHeight = "calc(100vw- 20px)";
 
@@ -117,15 +122,14 @@ document.addEventListener("DOMContentLoaded", () => {
           // console.log(createFilters)
         });
         handeuleuFilteur();
-
       })
       .catch((error) => {
         console.error("Erreur :", error);
       });
-      btnModifier.addEventListener("click", () => {
-        window.location.href = "./modal.html";
-        console.log(btnModifier, "ca marche");
-      });
+    btnModifier.addEventListener("click", () => {
+      window.location.href = "./modal.html";
+      console.log(btnModifier, "ca marche");
+    });
   }
 
   function logout() {
@@ -181,7 +185,6 @@ function handeuleuFilteur() {
   const filters = document.querySelectorAll("div.filters > button");
   console.log(filters);
   filters.forEach((filter, index) => {
-
     filter.addEventListener("click", () => {
       const activeFilter = document.querySelectorAll(".active");
 
@@ -194,14 +197,13 @@ function handeuleuFilteur() {
         if (index === 0) {
           card.style.display = "block";
         } else {
-         if (parseInt(card.dataset.categoryId) == index) {
+          if (parseInt(card.dataset.categoryId) == index) {
             card.style.display = "block";
           } else {
             card.style.display = "none";
           }
         }
-      })
-
-    })
+      });
+    });
   });
 }
