@@ -1,4 +1,4 @@
-// import "./modal.js";
+// import "./modale.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const token = localStorage.getItem("token");
@@ -79,20 +79,28 @@ document.addEventListener("DOMContentLoaded", () => {
       const laModale = document.createElement("aside");
       laModale.setAttribute("aria-hidden", "true");
       laModale.id = "laModale";
-
       // proprietes styles ci dessous de la modale je vais finalement et "temporairement" faire du inner html .
-
+      laModale.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
+      laModale.style.position = "fixed";
+      laModale.style.inset = "0";
+      
       laModale.style.display = "flex";
-      laModale.style.backgroundColor = "#ababc5";
+      laModale.style.justifyContent = "center";
+      laModale.style.alignItems = "center";
 
-      portfolio.insertBefore(laModale, gallery);
-      laModale.textContent = "coucou la modale";
-
-      
-      
       laModale.style.border = "1px solid black";
       laModale.style.padding = "0";
       laModale.style.margin = "0";
+
+      portfolio.insertBefore(laModale, gallery);
+      laModale.textContent = "coucou la modale";
+      laModale.innerHTML = 
+      `<div class="modalLeWrap">
+        <h2>Galerie photo</h2>
+      </div>`;
+
+      
+      
       // laModale.style.height = "688px";
       // laModale.style.width = "630px";
 
