@@ -68,7 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     h2Btn.addEventListener("mouseover", () => {
       h2Btn.style.color = "red";
-      h2Btn.style.textContent = "essai";
+    });
+    h2Btn.addEventListener("mouseleave", () => {
+      h2Btn.style.color = "black";
     });
 
     h2Btn.addEventListener("click", () => {
@@ -77,26 +79,35 @@ document.addEventListener("DOMContentLoaded", () => {
       const laModale = document.createElement("aside");
       laModale.setAttribute("aria-hidden", "true");
       laModale.id = "laModale";
-      laModale.style.display = "flex";
 
-      document.body.prepend(laModale);
+      // proprietes styles ci dessous de la modale je vais finalement et "temporairement" faire du inner html .
+
+      laModale.style.display = "flex";
+      laModale.style.backgroundColor = "#ababc5";
+
       portfolio.insertBefore(laModale, gallery);
       laModale.textContent = "coucou la modale";
-      laModale.classList.add("modale-wrapper");
 
-      laModale.style.justifyContent = "center";
-      laModale.style.alignItems = "center";
-      // laModale.style.margin = "0";
-      // laModale.style.border = "2px solid red";
-      // laModale.style.flex = "100%";
-      // laModale.style.flex = "100%";
-      // laModale.style.top = "0";
-      // laModale.style.right = "0";
+      
+      
+      laModale.style.border = "1px solid black";
+      laModale.style.padding = "0";
+      laModale.style.margin = "0";
+      // laModale.style.height = "688px";
+      // laModale.style.width = "630px";
 
       // laModale.style.maxWidth = "calc(100vw- 20px)";
       // laModale.style.maxHeight = "calc(100vw- 20px)";
 
-      // portfolio.insertBefore(laModale, gallery);
+      h2InModale = document.createElement("h2");
+      laModale.appendChild(h2InModale);
+      h2InModale.textContent = "Galerie photo";
+      h2InModale.style.display = "flex";
+      h2InModale.style.justifyContent = "center";
+      h2InModale.style.textAlign = "center";
+      h2InModale.style.padding = "10px";
+      h2InModale.style.margin = "0";
+
     });
 
     loginConnection.textContent = "logout";
