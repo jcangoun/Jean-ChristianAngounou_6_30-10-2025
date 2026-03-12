@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modifierBanniere.style.marginRight = "8px";
 
     // Creation de la section portfolio .. ezst ce utile ? ci dessous .
-    // const portfolioSection = document.getElementById("portfolio");
+    const portfolioSection = document.getElementById("portfolio");
 
     // Je crée le bouton enfant de h2 dont l id sera btnModifier
     const h2Btn = document.createElement("button");
@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const laModale = document.createElement("aside");
       laModale.setAttribute("aria-hidden", "true");
       laModale.id = "laModale";
+      
       // proprietes styles ci dessous de la modale je vais finalement et "temporairement" faire du inner html .
       laModale.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
       laModale.style.position = "fixed";
@@ -93,28 +94,25 @@ document.addEventListener("DOMContentLoaded", () => {
       laModale.style.margin = "0";
 
       portfolio.insertBefore(laModale, gallery);
-      laModale.textContent = "coucou la modale";
-      laModale.innerHTML = 
-      `<div class="modalLeWrap">
-        <h2>Galerie photo</h2>
-      </div>`;
-
+      // laModale.textContent = "coucou la modale";
+      // laModale.innerHTML = 
+      // `<div class="modalWrap">
+      //   <h2 id = "galerie-photo">Galerie photo</h2>
+      // </div>`;
+      const modaleWrap = document.querySelector(".modaleWrap");
+      laModale.appendChild(modaleWrap);
+      console.log(modalerap);
       
-      
-      // laModale.style.height = "688px";
-      // laModale.style.width = "630px";
 
-      // laModale.style.maxWidth = "calc(100vw- 20px)";
-      // laModale.style.maxHeight = "calc(100vw- 20px)";
-
-      h2InModale = document.createElement("h2");
-      laModale.appendChild(h2InModale);
-      h2InModale.textContent = "Galerie photo";
-      h2InModale.style.display = "flex";
-      h2InModale.style.justifyContent = "center";
-      h2InModale.style.textAlign = "center";
-      h2InModale.style.padding = "10px";
-      h2InModale.style.margin = "0";
+      const h2InModale = document.getElementById("galerie-photo");
+            console.log(h2InModale);
+      // laModale.appendChild(h2InModale);
+      // h2InModale.textContent = "Galerie photo";
+      // h2InModale.style.display = "flex";
+      // h2InModale.style.justifyContent = "center";
+      // h2InModale.style.textAlign = "center";
+      // h2InModale.style.padding = "10px";
+      // h2InModale.style.margin = "0";
 
     });
 
