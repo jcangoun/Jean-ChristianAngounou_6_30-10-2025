@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     h2Btn.addEventListener("click", () => {
-      // window.location.href = "./modal.html";
+      // window.location.href = "./modale.html";
 
       const laModale = document.createElement("aside");
       laModale.setAttribute("aria-hidden", "true");
@@ -94,25 +94,19 @@ document.addEventListener("DOMContentLoaded", () => {
       laModale.style.margin = "0";
 
       portfolio.insertBefore(laModale, gallery);
-      // laModale.textContent = "coucou la modale";
-      // laModale.innerHTML = 
-      // `<div class="modalWrap">
-      //   <h2 id = "galerie-photo">Galerie photo</h2>
-      // </div>`;
-      const modaleWrap = document.querySelector(".modaleWrap");
+      const modaleWrap = document.createElement("div");
+      modaleWrap.classList.add("modaleWrap");
       laModale.appendChild(modaleWrap);
-      console.log(modalerap);
-      
 
-      const h2InModale = document.getElementById("galerie-photo");
-            console.log(h2InModale);
-      // laModale.appendChild(h2InModale);
-      // h2InModale.textContent = "Galerie photo";
-      // h2InModale.style.display = "flex";
-      // h2InModale.style.justifyContent = "center";
-      // h2InModale.style.textAlign = "center";
-      // h2InModale.style.padding = "10px";
-      // h2InModale.style.margin = "0";
+      modaleWrap.style.backgroundColor = "white";
+      
+      const h2InModale = document.createElement("h2");
+      h2InModale.textContent = "Galerie photo";
+      h2InModale.setAttribute("id", "galerie-photo");
+      // h2InModale.id = "galerie-photo";
+      modaleWrap.appendChild(h2InModale);
+      console.log(modaleWrap);
+
 
     });
 
