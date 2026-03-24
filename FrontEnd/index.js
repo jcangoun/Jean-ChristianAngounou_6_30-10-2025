@@ -90,8 +90,10 @@ document.addEventListener("DOMContentLoaded", () => {
       laModale.style.alignItems = "center";
 
       laModale.style.border = "1px solid black";
-      laModale.style.padding = "0";
-      laModale.style.margin = "0";
+      laModale.style.padding = "16px, 8px";
+      laModale.style.margin = "16px";
+      laModale.style.width = "630px";
+      laModale.style.height = "688px";
 
       portfolio.insertBefore(laModale, gallery);
       const modaleWrap = document.createElement("div");
@@ -101,12 +103,44 @@ document.addEventListener("DOMContentLoaded", () => {
       modaleWrap.style.backgroundColor = "white";
       
       const h2InModale = document.createElement("h2");
+      modaleWrap.appendChild(h2InModale);
+      console.log(modaleWrap);
+      
       h2InModale.textContent = "Galerie photo";
       h2InModale.setAttribute("id", "galerie-photo");
       // h2InModale.id = "galerie-photo";
-      modaleWrap.appendChild(h2InModale);
-      console.log(modaleWrap);
+      
+      h2InModale.style.color = "black";
+      h2InModale.style.fontFamily = "work sans, sans-serif";
+      h2InModale.style.fontWeight = "regular";
+      h2InModale.style.fontSize = "26px";
+      h2InModale.style.letterSpacing = "0";
 
+
+      function closeModale() {
+        laModale.remove();
+      } 
+      // n oublies pas d appeler cette closeModale et d enlever alors ceci quand  c est fait  ci dessous
+      // C est faitr mais enlveces le muet en haut des que ut peux du coup 
+      const closeButton = document.createElement("button");
+      closeButton.textContent = "X";
+      closeButton.style.position = "absolute";
+      closeButton.style.top = "16px";
+      closeButton.style.right = "16px";
+      closeButton.style.backgroundColor = "transparent";
+      closeButton.style.border = "none";
+      closeButton.style.fontSize = "24px";
+      closeButton.style.cursor = "pointer";
+      modaleWrap.appendChild(closeButton); 
+      closeButton.addEventListener("click", closeModale);
+
+
+      // const figureModale = document.createElement("figure");
+      // modaleWrap.appendChild(figureModale);
+      // const imgModale = document.createElement("img");
+      // figureModale.appendChild(imgModale);
+      // imgModale.src = "assets/icons/image.png";
+      // imgModale.alt = "image à ajouter";
 
     });
 
