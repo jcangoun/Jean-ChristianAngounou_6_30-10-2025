@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
     texteBanniere.style.border = "none";
     texteBanniere.style.fontWeight = "light";
     texteBanniere.style.fontSize = "16px";
-
     modifierBanniere.style.color = "white";
     modifierBanniere.style.fontSize = "18px";
     modifierBanniere.style.marginRight = "8px";
@@ -52,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
     h2Btn.prepend(iconeModifier);
     h2Btn.style.background = "transparent";
     h2Btn.style.border = "none";
-
     iconeModifier.style.color = "#000000";
     iconeModifier.style.fontWeight = 400;
     iconeModifier.style.fontSize = "16px";
@@ -66,81 +64,91 @@ document.addEventListener("DOMContentLoaded", () => {
     h2.style.justifyContent = "center";
     h2.appendChild(h2Btn);
 
-    h2Btn.addEventListener("mouseover", () => {
-      h2Btn.style.color = "red";
-    });
-    h2Btn.addEventListener("mouseleave", () => {
-      h2Btn.style.color = "black";
-    });
 
     h2Btn.addEventListener("click", () => {
-      // window.location.href = "./modale.html";
 
       const laModale = document.createElement("aside");
       laModale.setAttribute("aria-hidden", "true");
       laModale.id = "laModale";
-      
-      // proprietes styles ci dessous de la modale je vais finalement et "temporairement" faire du inner html .
+
+      //MODALE STYLE =>
+      //  proprietes " LA MODALE " styles ci dessous de la modale je vais finalement et "temporairement" faire du inner html .      
       laModale.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
       laModale.style.position = "fixed";
       laModale.style.inset = "0";
-      
       laModale.style.display = "flex";
       laModale.style.justifyContent = "center";
       laModale.style.alignItems = "center";
 
       laModale.style.border = "1px solid black";
-      laModale.style.padding = "16px, 8px";
-      laModale.style.margin = "16px";
-      laModale.style.width = "630px";
-      laModale.style.height = "688px";
+      laModale.style.padding = "0";
+      laModale.style.margin = "0";
+      laModale.style.flex = "100%";
 
       portfolio.insertBefore(laModale, gallery);
+      // laModale est collée au PORTFOLIO ci dessus 
+    
       const modaleWrap = document.createElement("div");
       modaleWrap.classList.add("modaleWrap");
       laModale.appendChild(modaleWrap);
-
-      modaleWrap.style.backgroundColor = "white";
       
+  // MODALEWRAP STYLE ci dessous de la modale wrap qui est la boite blanche de la modale
+      modaleWrap.style.backgroundColor = "white";
+      modaleWrap.style.width = "630px";
+      modaleWrap.style.height = "688px";
+
       const h2InModale = document.createElement("h2");
       modaleWrap.appendChild(h2InModale);
       console.log(modaleWrap);
-      
+
       h2InModale.textContent = "Galerie photo";
       h2InModale.setAttribute("id", "galerie-photo");
       // h2InModale.id = "galerie-photo";
-      
+
+      // h2InModale STYLE ci dessous
+
       h2InModale.style.color = "black";
       h2InModale.style.fontFamily = "work sans, sans-serif";
-      h2InModale.style.fontWeight = "regular";
+      h2InModale.style.fontWeight = "400";
       h2InModale.style.fontSize = "26px";
       h2InModale.style.letterSpacing = "0";
+      h2InModale.style.padding =  "30px";
 
-
-      function closeModale() {
-        laModale.remove();
-      } 
+      
       // n oublies pas d appeler cette closeModale et d enlever alors ceci quand  c est fait  ci dessous
-      // C est faitr mais enlveces le muet en haut des que ut peux du coup 
+      // C est faitr mais enlveces le muet en haut des que ut peux du coup
       const closeButton = document.createElement("button");
-      closeButton.textContent = "X";
-      closeButton.style.position = "absolute";
-      closeButton.style.top = "16px";
-      closeButton.style.right = "16px";
+      closeButton.textContent = "x";
+      closeButton.style.position = "relative";
+      closeButton.style.top = "0";
+      closeButton.style.right = "0";
       closeButton.style.backgroundColor = "transparent";
       closeButton.style.border = "none";
       closeButton.style.fontSize = "24px";
       closeButton.style.cursor = "pointer";
-      modaleWrap.appendChild(closeButton); 
+      closeButton.style.float = "right";
+      
+      modaleWrap.insertBefore(closeButton, h2InModale);
       closeButton.addEventListener("click", closeModale);
+      
+      function closeModale() {
+        laModale.remove();
+      }
+      
 
-
+      // Pour la ophoto de croix du boutton X qui ferme la page 
+      // const CloseModaleImg = document.createElement("img");
+      
+      
       // const figureModale = document.createElement("figure");
       // modaleWrap.appendChild(figureModale);
       // const imgModale = document.createElement("img");
       // figureModale.appendChild(imgModale);
       // imgModale.src = "assets/icons/image.png";
       // imgModale.alt = "image à ajouter";
+
+
+
 
     });
 
