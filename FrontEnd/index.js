@@ -118,7 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // n oublies pas d appeler cette closeModale et d enlever alors ceci quand  c est fait  ci dessous
       // C est faitr mais enlveces le muet en haut des que ut peux du coup
       const closeButton = document.createElement("button");
-      closeButton.textContent = "x";
       closeButton.style.position = "relative";
       closeButton.style.top = "0";
       closeButton.style.right = "0";
@@ -127,6 +126,11 @@ document.addEventListener("DOMContentLoaded", () => {
       closeButton.style.fontSize = "24px";
       closeButton.style.cursor = "pointer";
       closeButton.style.float = "right";
+      closeButton.style.padding = "30px";
+
+      const iconeCloseBtn = document.createElement("i");
+      iconeCloseBtn.classList.add("fa-solid", "fa-xmark");
+      closeButton.prepend(iconeCloseBtn);
       
       modaleWrap.insertBefore(closeButton, h2InModale);
       closeButton.addEventListener("click", closeModale);
@@ -136,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       
 
-      // Pour la ophoto de croix du boutton X qui ferme la page 
+      // Pour la photo de croix du boutton X qui ferme la page 
       // const CloseModaleImg = document.createElement("img");
       
       
