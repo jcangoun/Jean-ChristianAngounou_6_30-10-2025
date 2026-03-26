@@ -21,7 +21,7 @@ body, html {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-modale-wrapper {
+.modale-wrapper {
     background-color: #fff;
     color: purple;
     z-index: 1;
