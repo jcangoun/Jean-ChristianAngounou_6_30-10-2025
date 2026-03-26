@@ -1,1 +1,3 @@
-// console.log("modal.js chargé");
+// console.log("modal.js chargé");                
+
+// export function laModale() {};

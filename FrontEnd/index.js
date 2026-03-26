@@ -1,4 +1,6 @@
-// import "./modale.js";
+// import "./modale.js"; pret a l emploi
+
+// import { laModale } from "./modale.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const token = localStorage.getItem("token");
@@ -65,6 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
     h2.appendChild(h2Btn);
 
     h2Btn.addEventListener("click", () => {
+
+
       // ///////////////////////   LA PARTIE MODALE POTENTIELLEMENT A IMPORTER plus tard  ///////////////////////////////////////////////////////////////
       const laModale = document.createElement("aside");
       laModale.setAttribute("aria-hidden", "true");
@@ -173,18 +177,20 @@ document.addEventListener("DOMContentLoaded", () => {
       btnAjouterPhoto.style.cursor = "pointer";
       wrapFooter.appendChild(btnAjouterPhoto);
 
-      // Pour la photo de croix du boutton X qui ferme la page
       // const CloseModaleImg = document.createElement("img");
       const figureModale = document.createElement("figure");
       figureModale.style.display = "flex";
       figureModale.style.justifyContent = "center";
       figureModale.style.alignItems = "center";
-      
       modaleWrap.insertBefore(figureModale, wrapFooter);
-
+      fetch("http://localhost:5678/api/works")
+        .then((response) => response.json())
+        .then((data) => {console.log(data); });
+      // figureModale.innerHTML = `${}`;
+      console.log(gallery);
       const imgModale = document.createElement("img");
       figureModale.appendChild(imgModale);
-      imgModale.src = "assets/icons/image.png";
+      // imgModale.src = "assets/icons/image.png";
       imgModale.alt = "image à ajouter";
     });
 
