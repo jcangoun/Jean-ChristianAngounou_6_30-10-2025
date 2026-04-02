@@ -1,6 +1,6 @@
 // import "./modale.js"; pret a l emploi
 
-// import { laModale } from "./modale.js";
+// import { xModale } from "./modale.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const token = localStorage.getItem("token");
@@ -67,10 +67,11 @@ document.addEventListener("DOMContentLoaded", () => {
     h2.appendChild(h2Btn);
 
     h2Btn.addEventListener("click", () => {
+      // ///////////////////////   LA PARTIE MODALE POTENTIELLEMENT non IMPORTABLE  ///////////////////////////////////////////////////////////////
+      // xModale(gallery);
 
-
-      // ///////////////////////   LA PARTIE MODALE POTENTIELLEMENT A IMPORTER plus tard  ///////////////////////////////////////////////////////////////
-      const laModale = document.createElement("aside");
+      
+            const laModale = document.createElement("aside");
       laModale.setAttribute("aria-hidden", "true");
       laModale.id = "laModale";
 
@@ -90,6 +91,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       portfolio.insertBefore(laModale, gallery);
       // laModale est collée au PORTFOLIO ci dessus
+
+
+
 
       const modaleWrap = document.createElement("div");
       modaleWrap.classList.add("modaleWrap");
@@ -116,6 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // h2InModale STYLE ci dessous
 
+      
       h2InModale.style.color = "black";
       h2InModale.style.fontFamily = "work sans, sans-serif";
       h2InModale.style.fontWeight = "400";
@@ -142,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
       closeButton.addEventListener("click", closeModale);
 
       function closeModale() {
-        laModale.remove();
+        Modale.remove();
       }
 
       const wrapFooter = document.createElement("div");
@@ -159,7 +164,6 @@ document.addEventListener("DOMContentLoaded", () => {
       separtnLigne.style.width = "80%";
       separtnLigne.style.border = "1px solid #B3B3B3";
       separtnLigne.style.margin = "10px0";
-
 
       const btnAjouterPhoto = document.createElement("button");
       // btnAjouterPhoto.classList.add("button", "btnAjouterPhoto");
@@ -185,7 +189,9 @@ document.addEventListener("DOMContentLoaded", () => {
       modaleWrap.insertBefore(figureModale, wrapFooter);
       fetch("http://localhost:5678/api/works")
         .then((response) => response.json())
-        .then((data) => {console.log(data); });
+        .then((data) => {
+          console.log(data);
+        });
       // figureModale.innerHTML = `${}`;
       console.log(gallery);
       const imgModale = document.createElement("img");
