@@ -70,10 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
       // ///////////////////////   LA PARTIE MODALE POTENTIELLEMENT non IMPORTABLE  ///////////////////////////////////////////////////////////////
       // xModale(gallery);
 
-      
-            const laModale = document.createElement("aside");
-      laModale.setAttribute("aria-hidden", "true");
+      const laModale = document.createElement("aside");
       laModale.id = "laModale";
+      laModale.setAttribute("aria-hidden", "false");
 
       //MODALE STYLE =>
       //  proprietes " LA MODALE " styles ci dessous de la modale je vais finalement et "temporairement" faire du inner html .
@@ -91,12 +90,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
       portfolio.insertBefore(laModale, gallery);
       // laModale est collée au PORTFOLIO ci dessus
-
-
-
+      const overlay = document.querySelector("#laModale");
+      console.log(overlay);
+      overlay.addEventListener("click", (event) => {
+        if (event.target === overlay) {
+          closeModale();
+        }
+      });
 
       const modaleWrap = document.createElement("div");
       modaleWrap.classList.add("modaleWrap");
+
       laModale.appendChild(modaleWrap);
 
       // MODALEWRAP STYLE ci dessous de la modale wrap qui est la boite blanche de la modale
@@ -120,7 +124,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // h2InModale STYLE ci dessous
 
-      
       h2InModale.style.color = "black";
       h2InModale.style.fontFamily = "work sans, sans-serif";
       h2InModale.style.fontWeight = "400";
@@ -128,8 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
       h2InModale.style.letterSpacing = "0";
       // h2InModale.style.padding =  "30px";
 
-      // n oublies pas d appeler cette closeModale et d enlever alors ceci quand  c est fait  ci dessous
-      // C est faitr mais enlveces le muet en haut des que ut peux du coup
+      // la closeModale
       const closeButton = document.createElement("button");
       closeButton.style.display = "flex";
       closeButton.style.justifyContent = "end";
@@ -147,8 +149,32 @@ document.addEventListener("DOMContentLoaded", () => {
       closeButton.addEventListener("click", closeModale);
 
       function closeModale() {
-        Modale.remove();
+        laModale.remove();
+        laModale.style.display = "none";
       }
+      //  Fin closeModale
+
+      async function fetchWorks() {
+        try {
+          const response = await fetch("http://localhost:5678/api/works");
+          const data = await response.json();
+          console.log(data);
+          data.forEach((lesOeuvres) => {
+            console.log(lesOeuvres);
+            const modalePhoto = document.createElement("div");
+            modalePhoto.classList.add("modalePhoto");
+            modaleWrap.appendChild(modalePhoto);
+            // work(lesOeuvres);
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      fetchWorks();
+      const modaleGallery = document.createElement("div");
+      console.log(works());
+
+      // Section de presentation photos
 
       const wrapFooter = document.createElement("div");
       wrapFooter.setAttribute("id", "wrapFooter");
@@ -181,12 +207,72 @@ document.addEventListener("DOMContentLoaded", () => {
       btnAjouterPhoto.style.cursor = "pointer";
       wrapFooter.appendChild(btnAjouterPhoto);
 
-      // const CloseModaleImg = document.createElement("img");
-      const figureModale = document.createElement("figure");
+      btnAjouterPhoto.addEventListener("click", () => {
+        console.log("tu as clique ca A ajoute une photo");
+        modaleWrap.style.display = "none";
+        function openModaleAjouterPhoto() {
+          // Créer une nouvelle modale pour ajouter une photo
+          const modaleAjouterPhoto = document.createElement("div");
+          modaleAjouterPhoto.id = "modaleAjouterPhoto";
+          modaleAjouterPhoto.setAttribute("aria-hidden", "false");
+          modaleAjouterPhoto.classList.add("modaleAjouterPhotoWrap");
+          laModale.appendChild(modaleAjouterPhoto);
+
+          // la modale d ajouts photos
+          modaleAjouterPhoto.style.backgroundColor = "white";
+          modaleAjouterPhoto.style.width = "630px";
+          modaleAjouterPhoto.style.maxHeight = "688px";
+          modaleAjouterPhoto.style.display = "flex";
+          modaleAjouterPhoto.style.flexDirection = "column";
+          modaleAjouterPhoto.style.alignItems = "center";
+          modaleAjouterPhoto.style.justifyContent = "center";
+          // modaleAjouterPhoto.textContent = "Ici, vous pouvez ajouter une photo.";
+
+          // header ds ajtmodelaPhoto
+          const headerAjouterPhoto = document.createElement("header");          
+          modaleAjouterPhoto.appendChild(headerAjouterPhoto);
+
+          headerAjouterPhoto.textContent = "le header de la modale d ajout de photo";
+
+          // Fleche Retour
+          const leftArrowModalAjtPhoto = document.createElement("i");
+          leftArrowModalAjtPhoto.classList.add("fa-solid", "fa-arrow-left");
+          leftArrowModalAjtPhoto.style.fontSize = "21px";
+          leftArrowModalAjtPhoto.style.cursor = "pointer";
+
+
+          headerAjouterPhoto.prepend(leftArrowModalAjtPhoto);
+          const closModleAjtPhoto = document.createElement("button");
+          closModleAjtPhoto.style.display = "flex";
+          // // closModleAjtPhoto.style.justifyContent = "end";
+          closModleAjtPhoto.style.backgroundColor = "transparent";
+          closModleAjtPhoto.style.border = "none";
+          closModleAjtPhoto.style.fontSize = "24px";
+          closModleAjtPhoto.style.cursor = "pointer";
+          closModleAjtPhoto.style.padding = "30px";
+          const iconeCloseBtnAjtPhoto = document.createElement("i");
+          iconeCloseBtnAjtPhoto.classList.add("fa-solid", "fa-xmark");
+          closModleAjtPhoto.prepend(iconeCloseBtnAjtPhoto);
+          headerAjouterPhoto.appendChild(closModleAjtPhoto);
+          const modalAjtPhotoTitle = document.createElement("h2");
+          modalAjtPhotoTitle.textContent = "Ajouter une photo";
+          headerAjouterPhoto.appendChild(modalAjtPhotoTitle);
+        }
+        openModaleAjouterPhoto();
+      });
+
+      const figureModale = document.querySelector(".modaleWrap figure");
+      console.log(figureModale);
+      const figureModaleId = document.createAttribute("id");
+      figureModaleId.value = "figureModaleId";
+      figureModaleId.setAttributeNode(figureModaleIdId);
       figureModale.style.display = "flex";
       figureModale.style.justifyContent = "center";
       figureModale.style.alignItems = "center";
+      figureModale.style.border = "1px solid red";
+      figureModale.innerHTML = "ici la figure de la modale";
       modaleWrap.insertBefore(figureModale, wrapFooter);
+      console.log(figureModale);
       fetch("http://localhost:5678/api/works")
         .then((response) => response.json())
         .then((data) => {
