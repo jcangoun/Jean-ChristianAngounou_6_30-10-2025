@@ -140,6 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
       closeButton.style.fontSize = "24px";
       closeButton.style.cursor = "pointer";
       closeButton.style.padding = "30px";
+      // closeButton.style.color = "red";
 
       const iconeCloseBtn = document.createElement("i");
       iconeCloseBtn.classList.add("fa-solid", "fa-xmark");
@@ -160,18 +161,34 @@ document.addEventListener("DOMContentLoaded", () => {
           const data = await response.json();
           console.log(data);
           data.forEach((lesOeuvres) => {
-            console.log(lesOeuvres);
-            const modalePhoto = document.createElement("div");
-            modalePhoto.classList.add("modalePhoto");
-            modaleWrap.appendChild(modalePhoto);
+            console.log("lesoeuvres",lesOeuvres);
+            const modaleGallery = document.createElement("div");
+            modaleGallery.classList.add("modaleGallery");
+            modaleGallery.textContent = "ici la galerie de la modale"; 
+            // modaleGallery.innerHTML = `<img src="${lesOeuvres.imageUrl}" alt="${lesOeuvres.title}">`;
+            modaleGallery.innerHTML = 
+            `
+            <figure>
+            <img class="modal-ajout-photo" <img src="${lesOeuvres.imageUrl}" id="${lesOeuvres.id}" alt="${lesOeuvres.title}">
+            
+            </figure>`;
+            modaleWrap.insertBefore(modaleGallery, wrapFooter);
+            const classAjtPhto = document.querySelector(".modal-ajout-photo");
+            classAjtPhto.style.width = "50px";
+            // const figureModalPhoto = document.createElement("figure");
+            // figureModalPhoto.border = "1px solid red";
+            figureModalPhoto.classList.add("figureModalPhoto");
+            // modaleGallery.appendChild(figureModalPhoto);
+
+
             // work(lesOeuvres);
+            // fetchWorks(lesOeuvres);
           });
         } catch (error) {
           console.log(error);
         }
       }
       fetchWorks();
-      const modaleGallery = document.createElement("div");
       console.log(works());
 
       // Section de presentation photos
@@ -224,39 +241,74 @@ document.addEventListener("DOMContentLoaded", () => {
           modaleAjouterPhoto.style.maxHeight = "688px";
           modaleAjouterPhoto.style.display = "flex";
           modaleAjouterPhoto.style.flexDirection = "column";
-          modaleAjouterPhoto.style.alignItems = "center";
+          // modaleAjouterPhoto.style.alignItems = "center";
           modaleAjouterPhoto.style.justifyContent = "center";
           // modaleAjouterPhoto.textContent = "Ici, vous pouvez ajouter une photo.";
 
           // header ds ajtmodelaPhoto
-          const headerAjouterPhoto = document.createElement("header");          
+          const headerAjouterPhoto = document.createElement("header");   
+          headerAjouterPhoto.classList.add("headerAjouterPhoto"); 
+          headerAjouterPhoto.style.display = "flex";
+          headerAjouterPhoto.style.margin = "0";
+          // headerAjouterPhoto.style.alignItems = "center";      
           modaleAjouterPhoto.appendChild(headerAjouterPhoto);
 
-          headerAjouterPhoto.textContent = "le header de la modale d ajout de photo";
+          // headerAjouterPhoto.textContent = "le header de la modale d ajout de photo";
 
           // Fleche Retour
+          const arrowButton = document.createElement("button");
+          arrowButton.style.display = "flex";
+          // arrowButton.style.justifyContent = "start";
+          arrowButton.style.margin = "30px";
+          
+          arrowButton.style.backgroundColor = "transparent";
+          arrowButton.style.border = "none";
+          arrowButton.style.cursor = "pointer";
+          
+
           const leftArrowModalAjtPhoto = document.createElement("i");
           leftArrowModalAjtPhoto.classList.add("fa-solid", "fa-arrow-left");
           leftArrowModalAjtPhoto.style.fontSize = "21px";
           leftArrowModalAjtPhoto.style.cursor = "pointer";
+          arrowButton.prepend(leftArrowModalAjtPhoto);
+          //puis 
+          headerAjouterPhoto.prepend(arrowButton);
+          leftArrowModalAjtPhoto.addEventListener("click", () => {
+            modaleAjouterPhoto.style.display = "none";
+            modaleWrap.style.display = "flex";
+          });
+          const closeModaleAjoutPhoto = document.createElement("button");
+          closeModaleAjoutPhoto.style.display = "flex";
+          closeModaleAjoutPhoto.style.justifyContent = "end";
+          closeModaleAjoutPhoto.style.backgroundColor = "transparent";
+          closeModaleAjoutPhoto.style.border = "none";
+          closeModaleAjoutPhoto.style.fontSize = "24px";
+          closeModaleAjoutPhoto.style.cursor = "pointer";
+          closeModaleAjoutPhoto.style.padding = "30px";
 
-
-          headerAjouterPhoto.prepend(leftArrowModalAjtPhoto);
-          const closModleAjtPhoto = document.createElement("button");
-          closModleAjtPhoto.style.display = "flex";
-          // // closModleAjtPhoto.style.justifyContent = "end";
-          closModleAjtPhoto.style.backgroundColor = "transparent";
-          closModleAjtPhoto.style.border = "none";
-          closModleAjtPhoto.style.fontSize = "24px";
-          closModleAjtPhoto.style.cursor = "pointer";
-          closModleAjtPhoto.style.padding = "30px";
           const iconeCloseBtnAjtPhoto = document.createElement("i");
           iconeCloseBtnAjtPhoto.classList.add("fa-solid", "fa-xmark");
-          closModleAjtPhoto.prepend(iconeCloseBtnAjtPhoto);
-          headerAjouterPhoto.appendChild(closModleAjtPhoto);
-          const modalAjtPhotoTitle = document.createElement("h2");
-          modalAjtPhotoTitle.textContent = "Ajouter une photo";
-          headerAjouterPhoto.appendChild(modalAjtPhotoTitle);
+          // Ci dessous appel complet du boutton de close
+          closeModaleAjoutPhoto.prepend(iconeCloseBtnAjtPhoto);
+          headerAjouterPhoto.appendChild(closeModaleAjoutPhoto);
+
+          const mainAjouterPhoto = document.createElement("main");
+          mainAjouterPhoto.classList.add("mainAjouterPhoto");
+          mainAjouterPhoto.style.display = "flex";
+          mainAjouterPhoto.style.flexDirection = "column";
+          mainAjouterPhoto.style.alignItems = "center";
+          mainAjouterPhoto.style.justifyContent = "center";
+
+          modaleAjouterPhoto.appendChild(mainAjouterPhoto);
+          const h2AjoutPhoto = document.createElement("h2");
+          h2AjoutPhoto.textContent = "Ajouter une photo";
+          h2AjoutPhoto.style.color = "black";
+          h2AjoutPhoto.style.fontFamily = "work sans, sans-serif";
+          h2AjoutPhoto.style.fontWeight = "400";
+          h2AjoutPhoto.style.fontSize = "26px";
+          h2AjoutPhoto.style.letterSpacing = "0";
+          
+          mainAjouterPhoto.appendChild(h2AjoutPhoto);
         }
         openModaleAjouterPhoto();
       });
