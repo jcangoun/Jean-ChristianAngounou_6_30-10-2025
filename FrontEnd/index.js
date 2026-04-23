@@ -173,7 +173,9 @@ document.addEventListener("DOMContentLoaded", () => {
             <img class="img-modal-add-photo" <img src="${lesOeuvres.imageUrl}" id="${lesOeuvres.id}" alt="${lesOeuvres.title}">
           `;
 
-            modaleWrap.insertBefore(modaleGallery, wrapFooter);
+// PHOTOS TEMPORAIRE4MENT MUTéS
+
+            // modaleWrap.insertBefore(modaleGallery, wrapFooter);
             const classAjtPhto = document.querySelector(".img-modal-add-photo");
             classAjtPhto.style.width = "100px";
             classAjtPhto.style.display = "flex";
@@ -242,6 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const separtnLigne = document.createElement("hr");
       wrapFooter.appendChild(separtnLigne);
+      separtnLigne.classList.add("spar-line");
       separtnLigne.style.display = "flex";
       separtnLigne.style.width = "80%";
       separtnLigne.style.border = "1px solid #B3B3B3";
@@ -348,6 +351,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
           mainAjouterPhoto.appendChild(h2AjoutPhoto);
 
+          // ici le groupe de champs du formulaire d ajout de photo,
+          //  qui va plus tard append le groupe photo,  titre,   categorie et autres 
+
           const ChampTitrePhoto = document.createElement("div");
           ChampTitrePhoto.classList.add("champ-titre-photo");
           // ChampTitrePhoto.textContent = "le champ titre de la modale d ajout de photo";
@@ -356,6 +362,9 @@ document.addEventListener("DOMContentLoaded", () => {
           ChampTitrePhoto.style.alignItems = "center";
 
           mainAjouterPhoto.appendChild(ChampTitrePhoto);
+
+
+
           const labelTitrePhoto = document.createElement("label");
           labelTitrePhoto.setAttribute("for", "titrePhoto");
           labelTitrePhoto.textContent = "Titre";
@@ -368,14 +377,56 @@ document.addEventListener("DOMContentLoaded", () => {
           inputTitrePhoto.type = "text";
           inputTitrePhoto.id = "titre";
           inputTitrePhoto.name = "titre";
+          inputTitrePhoto.style.border = "none";
+          inputTitrePhoto.style.height = "51px";
+          inputTitrePhoto.style.width = "420px";
+          inputTitrePhoto.style.boxShadow = "0px 4px 14px 0px rgba(0, 0, 255, 0.09)";    
 
           ChampTitrePhoto.appendChild(inputTitrePhoto);
 
-          const ChampCategoriePhoto = document.createElement("div");
-          ChampCategoriePhoto.classList.add("champ-categorie-photo");
-          ChampCategoriePhoto.style.display = "flex";
-          ChampCategoriePhoto.style.flexDirection = "column";
-          ChampCategoriePhoto.style.alignItems = "center";
+          const champCategoriePhoto = document.createElement("div");
+          champCategoriePhoto.classList.add("champ-categorie-photo");
+          champCategoriePhoto.style.display = "flex";
+          champCategoriePhoto.style.flexDirection = "column";
+          champCategoriePhoto.style.alignItems = "center";
+          champCategoriePhoto.style.padding = "10px";
+          const labelCategoriePhoto = document.createElement("label");
+
+          labelCategoriePhoto.style.border = "1px solid green";
+          labelCategoriePhoto.setAttribute("for", "categoriePhoto");
+          labelCategoriePhoto.textContent = "Catégorie";
+          labelCategoriePhoto.fontFamily = "work sans, sans-serif";
+          labelCategoriePhoto.fontSize = "14px";
+          labelCategoriePhoto.fontWeight = "500";
+          mainAjouterPhoto.appendChild(champCategoriePhoto);
+          // Et ensuite alors
+          champCategoriePhoto.appendChild(labelCategoriePhoto);
+
+          const inputTextCategoriePhoto = document.createElement("input");
+          inputTextCategoriePhoto.type = "text";
+          inputTextCategoriePhoto.id = "categorie";
+          inputTextCategoriePhoto.name = "categorie";
+          inputTextCategoriePhoto.style.border = "none";
+          inputTextCategoriePhoto.style.height = "51px";
+          inputTextCategoriePhoto.style.width = "420px";
+          inputTextCategoriePhoto.style.boxShadow = "0px 4px 14px 0px rgba(0, 0, 255, 0.09)";
+          champCategoriePhoto.appendChild(inputTextCategoriePhoto);
+
+
+
+          // lign separ de madal AJout
+          const modalSeparLine = document.createElement("hr");
+          modalSeparLine.classList.add("spar-line");
+          // proprietes en doublons la simplifier plus tard avec separlign
+          modalSeparLine.classList.add("spar-line");
+          modalSeparLine.style.display = "flex";
+          modalSeparLine.style.width = "80%";
+          modalSeparLine.style.border = "1px solid #B3B3B3";
+          modalSeparLine.style.margin = "10px0";
+
+
+          mainAjouterPhoto.appendChild(modalSeparLine);
+
         }
         openModaleAjouterPhoto();
       });
