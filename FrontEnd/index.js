@@ -82,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
       laModale.style.display = "flex";
       laModale.style.justifyContent = "center";
       laModale.style.alignItems = "center";
-
       laModale.style.border = "1px solid black";
       laModale.style.padding = "0";
       laModale.style.margin = "0";
@@ -123,7 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // h2InModale.id = "galerie-photo";
 
       // h2InModale STYLE ci dessous
-
       h2InModale.style.color = "black";
       h2InModale.style.fontFamily = "work sans, sans-serif";
       h2InModale.style.fontWeight = "400";
@@ -140,7 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
       closeButton.style.fontSize = "24px";
       closeButton.style.cursor = "pointer";
       closeButton.style.padding = "30px";
-      // closeButton.style.color = "red";
 
       const iconeCloseBtn = document.createElement("i");
       iconeCloseBtn.classList.add("fa-solid", "fa-xmark");
@@ -188,7 +185,6 @@ document.addEventListener("DOMContentLoaded", () => {
             poubellerHpoto.classList.add("poubellePhoto");
             poubellerHpoto.style.position = "absolute";
 
-
             // figureModalPhoto.border = "1px solid red";
             figureModalPhoto.classList.add("figureModalPhoto");
             modaleGallery.appendChild(figureModalPhoto);
@@ -202,8 +198,37 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       fetchWorks();
       console.log(works());
-
+      
       // Section de presentation photos
+
+      const figureModale = document.createElement("figure");
+      figureModale.setAttribute("id", "figureModaleId");
+      figureModale.style.display = "flex";
+      figureModale.style.justifyContent = "center";
+      figureModale.style.alignItems = "center";
+      figureModale.style.border = "1px solid red";
+      console.log(figureModale);
+      figureModale.textContent = "ici la figure de la modale";
+
+      // modaleWrap.insertBefore(figureModale, wrapFooter);
+      // Cette insertion de figureModl ci dessus, marchera seulement plus tard en bas de btnAjouterPhoto
+      // là ou on a crée et LIé le "wrapfooter", 
+      //  car avant le boutton n existe pas et donc le wrapFooter non plus et donc l insertion de figureModale ne marchera pas avant, 
+ 
+      console.log(figureModale);
+      fetch("http://localhost:5678/api/works")
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+        });
+      // figureModale.innerHTML = `${}`;
+      console.log(gallery);
+      const imgModale = document.createElement("img");
+      // figureModale.appendChild(imgModale);
+      // imgModale.src = "assets/icons/image.png";
+      imgModale.alt = "image à ajouter";
+
+      // fin presentation photos
 
       const wrapFooter = document.createElement("div");
       wrapFooter.setAttribute("id", "wrapFooter");
@@ -239,6 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btnAjouterPhoto.addEventListener("click", () => {
         console.log("tu as clique ca A ajoute une photo");
         modaleWrap.style.display = "none";
+
         function openModaleAjouterPhoto() {
           // Créer une nouvelle modale pour ajouter une photo
           const modaleAjouterPhoto = document.createElement("div");
@@ -255,7 +281,6 @@ document.addEventListener("DOMContentLoaded", () => {
           modaleAjouterPhoto.style.flexDirection = "column";
           // modaleAjouterPhoto.style.alignItems = "center";
           modaleAjouterPhoto.style.justifyContent = "center";
-          // modaleAjouterPhoto.textContent = "Ici, vous pouvez ajouter une photo.";
 
           // header ds ajtmodelaPhoto
           const headerAjouterPhoto = document.createElement("header");
@@ -346,28 +371,9 @@ document.addEventListener("DOMContentLoaded", () => {
         openModaleAjouterPhoto();
       });
 
-      const figureModale = document.querySelector(".modaleWrap figure");
-      console.log(figureModale);
-      // const figureModaleId = document.createAttribute("id");
-      // figureModaleId.id("figureModaleId");
-      // figureModale.style.display = "flex";
-      // figureModale.style.justifyContent = "center";
-      // figureModale.style.alignItems = "center";
-      // figureModale.style.border = "1px solid red";
-      // figureModale.innerHTML = "ici la figure de la modale";
-      // modaleWrap.insertBefore(figureModale, wrapFooter);
-      console.log(figureModale);
-      fetch("http://localhost:5678/api/works")
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-        });
-      // figureModale.innerHTML = `${}`;
-      console.log(gallery);
-      const imgModale = document.createElement("img");
-      // figureModale.appendChild(imgModale);
-      // imgModale.src = "assets/icons/image.png";
-      imgModale.alt = "image à ajouter";
+      // je crée tout en bas ici l insertion de de figrModal parceque plus haut le boutoon n existe pas encore
+      // cela donc n aurait pas donc marché avant ne marche avant 
+      modaleWrap.insertBefore(figureModale, wrapFooter);
     });
 
     loginConnection.textContent = "logout";
