@@ -61,9 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
     //on na plus que un h2//
     const h2 = document.querySelector("#portfolio > h2");
     h2.id = "h2Projet";
-    h2.style.display = "flex";
-    h2.style.alignItems = "center";
-    h2.style.justifyContent = "center";
     h2.appendChild(h2Btn);
 
     h2Btn.addEventListener("click", () => {
@@ -164,16 +161,19 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("lesoeuvres", lesOeuvres);
             const modaleGallery = document.createElement("div");
             modaleGallery.classList.add("modaleGallery");
+
+            // ci dessous a rectifier c est plutot au lieu de modaleGallery c est figureModalId
+            modaleGallery.setAttribute("id", `figureModalId-${lesOeuvres.id}`);
             modaleGallery.textContent = "ici la galerie de la modale";
-            // modaleGallery.innerHTML = `<img src="${lesOeuvres.imageUrl}" alt="${lesOeuvres.title}">`;
+            console.log(`fraéncisation, ${JSON.stringify(lesOeuvres)}`);
             modaleGallery.innerHTML =
               // figure est cré plusieurs fois ,
               // creer la div de la poubelle en display absolute
-              // il faut faire plutôt un cahnagement de data categorie aen data set du cours
-              `
+               `
             <img class="img-modal-add-photo" <img src="${lesOeuvres.imageUrl}" id="${lesOeuvres.id}" alt="${lesOeuvres.title}">
           `;
-            // modaleWrap.insertBefore(modaleGallery, wrapFooter);
+
+            modaleWrap.insertBefore(modaleGallery, wrapFooter);
             const classAjtPhto = document.querySelector(".img-modal-add-photo");
             classAjtPhto.style.width = "100px";
             classAjtPhto.style.display = "flex";
@@ -185,7 +185,9 @@ document.addEventListener("DOMContentLoaded", () => {
             poubellerHpoto.classList.add("poubellePhoto");
             poubellerHpoto.style.position = "absolute";
 
-            // figureModalPhoto.border = "1px solid red";
+
+            
+            figureModalPhoto.border = "1px solid red";
             figureModalPhoto.classList.add("figureModalPhoto");
             modaleGallery.appendChild(figureModalPhoto);
 
@@ -215,17 +217,17 @@ document.addEventListener("DOMContentLoaded", () => {
       // là ou on a crée et LIé le "wrapfooter", 
       //  car avant le boutton n existe pas et donc le wrapFooter non plus et donc l insertion de figureModale ne marchera pas avant, 
  
-      console.log(figureModale);
       fetch("http://localhost:5678/api/works")
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
         });
+        
+
       // figureModale.innerHTML = `${}`;
-      console.log(gallery);
       const imgModale = document.createElement("img");
-      // figureModale.appendChild(imgModale);
-      // imgModale.src = "assets/icons/image.png";
+      figureModale.appendChild(imgModale);
+      imgModale.src = "assets/icons/image.png";
       imgModale.alt = "image à ajouter";
 
       // fin presentation photos
@@ -329,7 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
           headerAjouterPhoto.appendChild(closeModaleAjoutPhoto);
 
           const mainAjouterPhoto = document.createElement("main");
-          mainAjouterPhoto.classList.add("mainAjouterPhoto");
+          mainAjouterPhoto.classList.add("main-ajouter-photo");
           mainAjouterPhoto.style.display = "flex";
           mainAjouterPhoto.style.flexDirection = "column";
           mainAjouterPhoto.style.alignItems = "center";
@@ -347,7 +349,7 @@ document.addEventListener("DOMContentLoaded", () => {
           mainAjouterPhoto.appendChild(h2AjoutPhoto);
 
           const ChampTitrePhoto = document.createElement("div");
-          ChampTitrePhoto.classList.add("ChampTitrePhoto");
+          ChampTitrePhoto.classList.add("champ-titre-photo");
           // ChampTitrePhoto.textContent = "le champ titre de la modale d ajout de photo";
           ChampTitrePhoto.style.display = "flex";
           ChampTitrePhoto.style.flexDirection = "column";
@@ -366,7 +368,14 @@ document.addEventListener("DOMContentLoaded", () => {
           inputTitrePhoto.type = "text";
           inputTitrePhoto.id = "titre";
           inputTitrePhoto.name = "titre";
+
           ChampTitrePhoto.appendChild(inputTitrePhoto);
+
+          const ChampCategoriePhoto = document.createElement("div");
+          ChampCategoriePhoto.classList.add("champ-categorie-photo");
+          ChampCategoriePhoto.style.display = "flex";
+          ChampCategoriePhoto.style.flexDirection = "column";
+          ChampCategoriePhoto.style.alignItems = "center";
         }
         openModaleAjouterPhoto();
       });
