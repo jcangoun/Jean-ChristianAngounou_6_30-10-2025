@@ -155,31 +155,43 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       //  Fin closeModale
 
+      const figureModalPhoto = document.createElement("figure");
+      figureModalPhoto.classList.add("figureAddModalPhoto");
+
       async function fetchWorks() {
         try {
           const response = await fetch("http://localhost:5678/api/works");
           const data = await response.json();
           console.log(data);
           data.forEach((lesOeuvres) => {
-            console.log("lesoeuvres",lesOeuvres);
+            console.log("lesoeuvres", lesOeuvres);
             const modaleGallery = document.createElement("div");
             modaleGallery.classList.add("modaleGallery");
-            modaleGallery.textContent = "ici la galerie de la modale"; 
+            modaleGallery.textContent = "ici la galerie de la modale";
             // modaleGallery.innerHTML = `<img src="${lesOeuvres.imageUrl}" alt="${lesOeuvres.title}">`;
-            modaleGallery.innerHTML = 
-            `
-            <figure>
-            <img class="modal-ajout-photo" <img src="${lesOeuvres.imageUrl}" id="${lesOeuvres.id}" alt="${lesOeuvres.title}">
-            
-            </figure>`;
-            modaleWrap.insertBefore(modaleGallery, wrapFooter);
-            const classAjtPhto = document.querySelector(".modal-ajout-photo");
-            classAjtPhto.style.width = "50px";
-            // const figureModalPhoto = document.createElement("figure");
+            modaleGallery.innerHTML =
+              // figure est cré plusieurs fois ,
+              // creer la div de la poubelle en display absolute
+              // il faut faire plutôt un cahnagement de data categorie aen data set du cours
+              `
+            <img class="img-modal-add-photo" <img src="${lesOeuvres.imageUrl}" id="${lesOeuvres.id}" alt="${lesOeuvres.title}">
+          `;
+            // modaleWrap.insertBefore(modaleGallery, wrapFooter);
+            const classAjtPhto = document.querySelector(".img-modal-add-photo");
+            classAjtPhto.style.width = "100px";
+            classAjtPhto.style.display = "flex";
+            classAjtPhto.style.justifyContent = "center";
+            classAjtPhto.style.alignItems = "center";
+            classAjtPhto.style.backgroundColor = "red";
+            classAjtPhto.style.border = "1px solid red";
+            const poubellerHpoto = document.createElement("div");
+            poubellerHpoto.classList.add("poubellePhoto");
+            poubellerHpoto.style.position = "absolute";
+
+
             // figureModalPhoto.border = "1px solid red";
             figureModalPhoto.classList.add("figureModalPhoto");
-            // modaleGallery.appendChild(figureModalPhoto);
-
+            modaleGallery.appendChild(figureModalPhoto);
 
             // work(lesOeuvres);
             // fetchWorks(lesOeuvres);
@@ -246,11 +258,11 @@ document.addEventListener("DOMContentLoaded", () => {
           // modaleAjouterPhoto.textContent = "Ici, vous pouvez ajouter une photo.";
 
           // header ds ajtmodelaPhoto
-          const headerAjouterPhoto = document.createElement("header");   
-          headerAjouterPhoto.classList.add("headerAjouterPhoto"); 
+          const headerAjouterPhoto = document.createElement("header");
+          headerAjouterPhoto.classList.add("headerAjouterPhoto");
           headerAjouterPhoto.style.display = "flex";
           headerAjouterPhoto.style.margin = "0";
-          // headerAjouterPhoto.style.alignItems = "center";      
+          // headerAjouterPhoto.style.alignItems = "center";
           modaleAjouterPhoto.appendChild(headerAjouterPhoto);
 
           // headerAjouterPhoto.textContent = "le header de la modale d ajout de photo";
@@ -260,18 +272,17 @@ document.addEventListener("DOMContentLoaded", () => {
           arrowButton.style.display = "flex";
           // arrowButton.style.justifyContent = "start";
           arrowButton.style.margin = "30px";
-          
+
           arrowButton.style.backgroundColor = "transparent";
           arrowButton.style.border = "none";
           arrowButton.style.cursor = "pointer";
-          
 
           const leftArrowModalAjtPhoto = document.createElement("i");
           leftArrowModalAjtPhoto.classList.add("fa-solid", "fa-arrow-left");
           leftArrowModalAjtPhoto.style.fontSize = "21px";
           leftArrowModalAjtPhoto.style.cursor = "pointer";
           arrowButton.prepend(leftArrowModalAjtPhoto);
-          //puis 
+          //puis
           headerAjouterPhoto.prepend(arrowButton);
           leftArrowModalAjtPhoto.addEventListener("click", () => {
             modaleAjouterPhoto.style.display = "none";
@@ -307,23 +318,44 @@ document.addEventListener("DOMContentLoaded", () => {
           h2AjoutPhoto.style.fontWeight = "400";
           h2AjoutPhoto.style.fontSize = "26px";
           h2AjoutPhoto.style.letterSpacing = "0";
-          
+
           mainAjouterPhoto.appendChild(h2AjoutPhoto);
+
+          const ChampTitrePhoto = document.createElement("div");
+          ChampTitrePhoto.classList.add("ChampTitrePhoto");
+          // ChampTitrePhoto.textContent = "le champ titre de la modale d ajout de photo";
+          ChampTitrePhoto.style.display = "flex";
+          ChampTitrePhoto.style.flexDirection = "column";
+          ChampTitrePhoto.style.alignItems = "center";
+
+          mainAjouterPhoto.appendChild(ChampTitrePhoto);
+          const labelTitrePhoto = document.createElement("label");
+          labelTitrePhoto.setAttribute("for", "titrePhoto");
+          labelTitrePhoto.textContent = "Titre";
+          labelTitrePhoto.fontFamily = "work sans, sans-serif";
+          labelTitrePhoto.fontSize = "14px";
+          labelTitrePhoto.fontWeight = "500";
+
+          ChampTitrePhoto.appendChild(labelTitrePhoto);
+          const inputTitrePhoto = document.createElement("input");
+          inputTitrePhoto.type = "text";
+          inputTitrePhoto.id = "titre";
+          inputTitrePhoto.name = "titre";
+          ChampTitrePhoto.appendChild(inputTitrePhoto);
         }
         openModaleAjouterPhoto();
       });
 
       const figureModale = document.querySelector(".modaleWrap figure");
       console.log(figureModale);
-      const figureModaleId = document.createAttribute("id");
-      figureModaleId.value = "figureModaleId";
-      figureModaleId.setAttributeNode(figureModaleIdId);
-      figureModale.style.display = "flex";
-      figureModale.style.justifyContent = "center";
-      figureModale.style.alignItems = "center";
-      figureModale.style.border = "1px solid red";
-      figureModale.innerHTML = "ici la figure de la modale";
-      modaleWrap.insertBefore(figureModale, wrapFooter);
+      // const figureModaleId = document.createAttribute("id");
+      // figureModaleId.id("figureModaleId");
+      // figureModale.style.display = "flex";
+      // figureModale.style.justifyContent = "center";
+      // figureModale.style.alignItems = "center";
+      // figureModale.style.border = "1px solid red";
+      // figureModale.innerHTML = "ici la figure de la modale";
+      // modaleWrap.insertBefore(figureModale, wrapFooter);
       console.log(figureModale);
       fetch("http://localhost:5678/api/works")
         .then((response) => response.json())
@@ -333,7 +365,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // figureModale.innerHTML = `${}`;
       console.log(gallery);
       const imgModale = document.createElement("img");
-      figureModale.appendChild(imgModale);
+      // figureModale.appendChild(imgModale);
       // imgModale.src = "assets/icons/image.png";
       imgModale.alt = "image à ajouter";
     });
