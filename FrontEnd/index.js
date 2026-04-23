@@ -427,6 +427,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
           mainAjouterPhoto.appendChild(modalSeparLine);
 
+
+          const modalAjoutBtn = document.createElement("button");
+          modalAjoutBtn.classList.add("button");
+          modalAjoutBtn.classList.add("modalAjoutBtn");
+          modalAjoutBtn.textContent = "Ajouter";
+
+          // Proprietes bouton ci dessus en doublon, 
+          // les factoriser plus tard grace au css en un seul code
+          modalAjoutBtn.style.backgroundColor = "#1D6154";
+          modalAjoutBtn.style.color = "white";
+          modalAjoutBtn.style.border = "none";
+          modalAjoutBtn.style.margin = "30px";
+          modalAjoutBtn.style.borderRadius = "50px";
+          modalAjoutBtn.style.padding = "12px 24px";
+          modalAjoutBtn.style.fontSize = "16px";
+          modalAjoutBtn.style.width = "236px";
+          modalAjoutBtn.style.cursor = "pointer";
+          mainAjouterPhoto.appendChild(modalAjoutBtn);
+
         }
         openModaleAjouterPhoto();
       });
