@@ -215,6 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
       figureModale.textContent = "ici la figure de la modale";
 
       // modaleWrap.insertBefore(figureModale, wrapFooter);
+      
       // Cette insertion de figureModl ci dessus, marchera seulement plus tard en bas de btnAjouterPhoto
       // là ou on a crée et LIé le "wrapfooter", 
       //  car avant le boutton n existe pas et donc le wrapFooter non plus et donc l insertion de figureModale ne marchera pas avant, 
@@ -225,11 +226,11 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log(data);
         });
         
+        // figureModale.innerHTML = `${}`;
 
-      // figureModale.innerHTML = `${}`;
       const imgModale = document.createElement("img");
       figureModale.appendChild(imgModale);
-      imgModale.src = "assets/icons/image.png";
+      imgModale.src = "assets/icons/instagram.png";
       imgModale.alt = "image à ajouter";
 
       // fin presentation photos
@@ -392,7 +393,6 @@ document.addEventListener("DOMContentLoaded", () => {
           champCategoriePhoto.style.padding = "10px";
           const labelCategoriePhoto = document.createElement("label");
 
-          labelCategoriePhoto.style.border = "1px solid green";
           labelCategoriePhoto.setAttribute("for", "categoriePhoto");
           labelCategoriePhoto.textContent = "Catégorie";
           labelCategoriePhoto.fontFamily = "work sans, sans-serif";
