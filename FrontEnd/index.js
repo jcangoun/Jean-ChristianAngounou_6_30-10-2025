@@ -213,8 +213,6 @@ document.addEventListener("DOMContentLoaded", () => {
       figureModale.style.border = "1px solid red";
       console.log(figureModale);
       figureModale.textContent = "ici la figure de la modale";
-
-      // modaleWrap.insertBefore(figureModale, wrapFooter);
       
       // Cette insertion de figureModl ci dessus, marchera seulement plus tard en bas de btnAjouterPhoto
       // là ou on a crée et LIé le "wrapfooter", 
@@ -227,11 +225,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         
         // figureModale.innerHTML = `${}`;
-
       const imgModale = document.createElement("img");
       figureModale.appendChild(imgModale);
       imgModale.src = "assets/icons/instagram.png";
       imgModale.alt = "image à ajouter";
+
+
+
+
+
+
+
+
+
 
       // fin presentation photos
 
@@ -450,9 +456,11 @@ document.addEventListener("DOMContentLoaded", () => {
         openModaleAjouterPhoto();
       });
 
-      // je crée tout en bas ici l insertion de de figrModal parceque plus haut le boutoon n existe pas encore
-      // cela donc n aurait pas donc marché avant ne marche avant 
-      modaleWrap.insertBefore(figureModale, wrapFooter);
+      // je crée tout en bas ici l insertion de de figrModal parceque plus haut a sa bonne place,
+      //  sous, " FIGUREMODALE.STYLE.BORDER = 1px solid red",
+      //  le boutoon n existe pas encore
+      // cela donc n aurait pas fonctionné avant,
+      //  alors que là il fonctionnera car le boutton est créé et lié a son wrapFooter
     });
 
     loginConnection.textContent = "logout";
