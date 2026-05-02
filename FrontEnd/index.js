@@ -175,14 +175,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // PHOTOS TEMPORAIRE4MENT MUTéS
 
-            // modaleWrap.insertBefore(modaleGallery, wrapFooter);
+            modaleWrap.insertBefore(modaleGallery, wrapFooter);
+
             const classAjtPhto = document.querySelector(".img-modal-add-photo");
             classAjtPhto.style.width = "100px";
             classAjtPhto.style.display = "flex";
             classAjtPhto.style.justifyContent = "center";
             classAjtPhto.style.alignItems = "center";
+
             classAjtPhto.style.backgroundColor = "red";
             classAjtPhto.style.border = "1px solid red";
+
             const poubellerHpoto = document.createElement("div");
             poubellerHpoto.classList.add("poubellePhoto");
             poubellerHpoto.style.position = "absolute";
@@ -225,12 +228,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         
         // figureModale.innerHTML = `${}`;
+        // figureModale.innerHTML = 
+        // `<div>
+          // <div class="afficheIMG"></div>
+          // <div>
+              //<i class="fa-regular fa-image"></i> 
+          // </div>
+        
+        // `;
       const imgModale = document.createElement("img");
       figureModale.appendChild(imgModale);
       imgModale.src = "assets/icons/instagram.png";
       imgModale.alt = "image à ajouter";
-
-
 
 
 
@@ -358,6 +367,66 @@ document.addEventListener("DOMContentLoaded", () => {
 
           mainAjouterPhoto.appendChild(h2AjoutPhoto);
 
+
+
+          // ici la source photo de vide 
+
+          const displayImage = document.createElement("div");
+          displayImage.classList.add("display-image");
+          displayImage.style.display = "flex";
+          displayImage.style.padding = "10px 0";
+          displayImage.style.flexDirection = "column";
+          // imgAjtImage.style.flex = "100%";
+          displayImage.style.justifyContent = "center";
+         displayImage.style.alignItems = "center";
+          
+          displayImage.style.minWidth = "420px";
+          displayImage.style.minHeight = "169px";
+          displayImage.style.backgroundColor = "#E8F1F6";
+
+          mainAjouterPhoto.appendChild(displayImage);
+
+          const containDefIconeImage = document.createElement("span");
+          containDefIconeImage.classList.add("contain-def-icone-image");
+          containDefIconeImage.style.display = "flex";
+          containDefIconeImage.style.justifyContent = "center";
+          containDefIconeImage.style.alignItems = "center";
+          containDefIconeImage.style.width = "100%";
+          containDefIconeImage.style.height = "100%";
+          const defaultIconeImage = document.createElement("i");
+          defaultIconeImage.classList.add("fa-regular", "fa-image");
+          defaultIconeImage.style.fontSize = "76px";
+          defaultIconeImage.style.color = "#B3B3B3";
+
+          // l affiche image adopte le containeur defaultimage
+          displayImage.appendChild(containDefIconeImage);
+
+          // le conteaineur d image à sdon tour adopte le defaultImage
+          containDefIconeImage.appendChild(defaultIconeImage);
+
+          const buttonAjouterPhoto = document.createElement("button");
+          
+          buttonAjouterPhoto.classList.add("button", "button-ajouter-Photo");
+          buttonAjouterPhoto.textContent = "+ Ajouter Photo";
+          buttonAjouterPhoto.style.fontFamily = "work sans, sans-serif";
+          buttonAjouterPhoto.style.fontWeight = "medium";
+          
+          buttonAjouterPhoto.style.backgroundColor = "#CBD6DC";
+          buttonAjouterPhoto.style.color = "#306685";
+          buttonAjouterPhoto.style.border = "none";
+          buttonAjouterPhoto.style.margin = "30px";
+          buttonAjouterPhoto.style.borderRadius = "50px";
+          buttonAjouterPhoto.style.padding = "12px 24px";
+          buttonAjouterPhoto.style.fontSize = "16px";
+          buttonAjouterPhoto.style.width = "236px";
+          buttonAjouterPhoto.style.cursor = "pointer";
+          
+          displayImage.appendChild(buttonAjouterPhoto);
+
+
+
+
+
           // ici le groupe de champs du formulaire d ajout de photo,
           //  qui va plus tard append le groupe photo,  titre,   categorie et autres 
 
@@ -366,7 +435,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // ChampTitrePhoto.textContent = "le champ titre de la modale d ajout de photo";
           ChampTitrePhoto.style.display = "flex";
           ChampTitrePhoto.style.flexDirection = "column";
-          ChampTitrePhoto.style.alignItems = "center";
+          // ChampTitrePhoto.style.alignItems = "center";
 
           mainAjouterPhoto.appendChild(ChampTitrePhoto);
 
@@ -375,6 +444,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const labelTitrePhoto = document.createElement("label");
           labelTitrePhoto.setAttribute("for", "titrePhoto");
           labelTitrePhoto.textContent = "Titre";
+          labelTitrePhoto.style.fontWeight = "500";
           labelTitrePhoto.fontFamily = "work sans, sans-serif";
           labelTitrePhoto.fontSize = "14px";
           labelTitrePhoto.fontWeight = "500";
@@ -395,7 +465,7 @@ document.addEventListener("DOMContentLoaded", () => {
           champCategoriePhoto.classList.add("champ-categorie-photo");
           champCategoriePhoto.style.display = "flex";
           champCategoriePhoto.style.flexDirection = "column";
-          champCategoriePhoto.style.alignItems = "center";
+          // champCategoriePhoto.style.alignItems = "center";
           champCategoriePhoto.style.padding = "10px";
           const labelCategoriePhoto = document.createElement("label");
 
