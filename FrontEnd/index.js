@@ -164,11 +164,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // ci dessous a rectifier c est plutot au lieu de modaleGallery c est figureModalId
             modaleGallery.setAttribute("id", `figureModalId-${lesOeuvres.id}`);
+            modaleGallery.classList.add("figure-modal-photo");
+
             modaleGallery.textContent = "ici la galerie de la modale";
             console.log(`fraéncisation, ${JSON.stringify(lesOeuvres)}`);
+
+            
             modaleGallery.innerHTML =
-              // figure est cré plusieurs fois ,
-              // creer la div de la poubelle en display absolute
                `
             <img class="img-modal-add-photo" <img src="${lesOeuvres.imageUrl}" id="${lesOeuvres.id}" alt="${lesOeuvres.title}">
           `;
