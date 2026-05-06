@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     h2Btn.prepend(iconeModifier);
     h2Btn.style.background = "transparent";
     h2Btn.style.border = "none";
+    
     iconeModifier.style.color = "#000000";
     iconeModifier.style.fontWeight = 400;
     iconeModifier.style.fontSize = "16px";
@@ -70,19 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const laModale = document.createElement("aside");
       laModale.id = "laModale";
       laModale.setAttribute("aria-hidden", "false");
-
-      //MODALE STYLE =>
-      //  proprietes " LA MODALE " styles ci dessous de la modale je vais finalement et "temporairement" faire du inner html .
-      laModale.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
-      laModale.style.position = "fixed";
-      laModale.style.inset = "0";
-      laModale.style.display = "flex";
-      laModale.style.justifyContent = "center";
-      laModale.style.alignItems = "center";
-      laModale.style.border = "1px solid black";
-      laModale.style.padding = "0";
-      laModale.style.margin = "0";
-      laModale.style.flex = "100%";
 
       portfolio.insertBefore(laModale, gallery);
       // laModale est collée au PORTFOLIO ci dessus
@@ -111,6 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // modaleWrap.style.padding = "30px";
 
       const h2InModale = document.createElement("h2");
+      h2InModale.classList.add("ss-titre-modale");
       modaleWrap.appendChild(h2InModale);
       console.log(modaleWrap);
 
@@ -242,8 +231,6 @@ document.addEventListener("DOMContentLoaded", () => {
       figureModale.appendChild(imgModale);
       imgModale.src = "assets/icons/instagram.png";
       imgModale.alt = "image à ajouter";
-
-
 
 
 
