@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // PHOTOS TEMPORAIRE4MENT MUTéS
 
-            modaleWrap.insertBefore(modaleGallery, wrapFooter);
+            // modaleWrap.insertBefore(modaleGallery, wrapFooter);
 
             const classAjtPhto = document.querySelector(".img-modal-add-photo");
             classAjtPhto.style.width = "100px";
@@ -390,6 +390,8 @@ document.addEventListener("DOMContentLoaded", () => {
           // l affiche image adopte le containeur defaultimage
           displayImage.appendChild(containDefIconeImage);
 
+
+
           // le conteaineur d image à sdon tour adopte le defaultImage
           containDefIconeImage.appendChild(defaultIconeImage);
 
@@ -411,8 +413,18 @@ document.addEventListener("DOMContentLoaded", () => {
           buttonAjouterPhoto.style.cursor = "pointer";
           
           displayImage.appendChild(buttonAjouterPhoto);
+          // buttonAjouterPhoto.addEventListener("click", () => {
+          // );
+          // ;}
 
+          console.log("ca a ajoute une photo");
+          const fileInput = document.createElement("input");
+          fileInput.type = "file";
+          fileInput.style.display = "flex";
+          // ci dessous, fileInput.accept parceque sinon on peut ajouter n importe quel type de fichier et pas seulement des images,
+          fileInput.accept = "image/*";
 
+          document.body.appendChild(fileInput)
 
 
 
@@ -424,6 +436,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // ChampTitrePhoto.textContent = "le champ titre de la modale d ajout de photo";
           ChampTitrePhoto.style.display = "flex";
           ChampTitrePhoto.style.flexDirection = "column";
+          ChampTitrePhoto.style.padding = "15px";
           // ChampTitrePhoto.style.alignItems = "center";
 
           mainAjouterPhoto.appendChild(ChampTitrePhoto);
@@ -455,7 +468,7 @@ document.addEventListener("DOMContentLoaded", () => {
           champCategoriePhoto.style.display = "flex";
           champCategoriePhoto.style.flexDirection = "column";
           // champCategoriePhoto.style.alignItems = "center";
-          champCategoriePhoto.style.padding = "10px";
+          champCategoriePhoto.style.padding = "15px";
           const labelCategoriePhoto = document.createElement("label");
 
           labelCategoriePhoto.setAttribute("for", "categoriePhoto");
@@ -500,7 +513,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           // Proprietes bouton ci dessus en doublon, 
           // les factoriser plus tard grace au css en un seul code
-          modalAjoutBtn.style.backgroundColor = "#1D6154";
+          modalAjoutBtn.style.backgroundColor = "#A7A7A7";
           modalAjoutBtn.style.color = "white";
           modalAjoutBtn.style.border = "none";
           modalAjoutBtn.style.margin = "30px";
@@ -509,6 +522,7 @@ document.addEventListener("DOMContentLoaded", () => {
           modalAjoutBtn.style.fontSize = "16px";
           modalAjoutBtn.style.width = "236px";
           modalAjoutBtn.style.cursor = "pointer";
+          modalAjoutBtn.textContent = "Valider";
           mainAjouterPhoto.appendChild(modalAjoutBtn);
 
         }
