@@ -241,6 +241,23 @@ footer nav ul {
 	/* justify-content: center; */
  }
 
+ /* .icon-modifier {} */
+
+/* aside {} */
+
+#laModale {
+	background-color: rgba(0, 0, 0, 0.4);
+	position: fixed;
+	inset: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid black;
+	padding: 0;
+	margin: 0;
+	/* flex: 100%; */
+}
+
  .filters {
 	display: flex;
 	justify-content: center;
