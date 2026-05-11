@@ -395,9 +395,9 @@ document.addEventListener("DOMContentLoaded", () => {
           // le conteaineur d image à sdon tour adopte le defaultImage
           containDefIconeImage.appendChild(defaultIconeImage);
 
-          const buttonAjouterPhoto = document.createElement("button");
+          const buttonAjouterPhoto = document.createElement("label");
           
-          buttonAjouterPhoto.classList.add("button", "button-ajouter-Photo");
+          buttonAjouterPhoto.classList.add("label", "button-ajouter-Photo");
           buttonAjouterPhoto.textContent = "+ Ajouter Photo";
           buttonAjouterPhoto.style.fontFamily = "work sans, sans-serif";
           buttonAjouterPhoto.style.fontWeight = "medium";
@@ -413,10 +413,11 @@ document.addEventListener("DOMContentLoaded", () => {
           buttonAjouterPhoto.style.cursor = "pointer";
           
           displayImage.appendChild(buttonAjouterPhoto);
+          
           buttonAjouterPhoto.addEventListener("click", () => {
             
-            // const containDefIconeImage = document.querySelector(".contain-def-icone-image");
-            // containDefIconeImage.style.display = "none";
+            const containDefIconeImage = document.querySelector(".contain-def-icone-image");
+            containDefIconeImage.style.display = "none";
 
             // const fileInput = document.createElement("input");
             // fileInput.type = "file";
@@ -455,12 +456,6 @@ document.addEventListener("DOMContentLoaded", () => {
           function addImage() {
               
           };
-          console.log("ca a ajoute une photo");
-          const fileInput = document.createElement("input");
-          fileInput.type = "file";
-          fileInput.style.display = "flex";
-          // ci dessous, fileInput.accept parceque sinon on peut ajouter n importe quel type de fichier et pas seulement des images,
-          fileInput.accept = "image/*";
 
           document.body.appendChild(fileInput)
 
@@ -488,9 +483,11 @@ document.addEventListener("DOMContentLoaded", () => {
           labelTitrePhoto.fontFamily = "work sans, sans-serif";
           labelTitrePhoto.fontSize = "14px";
           labelTitrePhoto.fontWeight = "500";
+          labelTitrePhoto.style.padding = "10px 0";
 
           ChampTitrePhoto.appendChild(labelTitrePhoto);
           const inputTitrePhoto = document.createElement("input");
+          inputTitrePhoto.classList.add("input-titre-photo");
           inputTitrePhoto.type = "text";
           inputTitrePhoto.id = "titre";
           inputTitrePhoto.name = "titre";
@@ -514,6 +511,8 @@ document.addEventListener("DOMContentLoaded", () => {
           labelCategoriePhoto.fontFamily = "work sans, sans-serif";
           labelCategoriePhoto.fontSize = "14px";
           labelCategoriePhoto.fontWeight = "500";
+          labelCategoriePhoto.style.padding = "10px 0";
+
           mainAjouterPhoto.appendChild(champCategoriePhoto);
           // Et ensuite alors
           champCategoriePhoto.appendChild(labelCategoriePhoto);
@@ -536,9 +535,9 @@ document.addEventListener("DOMContentLoaded", () => {
           // proprietes en doublons la simplifier plus tard avec separlign
           modalSeparLine.classList.add("spar-line");
           modalSeparLine.style.display = "flex";
-          modalSeparLine.style.width = "80%";
+          modalSeparLine.style.width = "420px";
           modalSeparLine.style.border = "1px solid #B3B3B3";
-          modalSeparLine.style.margin = "10px0";
+          modalSeparLine.style.margin = "30px 0";
 
 
           mainAjouterPhoto.appendChild(modalSeparLine);
