@@ -251,9 +251,9 @@ document.addEventListener("DOMContentLoaded", () => {
       wrapFooter.appendChild(separtnLigne);
       separtnLigne.classList.add("spar-line");
       separtnLigne.style.display = "flex";
-      separtnLigne.style.width = "80%";
+      separtnLigne.style.width = "420px";
       separtnLigne.style.border = "1px solid #B3B3B3";
-      separtnLigne.style.margin = "10px0";
+      separtnLigne.style.margin = "10px 0";
 
       const btnAjouterPhoto = document.createElement("button");
       // btnAjouterPhoto.classList.add("button", "btnAjouterPhoto");
@@ -413,10 +413,48 @@ document.addEventListener("DOMContentLoaded", () => {
           buttonAjouterPhoto.style.cursor = "pointer";
           
           displayImage.appendChild(buttonAjouterPhoto);
-          // buttonAjouterPhoto.addEventListener("click", () => {
-          // );
-          // ;}
+          buttonAjouterPhoto.addEventListener("click", () => {
+            
+            // const containDefIconeImage = document.querySelector(".contain-def-icone-image");
+            // containDefIconeImage.style.display = "none";
 
+            // const fileInput = document.createElement("input");
+            // fileInput.type = "file";
+            // fileInput.style.display = "flex";
+            // fileInput.accept = "image/*";
+            // document.body.appendChild(fileInput);
+
+            addImage();
+
+            const displayImage = document.querySelector(".display-image");
+            displayImage.style.backgroundColor = "transparent";
+           displayImage.style.justifyContent = "flex-start";
+           displayImage.style.alignItems = "flex-start";
+           displayImage.style.padding = "0";
+           displayImage.style.minWidth = "0";
+           
+
+           const imgAjtImage = document.createElement("img");
+           imgAjtImage.classList.add("img-ajt-image");
+           imgAjtImage.style.width = "100%";
+           imgAjtImage.style.height = "100%";
+           imgAjtImage.style.objectFit = "cover";
+           displayImage.appendChild(imgAjtImage);
+
+           const fileInput = document.createElement("input");
+           fileInput.type = "file";
+           fileInput.style.display = "none";
+           fileInput.accept = "image/*";
+           
+          //  const inputFile
+
+
+          });
+
+
+          function addImage() {
+              
+          };
           console.log("ca a ajoute une photo");
           const fileInput = document.createElement("input");
           fileInput.type = "file";
