@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     h2Btn.prepend(iconeModifier);
     h2Btn.style.background = "transparent";
     h2Btn.style.border = "none";
-    
+
     iconeModifier.style.color = "#000000";
     iconeModifier.style.fontWeight = 400;
     iconeModifier.style.fontSize = "16px";
@@ -138,8 +138,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       //  Fin closeModale
 
-      const figureModalPhoto = document.createElement("figure");
+      const figureModalPhoto = document.createElement("div");
       figureModalPhoto.classList.add("figureAddModalPhoto");
+      figureModalPhoto.textContent = "ici la figure de la modale d ajout de photo";
+      modaleWrap.appendChild(figureModalPhoto);
 
       async function fetchWorks() {
         try {
@@ -148,25 +150,23 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log(data);
           data.forEach((lesOeuvres) => {
             console.log("lesoeuvres", lesOeuvres);
-            const modaleGallery = document.createElement("div");
-            modaleGallery.classList.add("modaleGallery");
+            const figureGallery = document.createElement("figure");
+            figureGallery.classList.add("figure-Gallery");
 
-            // ci dessous a rectifier c est plutot au lieu de modaleGallery c est figureModalId
-            modaleGallery.setAttribute("id", `figureModalId-${lesOeuvres.id}`);
-            modaleGallery.classList.add("figure-modal-photo");
+            // ci dessous a rectifier c est plutot au lieu de figureGallery c est figureModalId
+            figureGallery.setAttribute("id", `figureModalId-${lesOeuvres.id}`);
+            figureGallery.classList.add("figure-modal-photo");
 
-            modaleGallery.textContent = "ici la galerie de la modale";
+            figureGallery.textContent = "ici la galerie de la modale";
             console.log(`fraéncisation, ${JSON.stringify(lesOeuvres)}`);
 
-            
-            modaleGallery.innerHTML =
-               `
+            figureGallery.innerHTML = `
             <img class="img-modal-add-photo" <img src="${lesOeuvres.imageUrl}" id="${lesOeuvres.id}" alt="${lesOeuvres.title}">
           `;
 
-// PHOTOS TEMPORAIRE4MENT MUTéS
-
-            // modaleWrap.insertBefore(modaleGallery, wrapFooter);
+            // PHOTOS TEMPORAIRE4MENT MUTéS
+            // modaleWrap.insertBefore(figureGallery, wrapFooter);
+            figureModalPhoto.appendChild(figureGallery);
 
             const classAjtPhto = document.querySelector(".img-modal-add-photo");
             classAjtPhto.style.width = "100px";
@@ -181,11 +181,9 @@ document.addEventListener("DOMContentLoaded", () => {
             poubellerHpoto.classList.add("poubellePhoto");
             poubellerHpoto.style.position = "absolute";
 
-
-            
-            figureModalPhoto.border = "1px solid red";
+            figureModalPhoto.style.border = "1px solid red";
             figureModalPhoto.classList.add("figureModalPhoto");
-            modaleGallery.appendChild(figureModalPhoto);
+
 
             // work(lesOeuvres);
             // fetchWorks(lesOeuvres);
@@ -196,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       fetchWorks();
       console.log(works());
-      
+
       // Section de presentation photos
 
       const figureModale = document.createElement("figure");
@@ -207,35 +205,21 @@ document.addEventListener("DOMContentLoaded", () => {
       figureModale.style.border = "1px solid red";
       console.log(figureModale);
       figureModale.textContent = "ici la figure de la modale";
-      
+
       // Cette insertion de figureModl ci dessus, marchera seulement plus tard en bas de btnAjouterPhoto
-      // là ou on a crée et LIé le "wrapfooter", 
-      //  car avant le boutton n existe pas et donc le wrapFooter non plus et donc l insertion de figureModale ne marchera pas avant, 
- 
+      // là ou on a crée et LIé le "wrapfooter",
+      //  car avant le boutton n existe pas et donc le wrapFooter non plus et donc l insertion de figureModale ne marchera pas avant,
+
       fetch("http://localhost:5678/api/works")
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
         });
-        
-        // figureModale.innerHTML = `${}`;
-        // figureModale.innerHTML = 
-        // `<div>
-          // <div class="afficheIMG"></div>
-          // <div>
-              //<i class="fa-regular fa-image"></i> 
-          // </div>
-        
-        // `;
+
       const imgModale = document.createElement("img");
       figureModale.appendChild(imgModale);
       imgModale.src = "assets/icons/instagram.png";
       imgModale.alt = "image à ajouter";
-
-
-
-
-
 
       // fin presentation photos
 
@@ -356,9 +340,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           mainAjouterPhoto.appendChild(h2AjoutPhoto);
 
-
-
-          // ici la source photo de vide 
+          // ici la source photo de vide
 
           const displayImage = document.createElement("div");
           displayImage.classList.add("display-image");
@@ -367,8 +349,8 @@ document.addEventListener("DOMContentLoaded", () => {
           displayImage.style.flexDirection = "column";
           // imgAjtImage.style.flex = "100%";
           displayImage.style.justifyContent = "center";
-         displayImage.style.alignItems = "center";
-          
+          displayImage.style.alignItems = "center";
+
           displayImage.style.minWidth = "420px";
           displayImage.style.minHeight = "169px";
           displayImage.style.backgroundColor = "#E8F1F6";
@@ -390,18 +372,41 @@ document.addEventListener("DOMContentLoaded", () => {
           // l affiche image adopte le containeur defaultimage
           displayImage.appendChild(containDefIconeImage);
 
-
-
-          // le conteaineur d image à sdon tour adopte le defaultImage
+          // le containeur d image à sdon tour adopte le defaultImage
           containDefIconeImage.appendChild(defaultIconeImage);
 
           const buttonAjouterPhoto = document.createElement("label");
-          
           buttonAjouterPhoto.classList.add("label", "button-ajouter-Photo");
           buttonAjouterPhoto.textContent = "+ Ajouter Photo";
           buttonAjouterPhoto.style.fontFamily = "work sans, sans-serif";
           buttonAjouterPhoto.style.fontWeight = "medium";
+
+          // ici on crée l input lie au label, qui va servir a chercher les photos
+          const fileButtonInput = document.createElement("input");
+          fileButtonInput.id = "fileButtonInput";
+          buttonAjouterPhoto.setAttribute("for", "fileButtonInput");
+          fileButtonInput.type = "file";
+          fileButtonInput.style.display = "none";
+          fileButtonInput.accept = "image/*";
+          buttonAjouterPhoto.appendChild(fileButtonInput);
           
+
+          fileButtonInput.addEventListener("change", function () {
+            const file = this.files[0];
+
+            if (file && file.type.startsWith("image/")) {
+              const objectUrl = URL.createObjectURL(file);
+              displayPhoto.src = objectUrl;
+              displayPhoto.style.display = "block";
+              preview.style.display = "block";
+
+              buttonAjouterPhoto.style.display = "none";
+
+              // Libérer la mémoire après chargement
+              preview.onload = () => URL.revokeObjectURL(objectUrl);
+            }
+          });
+
           buttonAjouterPhoto.style.backgroundColor = "#CBD6DC";
           buttonAjouterPhoto.style.color = "#306685";
           buttonAjouterPhoto.style.border = "none";
@@ -411,11 +416,14 @@ document.addEventListener("DOMContentLoaded", () => {
           buttonAjouterPhoto.style.fontSize = "16px";
           buttonAjouterPhoto.style.width = "236px";
           buttonAjouterPhoto.style.cursor = "pointer";
-          
+
           displayImage.appendChild(buttonAjouterPhoto);
-          
+
+          const displayPhoto = document.createElement("img");
+          displayPhoto.classList.add("display-photo");
+          buttonAjouterPhoto.appendChild(displayPhoto);
+
           buttonAjouterPhoto.addEventListener("click", () => {
-            
             const containDefIconeImage = document.querySelector(".contain-def-icone-image");
             containDefIconeImage.style.display = "none";
 
@@ -429,40 +437,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const displayImage = document.querySelector(".display-image");
             displayImage.style.backgroundColor = "transparent";
-           displayImage.style.justifyContent = "flex-start";
-           displayImage.style.alignItems = "flex-start";
-           displayImage.style.padding = "0";
-           displayImage.style.minWidth = "0";
-           
+            displayImage.style.justifyContent = "flex-start";
+            displayImage.style.alignItems = "flex-start";
+            displayImage.style.padding = "0";
+            displayImage.style.minWidth = "0";
 
-           const imgAjtImage = document.createElement("img");
-           imgAjtImage.classList.add("img-ajt-image");
-           imgAjtImage.style.width = "100%";
-           imgAjtImage.style.height = "100%";
-           imgAjtImage.style.objectFit = "cover";
-           displayImage.appendChild(imgAjtImage);
+            const imgAjtImage = document.createElement("img");
+            imgAjtImage.classList.add("img-ajt-image");
+            imgAjtImage.style.width = "100%";
+            imgAjtImage.style.height = "100%";
+            imgAjtImage.style.objectFit = "cover";
+            displayImage.appendChild(imgAjtImage);
 
-           const fileInput = document.createElement("input");
-           fileInput.type = "file";
-           fileInput.style.display = "none";
-           fileInput.accept = "image/*";
-           
-          //  const inputFile
+            const fileInput = document.createElement("input");
+            fileInput.type = "file";
+            fileInput.style.display = "none";
+            fileInput.accept = "image/*";
 
-
+            //  const inputFile
           });
 
+          function addImage() {}
+          console.log("ca a ajoute une photo");
+          const fileInput = document.createElement("input");
+          fileInput.type = "file";
+          fileInput.style.display = "flex";
+          // ci dessous, fileInput.accept parceque sinon on peut ajouter n importe quel type de fichier et pas seulement des images,
+          fileInput.accept = "image/*";
 
-          function addImage() {
-              
-          };
-
-          document.body.appendChild(fileInput)
-
-
+          document.body.appendChild(fileInput);
 
           // ici le groupe de champs du formulaire d ajout de photo,
-          //  qui va plus tard append le groupe photo,  titre,   categorie et autres 
+          //  qui va plus tard append le groupe photo,  titre,   categorie et autres
 
           const ChampTitrePhoto = document.createElement("div");
           ChampTitrePhoto.classList.add("champ-titre-photo");
@@ -473,8 +479,6 @@ document.addEventListener("DOMContentLoaded", () => {
           // ChampTitrePhoto.style.alignItems = "center";
 
           mainAjouterPhoto.appendChild(ChampTitrePhoto);
-
-
 
           const labelTitrePhoto = document.createElement("label");
           labelTitrePhoto.setAttribute("for", "titrePhoto");
@@ -494,7 +498,7 @@ document.addEventListener("DOMContentLoaded", () => {
           inputTitrePhoto.style.border = "none";
           inputTitrePhoto.style.height = "51px";
           inputTitrePhoto.style.width = "420px";
-          inputTitrePhoto.style.boxShadow = "0px 4px 14px 0px rgba(0, 0, 255, 0.09)";    
+          inputTitrePhoto.style.boxShadow = "0px 4px 14px 0px rgba(0, 0, 255, 0.09)";
 
           ChampTitrePhoto.appendChild(inputTitrePhoto);
 
@@ -527,8 +531,6 @@ document.addEventListener("DOMContentLoaded", () => {
           inputTextCategoriePhoto.style.boxShadow = "0px 4px 14px 0px rgba(0, 0, 255, 0.09)";
           champCategoriePhoto.appendChild(inputTextCategoriePhoto);
 
-
-
           // lign separ de madal AJout
           const modalSeparLine = document.createElement("hr");
           modalSeparLine.classList.add("spar-line");
@@ -539,16 +541,14 @@ document.addEventListener("DOMContentLoaded", () => {
           modalSeparLine.style.border = "1px solid #B3B3B3";
           modalSeparLine.style.margin = "30px 0";
 
-
           mainAjouterPhoto.appendChild(modalSeparLine);
-
 
           const modalAjoutBtn = document.createElement("button");
           modalAjoutBtn.classList.add("button");
           modalAjoutBtn.classList.add("modalAjoutBtn");
           modalAjoutBtn.textContent = "Ajouter";
 
-          // Proprietes bouton ci dessus en doublon, 
+          // Proprietes bouton ci dessus en doublon,
           // les factoriser plus tard grace au css en un seul code
           modalAjoutBtn.style.backgroundColor = "#A7A7A7";
           modalAjoutBtn.style.color = "white";
@@ -561,7 +561,6 @@ document.addEventListener("DOMContentLoaded", () => {
           modalAjoutBtn.style.cursor = "pointer";
           modalAjoutBtn.textContent = "Valider";
           mainAjouterPhoto.appendChild(modalAjoutBtn);
-
         }
         openModaleAjouterPhoto();
       });
