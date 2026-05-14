@@ -2,8 +2,8 @@
 
 // import { xModale } from "./modale.js";
 
+const token = localStorage.getItem("token");
 document.addEventListener("DOMContentLoaded", () => {
-  const token = localStorage.getItem("token");
   const btnModifier = document.getElementById("btnModifier");
 
   const filters = document.createElement("div");
@@ -139,60 +139,103 @@ document.addEventListener("DOMContentLoaded", () => {
       //  Fin closeModale
 
       const figureModalPhoto = document.createElement("div");
-      figureModalPhoto.classList.add("figureAddModalPhoto");
-      figureModalPhoto.textContent = "ici la figure de la modale d ajout de photo";
+      figureModalPhoto.classList.add("figureModalPhoto");
+      figureModalPhoto.style.display = "grid";
+      figureModalPhoto.style.gridTemplateColumns = "repeat(5, 1fr)";
+      figureModalPhoto.style.gridAutoRows = "auto";
+      figureModalPhoto.style.flexWrap = "wrap";
+      figureModalPhoto.style.justifyContent = "center";
+      figureModalPhoto.style.gap = "5px";
+      figureModalPhoto.style.padding = "75px";
+      // figureModalPhoto.style.margin = "20px";
       modaleWrap.appendChild(figureModalPhoto);
 
       async function fetchWorks() {
         try {
           const response = await fetch("http://localhost:5678/api/works");
           const data = await response.json();
-          console.log(data);
+
           data.forEach((lesOeuvres) => {
-            console.log("lesoeuvres", lesOeuvres);
+            // FIGURE POUR CHAQUE PHOTO
             const figureGallery = document.createElement("figure");
-            figureGallery.classList.add("figure-Gallery");
+            figureGallery.classList.add("figure-gallery", "figure-modal-photo");
+            figureGallery.padding = "10px";
+            figureGallery.style.position = "relative";
 
-            // ci dessous a rectifier c est plutot au lieu de figureGallery c est figureModalId
-            figureGallery.setAttribute("id", `figureModalId-${lesOeuvres.id}`);
-            figureGallery.classList.add("figure-modal-photo");
+            figureGallery.id = `figure-${lesOeuvres.id}`;
 
-            figureGallery.textContent = "ici la galerie de la modale";
-            console.log(`fraéncisation, ${JSON.stringify(lesOeuvres)}`);
+            // IMAGE
+            const imgGallery = document.createElement("img");
+            imgGallery.classList.add("img-modal-photo");
+            imgGallery.src = lesOeuvres.imageUrl;
+            imgGallery.alt = lesOeuvres.title;
+            imgGallery.id = `img-${lesOeuvres.id}`;
 
-            figureGallery.innerHTML = `
-            <img class="img-modal-add-photo" <img src="${lesOeuvres.imageUrl}" id="${lesOeuvres.id}" alt="${lesOeuvres.title}">
-          `;
+            // AJOUT IMAGE DANS FIGURE
+            figureGallery.appendChild(imgGallery);
 
-            // PHOTOS TEMPORAIRE4MENT MUTéS
-            // modaleWrap.insertBefore(figureGallery, wrapFooter);
+            // AJOUT FIGURE DANS LE CONTENEUR
             figureModalPhoto.appendChild(figureGallery);
 
-            const classAjtPhto = document.querySelector(".img-modal-add-photo");
-            classAjtPhto.style.width = "100px";
-            classAjtPhto.style.display = "flex";
-            classAjtPhto.style.justifyContent = "center";
-            classAjtPhto.style.alignItems = "center";
+            // STYLE DE L’IMAGE
+            imgGallery.style.width = "76.60px";
+            imgGallery.style.height = "102.57pxpx";
+            imgGallery.style.border = "1px solid red";
+            imgGallery.style.display = "flex";
 
-            classAjtPhto.style.backgroundColor = "red";
-            classAjtPhto.style.border = "1px solid red";
+            // POUBELLE
+            const poubellePhoto = document.createElement("div");
+            const iconePoubelle = document.createElement("i");
+            iconePoubelle.classList.add("fa-solid", "fa-trash");
+            poubellePhoto.dataset.id = lesOeuvres.id;
+            poubellePhoto.style.width = "20px";
+            poubellePhoto.style.height = "20px";
+            poubellePhoto.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+            iconePoubelle.style.color = "white";
+            poubellePhoto.style.top = "5px";
+            poubellePhoto.style.right = "5px";
+            poubellePhoto.appendChild(iconePoubelle);
 
-            const poubellerHpoto = document.createElement("div");
-            poubellerHpoto.classList.add("poubellePhoto");
-            poubellerHpoto.style.position = "absolute";
+            poubellePhoto.classList.add("poubellePhoto", );
+            poubellePhoto.style.position = "absolute";
+            figureGallery.appendChild(poubellePhoto);
 
+            // STYLE DU CONTENEUR GLOBAL
             figureModalPhoto.style.border = "1px solid red";
             figureModalPhoto.classList.add("figureModalPhoto");
 
-
-            // work(lesOeuvres);
-            // fetchWorks(lesOeuvres);
+             poubellePhoto.addEventListener("click", () => {
+              const id = poubellePhoto.dataset.id;
+              delete1Work(id);
+             });
           });
         } catch (error) {
           console.log(error);
         }
       }
+      function delete1Work(id) {
+        fetch(`http://localhost:5678/api/works/${id}`, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              // Supprimer l'élément du DOM
+              const figure = document.querySelector(`[data-id="${id}"]`);
+              if (figure) {
+                figure.remove();
+              }
+            }
+          })
+          .catch((error) => {
+            console.error("Erreur lors de la suppression de l'œuvre :", error);
+          });
+      }
+
       fetchWorks();
+
       console.log(works());
 
       // Section de presentation photos
@@ -389,7 +432,6 @@ document.addEventListener("DOMContentLoaded", () => {
           fileButtonInput.style.display = "none";
           fileButtonInput.accept = "image/*";
           buttonAjouterPhoto.appendChild(fileButtonInput);
-          
 
           fileButtonInput.addEventListener("change", function () {
             const file = this.files[0];
