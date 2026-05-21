@@ -374,7 +374,7 @@ document.addEventListener("DOMContentLoaded", () => {
           closeModaleAjoutPhoto.style.border = "none";
           closeModaleAjoutPhoto.style.fontSize = "24px";
           closeModaleAjoutPhoto.style.cursor = "pointer";
-          closeModaleAjoutPhoto.style.padding = "30px";
+          closeModaleAjoutPhoto.style.padding = "25px";
 
           const iconeCloseBtnAjtPhoto = document.createElement("i");
           iconeCloseBtnAjtPhoto.classList.add("fa-solid", "fa-xmark");
