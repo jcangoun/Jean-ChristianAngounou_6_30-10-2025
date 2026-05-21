@@ -142,14 +142,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const figureModalPhoto = document.createElement("div");
       figureModalPhoto.classList.add("figureModalPhoto");
-      figureModalPhoto.style.display = "grid";
-      figureModalPhoto.style.gridTemplateColumns = "repeat(5, 1fr)";
-      figureModalPhoto.style.gridAutoRows = "auto";
+      // figureModalPhoto.style.display = "grid";
+      // figureModalPhoto.style.gridTemplateColumns = "repeat(5, 1fr)";
+      // figureModalPhoto.style.gridAutoRows = "auto";
+      // figureModalPhoto.style.justifyContent = "center";
+      figureModalPhoto.style.display = "flex";
+      figureModalPhoto.style.justifyContent = "flex-start";
       figureModalPhoto.style.flexWrap = "wrap";
-      figureModalPhoto.style.justifyContent = "center";
       figureModalPhoto.style.gap = "5px";
-      figureModalPhoto.style.padding = "75px";
-      // figureModalPhoto.style.margin = "20px";
+      figureModalPhoto.style.padding = "10px 80px";
+      figureModalPhoto.style.margin = "24px";
       modaleWrap.appendChild(figureModalPhoto);
 
       async function fetchWorks() {
@@ -202,8 +204,8 @@ document.addEventListener("DOMContentLoaded", () => {
             poubellePhoto.style.height = "17px";
             poubellePhoto.style.backgroundColor = "#000000";
             iconePoubelle.style.color = "white";
-            poubellePhoto.style.top = "5px";
-            poubellePhoto.style.right = "10px";
+            poubellePhoto.style.top = "-37px";
+            poubellePhoto.style.right = "22px";
 
             
             poubellePhoto.appendChild(iconePoubelle);
@@ -212,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
             poubellePhoto.style.display = "flex";
             poubellePhoto.style.justifyContent = "center";
             poubellePhoto.style.alignItems = "center";
-            poubellePhoto.style.position = "absolute";
+            poubellePhoto.style.position = "relative";
             figureGallery.appendChild(poubellePhoto);
 
             // STYLE DU CONTENEUR GLOBAL
@@ -454,10 +456,17 @@ document.addEventListener("DOMContentLoaded", () => {
             if (file && file.type.startsWith("image/")) {
               const objectUrl = URL.createObjectURL(file);
               displayPhoto.src = objectUrl;
-              displayPhoto.style.display = "block";
-              preview.style.display = "block";
+              defaultIconeImage.style.display = "none";
 
-              buttonAjouterPhoto.style.display = "none";
+              displayPhoto.style.display = "flex";
+              displayPhoto.style.width = "50%";
+
+              preview.style.display = "flex";
+
+              buttonAjouterPhoto.style.display = "flex";
+              buttonAjouterPhoto.style.margin = "0";
+              buttonAjouterPhoto.style.padding = "0";
+              buttonAjouterPhoto.style.width = "420px";
 
               // Libérer la mémoire après chargement
               preview.onload = () => URL.revokeObjectURL(objectUrl);
