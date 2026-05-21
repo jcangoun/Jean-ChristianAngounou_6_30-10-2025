@@ -96,6 +96,8 @@ document.addEventListener("DOMContentLoaded", () => {
       modaleWrap.style.maxHeight = "688px";
       modaleWrap.style.display = "flex";
       modaleWrap.style.flexDirection = "column";
+      modaleWrap.style.justifyContent = "center";
+      // modaleWrap.style.alignItems = "center";
       // modaleWrap.style.padding = "30px";
 
       const h2InModale = document.createElement("h2");
@@ -161,6 +163,9 @@ document.addEventListener("DOMContentLoaded", () => {
             figureGallery.classList.add("figure-gallery", "figure-modal-photo");
             figureGallery.padding = "10px";
             figureGallery.style.position = "relative";
+            figureGallery.style.display = "flex";
+            figureGallery.style.justifyContent = "center";
+            figureGallery.style.alignItems = "center";
 
             figureGallery.id = `figure-${lesOeuvres.id}`;
 
@@ -179,29 +184,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // STYLE DE L’IMAGE
             imgGallery.style.width = "76.60px";
-            imgGallery.style.height = "102.57pxpx";
-            imgGallery.style.border = "1px solid red";
+            imgGallery.style.height = "102.57px";
+            // imgGallery.style.border = "1px solid red";
             imgGallery.style.display = "flex";
 
             // POUBELLE
             const poubellePhoto = document.createElement("div");
+
             const iconePoubelle = document.createElement("i");
-            iconePoubelle.classList.add("fa-solid", "fa-trash");
+            iconePoubelle.width = "9px";
+            iconePoubelle.height = "10.30px";
+            iconePoubelle.classList.add("fa-solid", "fa-trash-can");
+
+
             poubellePhoto.dataset.id = lesOeuvres.id;
-            poubellePhoto.style.width = "20px";
-            poubellePhoto.style.height = "20px";
-            poubellePhoto.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+            poubellePhoto.style.width = "17px";
+            poubellePhoto.style.height = "17px";
+            poubellePhoto.style.backgroundColor = "#000000";
             iconePoubelle.style.color = "white";
             poubellePhoto.style.top = "5px";
-            poubellePhoto.style.right = "5px";
+            poubellePhoto.style.right = "10px";
+
+            
             poubellePhoto.appendChild(iconePoubelle);
 
-            poubellePhoto.classList.add("poubellePhoto", );
+            poubellePhoto.classList.add("poubellePhoto");
+            poubellePhoto.style.display = "flex";
+            poubellePhoto.style.justifyContent = "center";
+            poubellePhoto.style.alignItems = "center";
             poubellePhoto.style.position = "absolute";
             figureGallery.appendChild(poubellePhoto);
 
             // STYLE DU CONTENEUR GLOBAL
-            figureModalPhoto.style.border = "1px solid red";
+            // figureModalPhoto.style.border = "1px solid red";
             figureModalPhoto.classList.add("figureModalPhoto");
 
              poubellePhoto.addEventListener("click", () => {
