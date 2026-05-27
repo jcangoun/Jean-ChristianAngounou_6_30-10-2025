@@ -93,13 +93,15 @@ document.addEventListener("DOMContentLoaded", () => {
       // ci dessous maxheight pourrait plus tard redevenir
       //  just height quand on aura mis les images
 
-      modaleWrap.style.maxHeight = "688px";
+      
       modaleWrap.style.display = "flex";
       modaleWrap.style.flexDirection = "column";
       modaleWrap.style.justifyContent = "center";
       // modaleWrap.style.alignItems = "center";
       // modaleWrap.style.padding = "30px";
-
+      
+      // modaleWrap.style.maxHeight = "688px";
+      
       const h2InModale = document.createElement("h2");
       h2InModale.classList.add("ss-titre-modale");
       modaleWrap.appendChild(h2InModale);
@@ -330,11 +332,13 @@ document.addEventListener("DOMContentLoaded", () => {
           // la modale d ajouts photos
           modaleAjouterPhoto.style.backgroundColor = "white";
           modaleAjouterPhoto.style.width = "630px";
-          modaleAjouterPhoto.style.maxHeight = "688px";
           modaleAjouterPhoto.style.display = "flex";
           modaleAjouterPhoto.style.flexDirection = "column";
           // modaleAjouterPhoto.style.alignItems = "center";
           modaleAjouterPhoto.style.justifyContent = "center";
+          
+          // modaleAjouterPhoto.style.maxHeight = "688px"; 
+
 
           // header ds ajtmodelaPhoto
           const headerAjouterPhoto = document.createElement("header");

@@ -259,6 +259,18 @@ footer nav ul {
 	/* flex: 100%; */
 }
 
+
+#laModale .modaleWrap { };
+
+#laModale .modaleWrap button { };
+
+/* #laModale .modaleWrap button i { }; */
+
+/* ci dessous h2InModale */
+#laModale .modaleWrap .ss-titre-modale { };
+
+
+
  .filters {
 	display: flex;
 	justify-content: center;
