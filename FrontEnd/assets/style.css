@@ -243,6 +243,9 @@ footer nav ul {
 
  /* .icon-modifier {} */
 
+
+/* la section de style pour la modale */
+
 /* aside {} */
 .spar-line {}
 
@@ -262,14 +265,33 @@ footer nav ul {
 
 #laModale .modaleWrap { };
 
-#laModale .modaleWrap button { };
+/* #laModale .modaleWrap button { 
+	display: flex;
+	justify-content: end;
+	background-color: transparent;
+	border: none;
+	font-size: 24px;
+	cursor: pointer;
+	padding: 30px;
+}; */
 
 /* #laModale .modaleWrap button i { }; */
 
 /* ci dessous h2InModale */
-#laModale .modaleWrap .ss-titre-modale { };
 
+/* #laModale .modaleWrap .ss-titre-modale {
+	color: black;
+	justify-content: center;
+	background-color: transparent;
+	border: none;
+	font-size: 24px;
+	cursor: pointer;
+	padding: 30px;
+ }; */
 
+	/* ici dessous la creation style de la modale " pour "Ajout photo" */
+
+	
 
  .filters {
 	display: flex;
