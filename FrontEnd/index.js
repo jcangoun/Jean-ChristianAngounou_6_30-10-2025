@@ -187,8 +187,8 @@ document.addEventListener("DOMContentLoaded", () => {
             figureModalPhoto.appendChild(figureGallery);
 
             // STYLE DE L’IMAGE
-            imgGallery.style.width = "76.60px";
-            imgGallery.style.height = "102.57px";
+            imgGallery.style.width = "77px";
+            imgGallery.style.height = "103px";
             // imgGallery.style.border = "1px solid red";
             imgGallery.style.display = "flex";
 
@@ -445,6 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
           buttonAjouterPhoto.style.fontFamily = "work sans, sans-serif";
           buttonAjouterPhoto.style.fontWeight = "medium";
 
+
           // ici on crée l input lie au label, qui va servir a chercher les photos
           const fileButtonInput = document.createElement("input");
           fileButtonInput.id = "fileButtonInput";
@@ -463,15 +464,24 @@ document.addEventListener("DOMContentLoaded", () => {
               defaultIconeImage.style.display = "none";
 
               displayPhoto.style.display = "flex";
-              displayPhoto.style.width = "50%";
+              displayPhoto.style.width = "129px";
+              displayPhoto.style.height = "193px";
+                        buttonAjouterPhoto.textContent = "";
 
-              preview.style.display = "flex";
+              displayPhoto.style.objectFit = "cover";
 
+             
+              // preview.style.display = "flex";
+
+              const buttonAjouterPhoto = document.querySelector(".button-ajouter-Photo"); 
               buttonAjouterPhoto.style.display = "flex";
+              buttonAjouterPhoto.style.justifyContent = "center";
+              buttonAjouterPhoto.style.alignItems = "center";
               buttonAjouterPhoto.style.margin = "0";
               buttonAjouterPhoto.style.padding = "0";
               buttonAjouterPhoto.style.width = "420px";
 
+              // containDefIconeImage.style.display = "none";
               // Libérer la mémoire après chargement
               preview.onload = () => URL.revokeObjectURL(objectUrl);
             }
@@ -481,10 +491,10 @@ document.addEventListener("DOMContentLoaded", () => {
           buttonAjouterPhoto.style.color = "#306685";
           buttonAjouterPhoto.style.border = "none";
           buttonAjouterPhoto.style.margin = "30px";
-          buttonAjouterPhoto.style.borderRadius = "50px";
+          // buttonAjouterPhoto.style.borderRadius = "50px";
           buttonAjouterPhoto.style.padding = "12px 24px";
           buttonAjouterPhoto.style.fontSize = "16px";
-          buttonAjouterPhoto.style.width = "236px";
+          // buttonAjouterPhoto.style.width = "236px";
           buttonAjouterPhoto.style.cursor = "pointer";
 
           displayImage.appendChild(buttonAjouterPhoto);
@@ -507,10 +517,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const displayImage = document.querySelector(".display-image");
             displayImage.style.backgroundColor = "transparent";
-            displayImage.style.justifyContent = "flex-start";
-            displayImage.style.alignItems = "flex-start";
+            displayImage.style.justifyContent = "center";
+            displayImage.style.alignItems = "center";
             displayImage.style.padding = "0";
-            displayImage.style.minWidth = "0";
+            displayImage.style.width = "420px";
 
             const imgAjtImage = document.createElement("img");
             imgAjtImage.classList.add("img-ajt-image");
