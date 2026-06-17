@@ -64,7 +64,7 @@ body {
 	padding: 25px;
     background-color: #000000;
 }
-/* #modifBanniere {
+/* #banniere #modifierBanniere {
 	background-color: #1D6154;
 	color: white;
 	text-align: center;
@@ -77,13 +77,32 @@ body {
 	left: 0;
 	z-index: 1000;
 } */
+
+/* modifierBanniere i {
+
+} */
 #texte-banniere {
 	background-color: black ;
-	color: #FFFFFF;
+	color: white;
 	font-family: 'Work Sans', sans-serif;
-	font-size: 14px;
-	font-weight: 500;
+	font-size: 16px;
+	font-weight: light;
+	margin-right: 8px;
 }
+
+/* #modifierBanniere i {
+	color: white;
+	font-size: 18px;
+	margin-right: 8px;
+} */
+
+
+/* button[id="texte-banniere"] {
+} */
+
+/* button[id="texte-banniere"] i {
+};  */
+
 header {
 	display: flex;
 	justify-content: space-between;
@@ -152,6 +171,8 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+
+
 #portfolio h2 {
 	display: flex;
 	justify-content: center;
@@ -236,17 +257,33 @@ footer nav ul {
 	margin: 2em
 }
 
-#btnModifier {
+/* #btnModifier { */
 	/* display: none; */
 	/* justify-content: center; */
- }
+ /* } */
 
- /* .icon-modifier {} */
+ /* #btnModifier .icon-modifier { */
+	/* color: black;
+	font-weight: 400;
+	font-size: 16px;
+	margin: 8px; */
+ /* } */
 
 
 /* la section de style pour la modale */
 
-/* aside {} */
+/* aside { */
+	/* background-color: rgba(0, 0, 0, 0.4);
+	border: 1px solid black;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	inset: 0;
+	position: fixed; */
+/* } */
+
 .spar-line {}
 
 #laModale {
