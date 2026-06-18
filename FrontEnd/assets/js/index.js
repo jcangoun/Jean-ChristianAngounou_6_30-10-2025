@@ -398,8 +398,8 @@ document.addEventListener("DOMContentLoaded", () => {
           
           // maintenant ci dessous que le close est crée on peut alors faire un evenement 
           // qui ferme la page 
-          const calqueModaleAjoutPhoto = document.getElementById("modaleAjouterPhoto");
-          console.log(calqueModaleAjoutPhoto);
+          const calqueModaleAjoutPhoto = document.getElementById("modaleAjoutPhoto");
+          // console.log(calqueModaleAjoutPhoto + "ca fait");
           
           
           // Ci dessous appel complet du boutton de close

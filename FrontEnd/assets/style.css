@@ -329,16 +329,15 @@ footer nav ul {
 	padding: 30px;
  }; */
 
-	/* ici dessous la creation style de la modale " pour "Ajout photo" */
-
-	
-
+ 
+ /* ici dessous la creation style de la modale " pour "Ajout photo" */	
  .filters {
 	display: flex;
 	justify-content: center;
 	margin: 30px;
 	justify-content: center;
-	
+	background-color: blue;
+
  }
 
  .filter-btn {
