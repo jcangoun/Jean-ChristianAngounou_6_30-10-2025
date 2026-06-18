@@ -8,6 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const filters = document.createElement("div");
   filters.classList.add("filters");
+  filters.style.display = "flex";
+  filters.style.justifyContent = "center";
+  filters.style.margin = "38px";
+  
 
   const gallery = document.querySelector(".gallery");
 
@@ -323,7 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-      
+
       btnAjouterPhoto.addEventListener("click", () => {
         console.log("tu as clique ca A ajoute une photo");
         modaleWrap.style.display = "none";
@@ -372,6 +376,8 @@ document.addEventListener("DOMContentLoaded", () => {
           leftArrowModalAjtPhoto.style.fontSize = "21px";
           leftArrowModalAjtPhoto.style.cursor = "pointer";
           arrowButton.prepend(leftArrowModalAjtPhoto);
+
+
           //puis
           headerAjouterPhoto.prepend(arrowButton);
           leftArrowModalAjtPhoto.addEventListener("click", () => {
@@ -389,6 +395,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const iconeCloseBtnAjtPhoto = document.createElement("i");
           iconeCloseBtnAjtPhoto.classList.add("fa-solid", "fa-xmark");
+          
+          // maintenant ci dessous que le close est crée on peut alors faire un evenement 
+          // qui ferme la page 
+          const calqueModaleAjoutPhoto = document.getElementById("modaleAjouterPhoto");
+          console.log(calqueModaleAjoutPhoto);
+          
+          
           // Ci dessous appel complet du boutton de close
           closeModaleAjoutPhoto.prepend(iconeCloseBtnAjtPhoto);
           headerAjouterPhoto.appendChild(closeModaleAjoutPhoto);
