@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     texteBanniere.style.border = "none";
     texteBanniere.style.fontWeight = "light";
     texteBanniere.style.fontSize = "16px";
-    
+
     modifierBanniere.style.color = "white";
     modifierBanniere.style.fontSize = "18px";
     modifierBanniere.style.marginRight = "8px";
@@ -318,6 +318,12 @@ document.addEventListener("DOMContentLoaded", () => {
       btnAjouterPhoto.style.cursor = "pointer";
       wrapFooter.appendChild(btnAjouterPhoto);
 
+
+
+
+
+
+      
       btnAjouterPhoto.addEventListener("click", () => {
         console.log("tu as clique ca A ajoute une photo");
         modaleWrap.style.display = "none";
