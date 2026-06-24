@@ -194,7 +194,6 @@ li:hover {
 	border: 1px solid black;
 	padding: 0;
 	margin: 0;
-
 }
 
 
@@ -209,7 +208,6 @@ li:hover {
 
 .gallery img {
 	width: 100%;
-
 }
 #contact {
 	width: 50%;
@@ -260,22 +258,23 @@ footer nav ul {
 	margin: 2em
 }
 
-/* #btnModifier { */
+#btnModifier {
 	/* display: none; */
 	/* justify-content: center; */
- /* } */
+	background: transparent;
+	border: none;
+}
 
- /* #btnModifier .icon-modifier { */
-	/* color: black;
+#btnModifier .fa-pen-to-square {
+	color: #000000;
 	font-weight: 400;
 	font-size: 16px;
-	margin: 8px; */
- /* } */
-
+	margin: 8px;
+ }
 
 /* la section de style pour la modale */
 
-/* aside { */
+aside {
 	/* background-color: rgba(0, 0, 0, 0.4);
 	border: 1px solid black;
 	padding: 0;
@@ -285,7 +284,7 @@ footer nav ul {
 	align-items: center;
 	inset: 0;
 	position: fixed; */
-/* } */
+}
 
 .spar-line {}
 

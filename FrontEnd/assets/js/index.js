@@ -56,13 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
     h2Btn.innerText = " Modifier";
     // liaison de iconeModifier a son bouton modifier ci dessous puis h2Btn new name pour appelation now
     h2Btn.prepend(iconeModifier);
-    h2Btn.style.background = "transparent";
-    h2Btn.style.border = "none";
-
-    iconeModifier.style.color = "#000000";
-    iconeModifier.style.fontWeight = 400;
-    iconeModifier.style.fontSize = "16px";
-    iconeModifier.style.margin = "8px";
 
     //on na plus que un h2//
     const h2 = document.querySelector("#portfolio > h2");
