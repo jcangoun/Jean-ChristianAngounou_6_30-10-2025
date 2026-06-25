@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
   filters.style.justifyContent = "center";
   filters.style.margin = "38px";
   
-
   const gallery = document.querySelector(".gallery");
 
   const loginConnection = document.getElementById("loginConnection");
@@ -291,11 +290,6 @@ document.addEventListener("DOMContentLoaded", () => {
       btnAjouterPhoto.style.width = "236px";
       btnAjouterPhoto.style.cursor = "pointer";
       wrapFooter.appendChild(btnAjouterPhoto);
-
-
-
-
-
 
 
       btnAjouterPhoto.addEventListener("click", () => {
@@ -659,6 +653,11 @@ document.addEventListener("DOMContentLoaded", () => {
       //  alors que là il fonctionnera car le boutton est créé et lié a son wrapFooter
     });
 
+
+
+
+
+    
     loginConnection.textContent = "logout";
     loginConnection.addEventListener("click", () => {
       logout();
