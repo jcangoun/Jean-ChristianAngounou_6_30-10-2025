@@ -272,21 +272,9 @@ footer nav ul {
 	margin: 8px;
  }
 
+
 /* la section de style pour la modale */
 
-aside {
-	/* background-color: rgba(0, 0, 0, 0.4);
-	border: 1px solid black;
-	padding: 0;
-	margin: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	inset: 0;
-	position: fixed; */
-}
-
-.spar-line {}
 
 #laModale {
 	background-color: rgba(0, 0, 0, 0.4);
@@ -298,13 +286,17 @@ aside {
 	border: 1px solid black;
 	padding: 0;
 	margin: 0;
-	/* flex: 100%; */
 }
 
+#laModale .modaleWrap {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	background-color: white;
+	width: 630px;
+ }
 
-#laModale .modaleWrap { };
-
-/* #laModale .modaleWrap button { 
+#laModale .modaleWrap .close-button { 
 	display: flex;
 	justify-content: end;
 	background-color: transparent;
@@ -312,25 +304,33 @@ aside {
 	font-size: 24px;
 	cursor: pointer;
 	padding: 30px;
-}; */
+	/* color: red; */
+	};
+	
+	/* #laModale .modaleWrap button i { }; */
+	
+	/* ci dessous h2InModale */
+	
+	/* #laModale .modaleWrap .ss-titre-modale {
+		color: black;
+		justify-content: center;
+		background-color: transparent;
+		border: none;
+		font-size: 24px;
+		cursor: pointer;
+		padding: 30px;
+		}; */
+		
 
-/* #laModale .modaleWrap button i { }; */
 
-/* ci dessous h2InModale */
+		/* .spar-line {} */
+		
 
-/* #laModale .modaleWrap .ss-titre-modale {
-	color: black;
-	justify-content: center;
-	background-color: transparent;
-	border: none;
-	font-size: 24px;
-	cursor: pointer;
-	padding: 30px;
- }; */
 
- 
- /* ici dessous la creation style de la modale " pour "Ajout photo" */	
- .filters {
+		/* ici dessous la creation style de la modale " pour "Ajout photo" */	
+		
+		
+		.filters {
 	display: flex;
 	justify-content: center;
 	margin: 30px;

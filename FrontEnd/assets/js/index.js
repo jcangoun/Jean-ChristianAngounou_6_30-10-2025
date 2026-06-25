@@ -85,20 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       laModale.appendChild(modaleWrap);
 
+      
       // MODALEWRAP STYLE ci dessous de la modale wrap qui est la boite blanche de la modale
-      modaleWrap.style.backgroundColor = "white";
-      modaleWrap.style.width = "630px";
-      // ci dessous maxheight pourrait plus tard redevenir
-      //  just height quand on aura mis les images
-
-      
-      modaleWrap.style.display = "flex";
-      modaleWrap.style.flexDirection = "column";
-      modaleWrap.style.justifyContent = "center";
-      // modaleWrap.style.alignItems = "center";
-      // modaleWrap.style.padding = "30px";
-      
-      // modaleWrap.style.maxHeight = "688px";
       
       const h2InModale = document.createElement("h2");
       h2InModale.classList.add("ss-titre-modale");
@@ -119,13 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // la closeModale
       const closeButton = document.createElement("button");
-      closeButton.style.display = "flex";
-      closeButton.style.justifyContent = "end";
-      closeButton.style.backgroundColor = "transparent";
-      closeButton.style.border = "none";
-      closeButton.style.fontSize = "24px";
-      closeButton.style.cursor = "pointer";
-      closeButton.style.padding = "30px";
+      closeButton.classList.add("close-button");
 
       const iconeCloseBtn = document.createElement("i");
       iconeCloseBtn.classList.add("fa-solid", "fa-xmark");
