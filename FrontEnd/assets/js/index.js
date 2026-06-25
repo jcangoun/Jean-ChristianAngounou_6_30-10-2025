@@ -114,8 +114,8 @@ document.addEventListener("DOMContentLoaded", () => {
       closeButton.prepend(iconeCloseBtn);
 
       modaleWrap.insertBefore(closeButton, h2InModale);
+      
       closeButton.addEventListener("click", closeModale);
-
       function closeModale() {
         laModale.remove();
         laModale.style.display = "none";
@@ -123,19 +123,16 @@ document.addEventListener("DOMContentLoaded", () => {
       //  Fin closeModale
 
       const figureModalPhoto = document.createElement("div");
-      figureModalPhoto.classList.add("figureModalPhoto");
-      // figureModalPhoto.style.display = "grid";
-      // figureModalPhoto.style.gridTemplateColumns = "repeat(5, 1fr)";
-      // figureModalPhoto.style.gridAutoRows = "auto";
-      // figureModalPhoto.style.justifyContent = "center";
+      figureModalPhoto.classList.add("figure-modale-photo");
       figureModalPhoto.style.display = "flex";
       figureModalPhoto.style.justifyContent = "flex-start";
       figureModalPhoto.style.flexWrap = "wrap";
       figureModalPhoto.style.gap = "5px";
       figureModalPhoto.style.padding = "10px 80px";
       figureModalPhoto.style.margin = "24px";
+      
       modaleWrap.appendChild(figureModalPhoto);
-
+      
       async function fetchWorks() {
         try {
           const response = await fetch("http://localhost:5678/api/works");
@@ -200,9 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
             figureGallery.appendChild(poubellePhoto);
 
             // STYLE DU CONTENEUR GLOBAL
-            // figureModalPhoto.style.border = "1px solid red";
-            figureModalPhoto.classList.add("figureModalPhoto");
-
+            
              poubellePhoto.addEventListener("click", () => {
               const id = poubellePhoto.dataset.id;
               delete1Work(id);
@@ -380,6 +375,15 @@ document.addEventListener("DOMContentLoaded", () => {
           // Ci dessous appel complet du boutton de close
           closeModaleAjoutPhoto.prepend(iconeCloseBtnAjtPhoto);
           headerAjouterPhoto.appendChild(closeModaleAjoutPhoto);
+
+          closeModaleAjoutPhoto.addEventListener("click", enleverCloseModaleAjoutPhoto);
+
+          function enleverCloseModaleAjoutPhoto() {
+            modaleAjouterPhoto.remove();
+            laModale.remove();
+            modaleAjouterPhoto.style.display = "none";
+          }
+
 
           const mainAjouterPhoto = document.createElement("main");
           mainAjouterPhoto.classList.add("main-ajouter-photo");

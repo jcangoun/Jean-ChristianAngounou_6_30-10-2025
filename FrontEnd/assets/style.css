@@ -181,8 +181,9 @@ li:hover {
 	margin-bottom: 1em;
 }
 
+/* Ci dessous portfolio ci utilme ou pas ? a Voir  */
 #portfolio
- aside #laModale {
+aside #laModale {
 	background-color: rgba(0, 0, 0, 0.4);
 	/* position: fixed; */
 	color: red;
@@ -195,8 +196,11 @@ li:hover {
 	padding: 0;
 	margin: 0;
 }
+/* Ci dessus portfolio ci utilme ou pas ? a Voir  */
 
-
+/* c est ici normalement les modales ,
+ mais il est pour l instant plus bas
+  a partir de #btnModifier */
 
 .gallery {
 	width: 100%;
@@ -304,23 +308,36 @@ footer nav ul {
 	font-size: 24px;
 	cursor: pointer;
 	padding: 30px;
-	/* color: red; */
 	};
 	
-	/* #laModale .modaleWrap button i { }; */
+	/* #laModale .modaleWrap .close-button i { background-color: red;	}; */
 	
 	/* ci dessous h2InModale */
 	
-	/* #laModale .modaleWrap .ss-titre-modale {
+	#laModale .modaleWrap .ss-titre-modale {
 		color: black;
-		justify-content: center;
+		font-family: "Work Sans, sans-serif";
+		font-weight: 400;
+		font-size: 26px;
+		letter-spacing: 0;
+		
+		/* padding: 30px; */
+
+		/* justify-content: center;
 		background-color: transparent;
 		border: none;
-		font-size: 24px;
-		cursor: pointer;
-		padding: 30px;
-		}; */
+		cursor: pointer; */
+	};
 		
+	#laModale .modaleWrap .figure-modale-photo {
+		display: flex;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		gap: 5px;
+		padding: 10px 80px;
+		margin: 24px;
+		background-color: rebeccapurple;
+	}	
 
 
 		/* .spar-line {} */
@@ -330,13 +347,12 @@ footer nav ul {
 		/* ici dessous la creation style de la modale " pour "Ajout photo" */	
 		
 		
-		.filters {
+.filters {
 	display: flex;
 	justify-content: center;
 	margin: 30px;
 	justify-content: center;
 	background-color: blue;
-
  }
 
  .filter-btn {
