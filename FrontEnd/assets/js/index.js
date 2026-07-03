@@ -601,17 +601,59 @@ document.addEventListener("DOMContentLoaded", () => {
           mainAjouterPhoto.appendChild(champCategoriePhoto);
           // Et ensuite alors
           champCategoriePhoto.appendChild(labelCategoriePhoto);
+          
+          const selectCategoriePhoto = document.createElement("select");
+          
+          // selectCategoriePhoto.type = "text";
+          selectCategoriePhoto.id = "categorie";
+          selectCategoriePhoto.name = "categorie";
+          selectCategoriePhoto.style.border = "none";
+          selectCategoriePhoto.style.height = "51px";
+          selectCategoriePhoto.style.width = "420px";
+          selectCategoriePhoto.style.boxShadow = "0px 4px 14px 0px rgba(0, 0, 255, 0.09)";
+          
+          champCategoriePhoto.appendChild(selectCategoriePhoto);
+          
+          const optionCategorieObjet = document.createElement("option");
+          // optionCategorieObjet.value = "";
+          // optionCategorieObjet.textContent = "Choisir une catégorie";
+          
+          optionCategorieObjet.value = "1";
+          // optionCategorieObjet.name = "name";
+          optionCategorieObjet.textContent = "Objets";
 
-          const inputTextCategoriePhoto = document.createElement("input");
-          inputTextCategoriePhoto.type = "text";
-          inputTextCategoriePhoto.id = "categorie";
-          inputTextCategoriePhoto.name = "categorie";
-          inputTextCategoriePhoto.style.border = "none";
-          inputTextCategoriePhoto.style.height = "51px";
-          inputTextCategoriePhoto.style.width = "420px";
-          inputTextCategoriePhoto.style.boxShadow = "0px 4px 14px 0px rgba(0, 0, 255, 0.09)";
-          champCategoriePhoto.appendChild(inputTextCategoriePhoto);
+          const optionCategorieAppartements = document.createElement("option");
+          optionCategorieAppartements.value = "2";
+          // optionCategorieAppartements.name = "name";
+          optionCategorieAppartements.textContent = "Appartements";
 
+          const optionCategorieHotelsEtRestaurants = document.createElement("option");
+          optionCategorieHotelsEtRestaurants.value = "3";
+          // optionCategorieHotelsEtRestaurants.name = "name";
+          optionCategorieHotelsEtRestaurants.textContent = "Hotels & Restaurants";
+
+
+          selectCategoriePhoto.appendChild(optionCategorieObjet);
+          selectCategoriePhoto.appendChild(optionCategorieAppartements);
+          selectCategoriePhoto.appendChild(optionCategorieHotelsEtRestaurants);
+
+          // A voir
+          
+          // fetch("http://localhost:5678/api/categories")
+          //   .then((response) => response.json())
+          //   .then((categories) => {
+          //     categories.forEach((category) => {
+          //       const option = document.createElement("option");
+          //       option.value = category.id;
+          //       option.textContent = category.name;
+          //       selectCategoriePhoto.appendChild(option);
+          //     });
+          //   });
+
+          // A voir  
+
+
+          
           // lign separ de madal AJout
           const modalSeparLine = document.createElement("hr");
           modalSeparLine.classList.add("spar-line");
@@ -642,6 +684,12 @@ document.addEventListener("DOMContentLoaded", () => {
           modalAjoutBtn.style.cursor = "pointer";
           modalAjoutBtn.textContent = "Valider";
           mainAjouterPhoto.appendChild(modalAjoutBtn);
+
+          // if (inputTitrePhoto.value && selectCategoriePhoto.value && inputImagePhoto.files[0]) {            
+          //   modalAjoutBtn.classList.remove("disabled");
+          //   modalAjoutBtn.classList.add("enabled");
+          //   modalAjoutBtn.classList.add("active");            
+          // }
         }
         openModaleAjouterPhoto();
       });
