@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   filters.style.display = "flex";
   filters.style.justifyContent = "center";
   filters.style.margin = "38px";
-  
+
   const gallery = document.querySelector(".gallery");
 
   const loginConnection = document.getElementById("loginConnection");
@@ -84,9 +84,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       laModale.appendChild(modaleWrap);
 
-      
       // MODALEWRAP STYLE ci dessous de la modale wrap qui est la boite blanche de la modale
-      
+
       const h2InModale = document.createElement("h2");
       h2InModale.classList.add("ss-titre-modale");
       modaleWrap.appendChild(h2InModale);
@@ -113,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
       closeButton.prepend(iconeCloseBtn);
 
       modaleWrap.insertBefore(closeButton, h2InModale);
-      
+
       closeButton.addEventListener("click", closeModale);
       function closeModale() {
         laModale.remove();
@@ -129,9 +128,9 @@ document.addEventListener("DOMContentLoaded", () => {
       figureModalPhoto.style.gap = "5px";
       figureModalPhoto.style.padding = "10px 80px";
       figureModalPhoto.style.margin = "24px";
-      
+
       modaleWrap.appendChild(figureModalPhoto);
-      
+
       async function fetchWorks() {
         try {
           const response = await fetch("http://localhost:5678/api/works");
@@ -176,7 +175,6 @@ document.addEventListener("DOMContentLoaded", () => {
             iconePoubelle.height = "10.30px";
             iconePoubelle.classList.add("fa-solid", "fa-trash-can");
 
-
             poubellePhoto.dataset.id = lesOeuvres.id;
             poubellePhoto.style.width = "17px";
             poubellePhoto.style.height = "17px";
@@ -185,7 +183,6 @@ document.addEventListener("DOMContentLoaded", () => {
             poubellePhoto.style.top = "-37px";
             poubellePhoto.style.right = "22px";
 
-            
             poubellePhoto.appendChild(iconePoubelle);
 
             poubellePhoto.classList.add("poubellePhoto");
@@ -196,11 +193,11 @@ document.addEventListener("DOMContentLoaded", () => {
             figureGallery.appendChild(poubellePhoto);
 
             // STYLE DU CONTENEUR GLOBAL
-            
-             poubellePhoto.addEventListener("click", () => {
+
+            poubellePhoto.addEventListener("click", () => {
               const id = poubellePhoto.dataset.id;
               delete1Work(id);
-             });
+            });
           });
         } catch (error) {
           console.log(error);
@@ -291,7 +288,6 @@ document.addEventListener("DOMContentLoaded", () => {
       btnAjouterPhoto.style.cursor = "pointer";
       wrapFooter.appendChild(btnAjouterPhoto);
 
-
       btnAjouterPhoto.addEventListener("click", () => {
         console.log("tu as clique ca A ajoute une photo");
         modaleWrap.style.display = "none";
@@ -311,9 +307,8 @@ document.addEventListener("DOMContentLoaded", () => {
           modaleAjouterPhoto.style.flexDirection = "column";
           // modaleAjouterPhoto.style.alignItems = "center";
           modaleAjouterPhoto.style.justifyContent = "center";
-          
-          // modaleAjouterPhoto.style.maxHeight = "688px"; 
 
+          // modaleAjouterPhoto.style.maxHeight = "688px";
 
           // header ds ajtmodelaPhoto
           const headerAjouterPhoto = document.createElement("header");
@@ -341,7 +336,6 @@ document.addEventListener("DOMContentLoaded", () => {
           leftArrowModalAjtPhoto.style.cursor = "pointer";
           arrowButton.prepend(leftArrowModalAjtPhoto);
 
-
           //puis
           headerAjouterPhoto.prepend(arrowButton);
           leftArrowModalAjtPhoto.addEventListener("click", () => {
@@ -359,13 +353,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const iconeCloseBtnAjtPhoto = document.createElement("i");
           iconeCloseBtnAjtPhoto.classList.add("fa-solid", "fa-xmark");
-          
-          // maintenant ci dessous que le close est crée on peut alors faire un evenement 
-          // qui ferme la page 
+
+          // maintenant ci dessous que le close est crée on peut alors faire un evenement
+          // qui ferme la page
           const calqueModaleAjoutPhoto = document.getElementById("modaleAjoutPhoto");
           // console.log(calqueModaleAjoutPhoto + "ca fait");
-          
-          
+
           // Ci dessous appel complet du boutton de close
           closeModaleAjoutPhoto.prepend(iconeCloseBtnAjtPhoto);
           headerAjouterPhoto.appendChild(closeModaleAjoutPhoto);
@@ -377,7 +370,6 @@ document.addEventListener("DOMContentLoaded", () => {
             laModale.remove();
             modaleAjouterPhoto.style.display = "none";
           }
-
 
           const mainAjouterPhoto = document.createElement("main");
           mainAjouterPhoto.classList.add("main-ajouter-photo");
@@ -440,9 +432,8 @@ document.addEventListener("DOMContentLoaded", () => {
           // buttonAjouterPhoto.textContent = "+ Ajouter Photo";
           const textButtonAjouterPhoto = document.createElement("span");
           textButtonAjouterPhoto.textContent = "+ Ajouter Photo";
-          
-          buttonAjouterPhoto.appendChild(textButtonAjouterPhoto);
 
+          buttonAjouterPhoto.appendChild(textButtonAjouterPhoto);
 
           // ici on crée l input lie au label, qui va servir a chercher les photos
           const fileButtonInput = document.createElement("input");
@@ -464,12 +455,12 @@ document.addEventListener("DOMContentLoaded", () => {
               displayPhoto.style.height = "193px";
               displayPhoto.style.objectFit = "cover";
 
-              // A l ajout de l image on cache 
+              // A l ajout de l image on cache
               textButtonAjouterPhoto.style.display = "none";
-             
+
               // preview.style.display = "flex";
 
-              const buttonAjouterPhoto = document.querySelector(".button-ajouter-Photo"); 
+              const buttonAjouterPhoto = document.querySelector(".button-ajouter-Photo");
               buttonAjouterPhoto.style.display = "flex";
               buttonAjouterPhoto.style.justifyContent = "center";
               buttonAjouterPhoto.style.alignItems = "center";
@@ -477,7 +468,7 @@ document.addEventListener("DOMContentLoaded", () => {
               buttonAjouterPhoto.style.padding = "0";
               buttonAjouterPhoto.style.width = "420px";
               // buttonAjouterPhoto.style.backgroundColor = "red";
-              
+
               buttonAjouterPhoto.style.textContent = "";
 
               inputTitrePhoto.title = inputTitrePhoto.title.value;
@@ -539,7 +530,7 @@ document.addEventListener("DOMContentLoaded", () => {
           });
 
           function addImage() {}
-          console.log("ca a ajoute une photo");
+          console.log("ca peut ajouter une photo");
           const fileInput = document.createElement("input");
           fileInput.type = "file";
           fileInput.style.display = "flex";
@@ -574,6 +565,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const inputTitrePhoto = document.createElement("input");
           inputTitrePhoto.classList.add("input-titre-photo");
           inputTitrePhoto.type = "text";
+          inputTitrePhoto.placeholder = "Entrez le titre de la photo";
           inputTitrePhoto.id = "titre";
           inputTitrePhoto.name = "titre";
           inputTitrePhoto.style.border = "none";
@@ -582,6 +574,23 @@ document.addEventListener("DOMContentLoaded", () => {
           inputTitrePhoto.style.boxShadow = "0px 4px 14px 0px rgba(0, 0, 255, 0.09)";
 
           ChampTitrePhoto.appendChild(inputTitrePhoto);
+
+          inputTitrePhoto.addEventListener("input", () => {
+            titrePhotoMisAJour();
+          });
+
+          const titrePhotoMisAJour = () => {
+            titrPhotValid();
+          };
+          function titrPhotValid() {
+            inputTitrePhoto.style.color = "purple";
+            console.log("le titre de la photo est bonne : " + inputTitrePhoto.value);
+
+            if (inputTitrePhoto.blur) {
+              inputTitrePhoto.style.borderColor = "green";
+              console.log("inputTitrePhoto est blur");
+            }
+          }
 
           const champCategoriePhoto = document.createElement("div");
           champCategoriePhoto.classList.add("champ-categorie-photo");
@@ -592,6 +601,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const labelCategoriePhoto = document.createElement("label");
 
           labelCategoriePhoto.setAttribute("for", "categoriePhoto");
+          labelCategoriePhoto.setAttribute("id", "categorie-photo");
           labelCategoriePhoto.textContent = "Catégorie";
           labelCategoriePhoto.fontFamily = "work sans, sans-serif";
           labelCategoriePhoto.fontSize = "14px";
@@ -601,9 +611,9 @@ document.addEventListener("DOMContentLoaded", () => {
           mainAjouterPhoto.appendChild(champCategoriePhoto);
           // Et ensuite alors
           champCategoriePhoto.appendChild(labelCategoriePhoto);
-          
+
           const selectCategoriePhoto = document.createElement("select");
-          
+
           // selectCategoriePhoto.type = "text";
           selectCategoriePhoto.id = "categorie";
           selectCategoriePhoto.name = "categorie";
@@ -611,13 +621,18 @@ document.addEventListener("DOMContentLoaded", () => {
           selectCategoriePhoto.style.height = "51px";
           selectCategoriePhoto.style.width = "420px";
           selectCategoriePhoto.style.boxShadow = "0px 4px 14px 0px rgba(0, 0, 255, 0.09)";
-          
+
           champCategoriePhoto.appendChild(selectCategoriePhoto);
-          
+
           const optionCategorieObjet = document.createElement("option");
+
           // optionCategorieObjet.value = "";
           // optionCategorieObjet.textContent = "Choisir une catégorie";
-          
+          const optionCategorieVide = document.createElement("option");
+          optionCategorieVide.value = "";
+          optionCategorieVide.textContent = "Choisir une catégorie";
+          selectCategoriePhoto.appendChild(optionCategorieVide);
+
           optionCategorieObjet.value = "1";
           // optionCategorieObjet.name = "name";
           optionCategorieObjet.textContent = "Objets";
@@ -632,13 +647,26 @@ document.addEventListener("DOMContentLoaded", () => {
           // optionCategorieHotelsEtRestaurants.name = "name";
           optionCategorieHotelsEtRestaurants.textContent = "Hotels & Restaurants";
 
-
           selectCategoriePhoto.appendChild(optionCategorieObjet);
           selectCategoriePhoto.appendChild(optionCategorieAppartements);
           selectCategoriePhoto.appendChild(optionCategorieHotelsEtRestaurants);
 
-          // A voir
+          const typeOptionCategorieProjet = [];
+          typeOptionCategorieProjet.push(optionCategorieVide);
+          typeOptionCategorieProjet.push(optionCategorieObjet);
+          typeOptionCategorieProjet.push(optionCategorieAppartements);
+          typeOptionCategorieProjet.push(optionCategorieHotelsEtRestaurants);
+          console.log(typeOptionCategorieProjet)
+
+          selectCategoriePhoto.addEventListener("change", () => { 
+            if (selectCategoriePhoto.value === "") { console.log("la section est vide , faites un choix correcpondant"); }
+            else {
+              console.log("la categorie de la photo est bonne : " + selectCategoriePhoto.value);
+            }         
+          });
           
+          // A voir
+
           // fetch("http://localhost:5678/api/categories")
           //   .then((response) => response.json())
           //   .then((categories) => {
@@ -650,10 +678,26 @@ document.addEventListener("DOMContentLoaded", () => {
           //     });
           //   });
 
-          // A voir  
+          // A voir
 
 
-          
+        //   const choixCategoriePhotoMisAJour = () => {
+        //     categoriePhotoValid();
+        //   };
+        // }
+        // function categoriePhotoValid() {
+        //   {
+        //     if (selectCategoriePhoto.value === "") {
+        //       selectCategoriePhoto.classList.add("invalid");
+        //     } else {
+        //       selectCategoriePhoto.classList.remove("invalid");
+        //       selectCategoriePhoto.classList.add("valid");
+        //       console.log("la categorie de la photo est bonne : " + selectCategoriePhoto.value);
+        //     }
+        //   }
+
+
+
           // lign separ de madal AJout
           const modalSeparLine = document.createElement("hr");
           modalSeparLine.classList.add("spar-line");
@@ -685,10 +729,10 @@ document.addEventListener("DOMContentLoaded", () => {
           modalAjoutBtn.textContent = "Valider";
           mainAjouterPhoto.appendChild(modalAjoutBtn);
 
-          // if (inputTitrePhoto.value && selectCategoriePhoto.value && inputImagePhoto.files[0]) {            
+          // if (inputTitrePhoto.value && selectCategoriePhoto.value && inputImagePhoto.files[0]) {
           //   modalAjoutBtn.classList.remove("disabled");
           //   modalAjoutBtn.classList.add("enabled");
-          //   modalAjoutBtn.classList.add("active");            
+          //   modalAjoutBtn.classList.add("active");
           // }
         }
         openModaleAjouterPhoto();
@@ -701,11 +745,6 @@ document.addEventListener("DOMContentLoaded", () => {
       //  alors que là il fonctionnera car le boutton est créé et lié a son wrapFooter
     });
 
-
-
-
-
-    
     loginConnection.textContent = "logout";
     loginConnection.addEventListener("click", () => {
       logout();
