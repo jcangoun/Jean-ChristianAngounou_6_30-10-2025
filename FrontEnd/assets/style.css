@@ -340,8 +340,32 @@ footer nav ul {
 	}	
 
 
-		/* .spar-line {} */
+		/* .spar-line {
 		
+		} */
+
+		.btnAjouterPhoto {
+			font-family: "Syne";
+			font-weight: 700;
+			color: white;
+			border: none;
+			margin: 30px;
+			border-radius: 50px;
+			padding: 12px 24px;
+			font-size: 14px;
+			width: 236px;
+			cursor: pointer;
+			background-color: #1D6154;
+		}
+		
+		.header-modale-ajouter-photo {
+			display: flex;
+			margin: 0;
+		}
+
+		.arrow-button {
+			
+		}
 
 
 		/* ici dessous la creation style de la modale " pour "Ajout photo" */	

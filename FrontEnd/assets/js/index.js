@@ -277,15 +277,6 @@ document.addEventListener("DOMContentLoaded", () => {
       btnAjouterPhoto.classList.add("button");
       btnAjouterPhoto.classList.add("btnAjouterPhoto");
       btnAjouterPhoto.textContent = "Ajouter une photo";
-      btnAjouterPhoto.style.backgroundColor = "#1D6154";
-      btnAjouterPhoto.style.color = "white";
-      btnAjouterPhoto.style.border = "none";
-      btnAjouterPhoto.style.margin = "30px";
-      btnAjouterPhoto.style.borderRadius = "50px";
-      btnAjouterPhoto.style.padding = "12px 24px";
-      btnAjouterPhoto.style.fontSize = "16px";
-      btnAjouterPhoto.style.width = "236px";
-      btnAjouterPhoto.style.cursor = "pointer";
       wrapFooter.appendChild(btnAjouterPhoto);
 
       btnAjouterPhoto.addEventListener("click", () => {
@@ -312,16 +303,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
           // header ds ajtmodelaPhoto
           const headerAjouterPhoto = document.createElement("header");
-          headerAjouterPhoto.classList.add("headerAjouterPhoto");
-          headerAjouterPhoto.style.display = "flex";
-          headerAjouterPhoto.style.margin = "0";
-          // headerAjouterPhoto.style.alignItems = "center";
+          headerAjouterPhoto.classList.add("header-modale-ajouter-photo");
           modaleAjouterPhoto.appendChild(headerAjouterPhoto);
-
-          // headerAjouterPhoto.textContent = "le header de la modale d ajout de photo";
 
           // Fleche Retour
           const arrowButton = document.createElement("button");
+          // arrowButton.classList.add("arrow-button");
           arrowButton.style.display = "flex";
           // arrowButton.style.justifyContent = "start";
           arrowButton.style.margin = "30px";
@@ -471,8 +458,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
               buttonAjouterPhoto.style.textContent = "";
 
+              console.log("l image est bonne : " + file.name);
+
               inputTitrePhoto.title = inputTitrePhoto.title.value;
-              inputTitrePhoto.category = inputTitrePhoto.category.value;
+              inputTitrePhoto.categoryId = inputTitrePhoto.value;
 
               // Libérer la mémoire après chargement
               preview.onload = () => URL.revokeObjectURL(objectUrl);
@@ -564,11 +553,12 @@ document.addEventListener("DOMContentLoaded", () => {
           ChampTitrePhoto.appendChild(labelTitrePhoto);
           const inputTitrePhoto = document.createElement("input");
           inputTitrePhoto.classList.add("input-titre-photo");
+          inputTitrePhoto.setAttribute("id", "titre");
           inputTitrePhoto.type = "text";
           inputTitrePhoto.placeholder = "Entrez le titre de la photo";
           inputTitrePhoto.id = "titre";
           inputTitrePhoto.name = "titre";
-          inputTitrePhoto.style.border = "none";
+          // inputTitrePhoto.style.border = "none";
           inputTitrePhoto.style.height = "51px";
           inputTitrePhoto.style.width = "420px";
           inputTitrePhoto.style.boxShadow = "0px 4px 14px 0px rgba(0, 0, 255, 0.09)";
@@ -576,22 +566,20 @@ document.addEventListener("DOMContentLoaded", () => {
           ChampTitrePhoto.appendChild(inputTitrePhoto);
 
           inputTitrePhoto.addEventListener("input", () => {
-            titrePhotoMisAJour();
-          });
 
-          const titrePhotoMisAJour = () => {
-            titrPhotValid();
-          };
-          function titrPhotValid() {
-            inputTitrePhoto.style.color = "purple";
+            const inputTitrePhoto = document.getElementById("titre");
+            inputTitrePhoto.style.color = "orange";
             console.log("le titre de la photo est bonne : " + inputTitrePhoto.value);
-
             if (inputTitrePhoto.blur) {
               inputTitrePhoto.style.borderColor = "green";
-              console.log("inputTitrePhoto est blur");
+              console.log("inputTitrePhoto1st est blur");
+            } else {
+              inputTitrePhoto.style.borderColor = "red";
+              console.log("inputTitrePhoto1st PROBLEME");
             }
-          }
 
+          });
+            
           const champCategoriePhoto = document.createElement("div");
           champCategoriePhoto.classList.add("champ-categorie-photo");
           champCategoriePhoto.style.display = "flex";
@@ -656,15 +644,16 @@ document.addEventListener("DOMContentLoaded", () => {
           typeOptionCategorieProjet.push(optionCategorieObjet);
           typeOptionCategorieProjet.push(optionCategorieAppartements);
           typeOptionCategorieProjet.push(optionCategorieHotelsEtRestaurants);
-          console.log(typeOptionCategorieProjet)
+          console.log(typeOptionCategorieProjet);
 
-          selectCategoriePhoto.addEventListener("change", () => { 
-            if (selectCategoriePhoto.value === "") { console.log("la section est vide , faites un choix correcpondant"); }
-            else {
+          selectCategoriePhoto.addEventListener("change", () => {
+            if (selectCategoriePhoto.value === "") {
+              console.log("la section est vide , faites un choix correcpondant");
+            } else {
               console.log("la categorie de la photo est bonne : " + selectCategoriePhoto.value);
-            }         
+            }
           });
-          
+
           // A voir
 
           // fetch("http://localhost:5678/api/categories")
@@ -680,23 +669,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
           // A voir
 
+          //   const choixCategoriePhotoMisAJour = () => {
+          //     categoriePhotoValid();
+          //   };
+          // }
+          // function categoriePhotoValid() {
+          //   {
+          //     if (selectCategoriePhoto.value === "") {
+          //       selectCategoriePhoto.classList.add("invalid");
+          //     } else {
+          //       selectCategoriePhoto.classList.remove("invalid");
+          //       selectCategoriePhoto.classList.add("valid");
+          //       console.log("la categorie de la photo est bonne : " + selectCategoriePhoto.value);
+          //     }
+          //   }
 
-        //   const choixCategoriePhotoMisAJour = () => {
-        //     categoriePhotoValid();
-        //   };
-        // }
-        // function categoriePhotoValid() {
-        //   {
-        //     if (selectCategoriePhoto.value === "") {
-        //       selectCategoriePhoto.classList.add("invalid");
-        //     } else {
-        //       selectCategoriePhoto.classList.remove("invalid");
-        //       selectCategoriePhoto.classList.add("valid");
-        //       console.log("la categorie de la photo est bonne : " + selectCategoriePhoto.value);
-        //     }
-        //   }
+          // ------------------------------------------------------- //
 
+          if (selectCategoriePhoto.value === "") {
+            selectCategoriePhoto.classList.add("invalid");
+          } else {
+            selectCategoriePhoto.classList.remove("invalid");
+            selectCategoriePhoto.classList.add("valid");
+            console.log("la 2e categorie de la photo est bonne : " + selectCategoriePhoto.value);
+          }
 
+          // ------------------------------------------------------- //
 
           // lign separ de madal AJout
           const modalSeparLine = document.createElement("hr");
@@ -729,11 +727,35 @@ document.addEventListener("DOMContentLoaded", () => {
           modalAjoutBtn.textContent = "Valider";
           mainAjouterPhoto.appendChild(modalAjoutBtn);
 
+
+          function updateModalButtonState() {
+            
+            
+            // ActivationModalajoutBtn();
+         
+         
+         
+          }
+
           // if (inputTitrePhoto.value && selectCategoriePhoto.value && inputImagePhoto.files[0]) {
-          //   modalAjoutBtn.classList.remove("disabled");
-          //   modalAjoutBtn.classList.add("enabled");
           //   modalAjoutBtn.classList.add("active");
           // }
+
+          function ActivationModalajoutBtn () {
+
+            if (inputImagePhoto.files == "" || inputTitrePhoto.value == "" || selectCategoriePhoto.value == "") {
+              alert("Veuillez remplir tous les champs avant de valider.");
+              modalAjoutBtn.classList.add("disabled");
+              modalAjoutBtn.classList.add("inactive");
+              alert("Veuillez remplir tous les champs avant de valider.");
+            } else if (inputImagePhoto.files[0] && inputTitrePhoto.value && selectCategoriePhoto.value) {
+              alert("C est bon! .Tous les champs sont remplis. Vous pouvez valider.");
+              modalAjoutBtn.classList.add("enabled");
+              modalAjoutBtn.classList.add("active");
+              modalAjoutBtn.classList.add("btnAjouterPhoto");
+              console.log("le bouton de validation est activé");
+            }
+          }
         }
         openModaleAjouterPhoto();
       });
