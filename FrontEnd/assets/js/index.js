@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
           data.forEach((lesOeuvres) => {
             // FIGURE POUR CHAQUE PHOTO
             const figureGallery = document.createElement("figure");
-            figureGallery.classList.add("figure-gallery", "figure-modal-photo");
+            figureGallery.classList.add("figure-gallery", "figure-modale-photo");
             figureGallery.padding = "10px";
             figureGallery.style.position = "relative";
             figureGallery.style.display = "flex";
@@ -176,6 +176,8 @@ document.addEventListener("DOMContentLoaded", () => {
             iconePoubelle.classList.add("fa-solid", "fa-trash-can");
 
             poubellePhoto.dataset.id = lesOeuvres.id;
+            
+            poubellePhoto.style.fontSize = "11px";
             poubellePhoto.style.width = "17px";
             poubellePhoto.style.height = "17px";
             poubellePhoto.style.backgroundColor = "#000000";
@@ -274,6 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const btnAjouterPhoto = document.createElement("button");
       // btnAjouterPhoto.classList.add("button", "btnAjouterPhoto");
+      btnAjouterPhoto.classList.add("enabled");
       btnAjouterPhoto.classList.add("button");
       btnAjouterPhoto.classList.add("btnAjouterPhoto");
       btnAjouterPhoto.textContent = "Ajouter une photo";
@@ -330,6 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
             modaleWrap.style.display = "flex";
           });
           const closeModaleAjoutPhoto = document.createElement("button");
+          closeModaleAjoutPhoto.classList.add("close-button")
           closeModaleAjoutPhoto.style.display = "flex";
           closeModaleAjoutPhoto.style.justifyContent = "end";
           closeModaleAjoutPhoto.style.backgroundColor = "transparent";
@@ -558,7 +562,7 @@ document.addEventListener("DOMContentLoaded", () => {
           inputTitrePhoto.placeholder = "Entrez le titre de la photo";
           inputTitrePhoto.id = "titre";
           inputTitrePhoto.name = "titre";
-          // inputTitrePhoto.style.border = "none";
+          inputTitrePhoto.style.border = "none";
           inputTitrePhoto.style.height = "51px";
           inputTitrePhoto.style.width = "420px";
           inputTitrePhoto.style.boxShadow = "0px 4px 14px 0px rgba(0, 0, 255, 0.09)";
@@ -577,7 +581,6 @@ document.addEventListener("DOMContentLoaded", () => {
               inputTitrePhoto.style.borderColor = "red";
               console.log("inputTitrePhoto1st PROBLEME");
             }
-
           });
             
           const champCategoriePhoto = document.createElement("div");
@@ -710,21 +713,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const modalAjoutBtn = document.createElement("button");
           modalAjoutBtn.classList.add("button");
-          modalAjoutBtn.classList.add("modalAjoutBtn");
+          modalAjoutBtn.classList.add("button-validation");
+          // modalAjoutBtn.classList.add("enabled");
+
           modalAjoutBtn.textContent = "Ajouter";
+          
+          modalAjoutBtn.classList.add("btnAjouterPhoto");
 
           // Proprietes bouton ci dessus en doublon,
           // les factoriser plus tard grace au css en un seul code
-          modalAjoutBtn.style.backgroundColor = "#A7A7A7";
-          modalAjoutBtn.style.color = "white";
-          modalAjoutBtn.style.border = "none";
-          modalAjoutBtn.style.margin = "30px";
-          modalAjoutBtn.style.borderRadius = "50px";
-          modalAjoutBtn.style.padding = "12px 24px";
-          modalAjoutBtn.style.fontSize = "16px";
-          modalAjoutBtn.style.width = "236px";
-          modalAjoutBtn.style.cursor = "pointer";
-          modalAjoutBtn.textContent = "Valider";
+
+          // modalAjoutBtn.style.backgroundColor = "#A7A7A7";
+          // modalAjoutBtn.style.color = "white";
+          // modalAjoutBtn.style.border = "none";
+          // modalAjoutBtn.style.margin = "30px";
+          // modalAjoutBtn.style.borderRadius = "50px";
+          // modalAjoutBtn.style.padding = "12px 24px";
+          // modalAjoutBtn.style.fontSize = "16px";
+          // modalAjoutBtn.style.width = "236px";
+          // modalAjoutBtn.style.cursor = "pointer";
+          // modalAjoutBtn.textContent = "Valider";
           mainAjouterPhoto.appendChild(modalAjoutBtn);
 
 

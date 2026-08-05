@@ -316,7 +316,7 @@ footer nav ul {
 	
 	#laModale .modaleWrap .ss-titre-modale {
 		color: black;
-		font-family: "Work Sans, sans-serif";
+		font-family: 'Work Sans', sans-serif;
 		font-weight: 400;
 		font-size: 26px;
 		letter-spacing: 0;
@@ -328,6 +328,12 @@ footer nav ul {
 		border: none;
 		cursor: pointer; */
 	};
+	
+	/* #laModale .modaleWrap .close-button {
+		display: flex;
+	} */
+
+	/* .modaleWrap .ss-titre-modale {} */
 		
 	#laModale .modaleWrap .figure-modale-photo {
 		display: flex;
@@ -336,13 +342,40 @@ footer nav ul {
 		gap: 5px;
 		padding: 10px 80px;
 		margin: 24px;
-		background-color: rebeccapurple;
+		background-color: red;
 	}	
+
+	.figure-gallery {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	/* .figure-gallery .img-modal-photo {
+		display: flex;
+		width: 77px;
+		height: 103px;
+	} */
+
+/* .poubellePhoto 	{ 
+	display: flex;
+	justify-content: center;
+	position: relative;
+	font-size: 11px;
+	width: 17px;
+	height: 17px;
+	background-color: rgb(0, 0, 0);
+	top: -37px;
+	right: 22px;
+}	 */
 
 
 		/* .spar-line {
-		
+		display: flex;
+		width: 420px;
+		border: 1px solid rgb(179, 179, 179);
 		} */
+
 
 		.btnAjouterPhoto {
 			font-family: "Syne";
@@ -357,15 +390,31 @@ footer nav ul {
 			cursor: pointer;
 			background-color: #1D6154;
 		}
+		/* .button-validation {
+
+		} */
+		.button-validation.enabled {
+			background-color: #1D6154;
+		}
+		.button-validation.disabled {
+			background-color: #A7A7A7;
+		}
+		/* #modaleAjouterPhoto {
+			display: flex;
+			justify-content: center; 
+			background-color: white;
+			flex-direction: column;
+			width: 630px;
+		} */
 		
 		.header-modale-ajouter-photo {
 			display: flex;
 			margin: 0;
 		}
 
-		.arrow-button {
-			
-		}
+		/* .arrow-button {
+
+		} */
 
 
 		/* ici dessous la creation style de la modale " pour "Ajout photo" */	
@@ -376,7 +425,7 @@ footer nav ul {
 	justify-content: center;
 	margin: 30px;
 	justify-content: center;
-	background-color: blue;
+	/* background-color: blue; */
  }
 
  .filter-btn {
