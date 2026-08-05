@@ -719,6 +719,8 @@ document.addEventListener("DOMContentLoaded", () => {
           modalAjoutBtn.textContent = "Ajouter";
           
           modalAjoutBtn.classList.add("btnAjouterPhoto");
+          modalAjoutBtn.classList.add("disabled");
+
 
           // Proprietes bouton ci dessus en doublon,
           // les factoriser plus tard grace au css en un seul code
