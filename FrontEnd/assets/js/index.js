@@ -328,10 +328,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           //puis
           headerAjouterPhoto.prepend(arrowButton);
-          leftArrowModalAjtPhoto.addEventListener("click", () => {
-            modaleAjouterPhoto.style.display = "none";
-            modaleWrap.style.display = "flex";
-          });
+
           const closeModaleAjoutPhoto = document.createElement("button");
           closeModaleAjoutPhoto.classList.add("close-button");
           closeModaleAjoutPhoto.style.display = "flex";
@@ -345,12 +342,6 @@ document.addEventListener("DOMContentLoaded", () => {
           const iconeCloseBtnAjtPhoto = document.createElement("i");
           iconeCloseBtnAjtPhoto.classList.add("fa-solid", "fa-xmark");
 
-          // maintenant ci dessous que le close est crée on peut alors faire un evenement
-          // qui ferme la page
-          const calqueModaleAjoutPhoto = document.getElementById("modaleAjoutPhoto");
-          // console.log(calqueModaleAjoutPhoto + "ca fait");
-
-          // Ci dessous appel complet du boutton de close
           closeModaleAjoutPhoto.prepend(iconeCloseBtnAjtPhoto);
           headerAjouterPhoto.appendChild(closeModaleAjoutPhoto);
 
@@ -380,22 +371,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
           mainAjouterPhoto.appendChild(h2AjoutPhoto);
 
-          // ici la source photo de vide
+          const formAddingPic = document.createElement("form");
+          formAddingPic.setAttribute("id", "form-adding-pic");
+          formAddingPic.style.display = "flex";
+          formAddingPic.style.flexDirection = "column";
+          formAddingPic.style.alignItems = "center";
+
+          mainAjouterPhoto.appendChild(formAddingPic);
 
           const displayImage = document.createElement("div");
           displayImage.classList.add("display-image");
           displayImage.style.display = "flex";
           displayImage.style.padding = "10px 0";
           displayImage.style.flexDirection = "column";
-          // imgAjtImage.style.flex = "100%";
           displayImage.style.justifyContent = "center";
           displayImage.style.alignItems = "center";
-
           displayImage.style.minWidth = "420px";
           displayImage.style.minHeight = "169px";
           displayImage.style.backgroundColor = "#E8F1F6";
 
-          mainAjouterPhoto.appendChild(displayImage);
+          formAddingPic.appendChild(displayImage);
 
           const containDefIconeImage = document.createElement("span");
           containDefIconeImage.classList.add("contain-def-icone-image");
@@ -404,43 +399,31 @@ document.addEventListener("DOMContentLoaded", () => {
           containDefIconeImage.style.alignItems = "center";
           containDefIconeImage.style.width = "100%";
           containDefIconeImage.style.height = "100%";
+
           const defaultIconeImage = document.createElement("i");
           defaultIconeImage.classList.add("fa-regular", "fa-image");
           defaultIconeImage.style.fontSize = "76px";
           defaultIconeImage.style.color = "#B3B3B3";
 
-          // l affiche image adopte le containeur defaultimage
           displayImage.appendChild(containDefIconeImage);
-
-          // le containeur d image à sdon tour adopte le defaultImage
           containDefIconeImage.appendChild(defaultIconeImage);
 
           const buttonAjouterPhoto = document.createElement("label");
           buttonAjouterPhoto.classList.add("label", "button-ajouter-Photo");
           buttonAjouterPhoto.style.fontFamily = "work sans, sans-serif";
           buttonAjouterPhoto.style.fontWeight = "medium";
-
-          //  css button transferable
-
           buttonAjouterPhoto.style.backgroundColor = "#CBD6DC";
           buttonAjouterPhoto.style.color = "#306685";
           buttonAjouterPhoto.style.border = "none";
           buttonAjouterPhoto.style.margin = "30px";
-          // buttonAjouterPhoto.style.borderRadius = "50px";
           buttonAjouterPhoto.style.padding = "12px 24px";
           buttonAjouterPhoto.style.fontSize = "16px";
-          // buttonAjouterPhoto.style.width = "236px";
           buttonAjouterPhoto.style.cursor = "pointer";
 
-          //  css button transferable
-
-          // buttonAjouterPhoto.textContent = "+ Ajouter Photo";
           const textButtonAjouterPhoto = document.createElement("span");
           textButtonAjouterPhoto.textContent = "+ Ajouter Photo";
-
           buttonAjouterPhoto.appendChild(textButtonAjouterPhoto);
 
-          // ici on crée l input lie au label, qui va servir a chercher les photos
           const fileButtonInput = document.createElement("input");
           fileButtonInput.id = "fileButtonInput";
           buttonAjouterPhoto.setAttribute("for", "fileButtonInput");
@@ -448,6 +431,27 @@ document.addEventListener("DOMContentLoaded", () => {
           fileButtonInput.style.display = "none";
           fileButtonInput.accept = "image/*";
           buttonAjouterPhoto.appendChild(fileButtonInput);
+
+          const displayPhoto = document.createElement("img");
+          displayPhoto.classList.add("display-photo");
+          buttonAjouterPhoto.appendChild(displayPhoto);
+
+          const resetAjouterPhotoForm = () => {
+            fileButtonInput.value = "";
+            displayPhoto.src = "";
+            displayPhoto.style.display = "none";
+            defaultIconeImage.style.display = "flex";
+            textButtonAjouterPhoto.style.display = "inline";
+
+            buttonAjouterPhoto.style.display = "flex";
+            buttonAjouterPhoto.style.justifyContent = "center";
+            buttonAjouterPhoto.style.alignItems = "center";
+            buttonAjouterPhoto.style.margin = "30px";
+            buttonAjouterPhoto.style.padding = "12px 24px";
+            buttonAjouterPhoto.style.width = "auto";
+
+            displayImage.style.backgroundColor = "#E8F1F6";
+          };
 
           fileButtonInput.addEventListener("change", function () {
             const file = this.files[0];
@@ -459,44 +463,30 @@ document.addEventListener("DOMContentLoaded", () => {
               displayPhoto.style.width = "129px";
               displayPhoto.style.height = "193px";
               displayPhoto.style.objectFit = "cover";
-
-              // A l ajout de l image on cache
               textButtonAjouterPhoto.style.display = "none";
 
-              // preview.style.display = "flex";
-
-              const buttonAjouterPhoto = document.querySelector(".button-ajouter-Photo");
               buttonAjouterPhoto.style.display = "flex";
               buttonAjouterPhoto.style.justifyContent = "center";
               buttonAjouterPhoto.style.alignItems = "center";
               buttonAjouterPhoto.style.margin = "0";
               buttonAjouterPhoto.style.padding = "0";
               buttonAjouterPhoto.style.width = "420px";
-              // buttonAjouterPhoto.style.backgroundColor = "red";
 
-              buttonAjouterPhoto.style.textContent = "";
-
-              console.log("l image est bonne : " + file.name);
-
-              inputTitrePhoto.title = inputTitrePhoto.title.value;
-              inputTitrePhoto.categoryId = inputTitrePhoto.value;
-
-              // Libérer la mémoire après chargement
               displayPhoto.onload = () => URL.revokeObjectURL(objectUrl);
             }
           });
 
           displayImage.appendChild(buttonAjouterPhoto);
 
-          const displayPhoto = document.createElement("img");
-          displayPhoto.classList.add("display-photo");
-          buttonAjouterPhoto.appendChild(displayPhoto);
+          leftArrowModalAjtPhoto.addEventListener("click", () => {
+            modaleAjouterPhoto.style.display = "none";
+            modaleWrap.style.display = "flex";
+            resetAjouterPhotoForm();
+          });
 
           buttonAjouterPhoto.addEventListener("click", () => {
             const containDefIconeImage = document.querySelector(".contain-def-icone-image");
             containDefIconeImage.style.display = "none";
-
-            addImage();
 
             const displayImage = document.querySelector(".display-image");
             displayImage.style.backgroundColor = "transparent";
@@ -512,29 +502,8 @@ document.addEventListener("DOMContentLoaded", () => {
             imgAjtImage.style.objectFit = "cover";
             displayImage.appendChild(imgAjtImage);
 
-
-
-            //  const inputFile la suite , essaie de sauvegarde storage de la photo
-
-            const formData = new FormData();
-
-            formData.append("photo", fichier);
-
-            fetch("/upload", {
-              method: "POST",
-              body: formData,
-            });
           });
 
-          function addImage() {}
-          console.log("ca peut ajouter une photo");
-          const fileInput = document.createElement("input");
-          fileInput.type = "file";
-          fileInput.style.display = "flex";
-          // ci dessous, fileInput.accept parceque sinon on peut ajouter n importe quel type de fichier et pas seulement des images,
-          fileInput.accept = "image/*";
-
-          document.body.appendChild(fileInput);
 
           // ici le groupe de champs du formulaire d ajout de photo,
           //  qui va plus tard append le groupe photo,  titre,   categorie et autres
@@ -547,7 +516,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ChampTitrePhoto.style.padding = "15px";
           // ChampTitrePhoto.style.alignItems = "center";
 
-          mainAjouterPhoto.appendChild(ChampTitrePhoto);
+          formAddingPic.appendChild(ChampTitrePhoto);
 
           const labelTitrePhoto = document.createElement("label");
           labelTitrePhoto.setAttribute("for", "titrePhoto");
@@ -604,7 +573,7 @@ document.addEventListener("DOMContentLoaded", () => {
           labelCategoriePhoto.fontWeight = "500";
           labelCategoriePhoto.style.padding = "10px 0";
 
-          mainAjouterPhoto.appendChild(champCategoriePhoto);
+          formAddingPic.appendChild(champCategoriePhoto);
           // Et ensuite alors
           champCategoriePhoto.appendChild(labelCategoriePhoto);
 
@@ -662,6 +631,7 @@ document.addEventListener("DOMContentLoaded", () => {
               console.log("la categorie de la photo est bonne : n°" + selectCategoriePhoto.value);
             }
           });
+          
 
           // A voir
 
@@ -715,7 +685,7 @@ document.addEventListener("DOMContentLoaded", () => {
           modalSeparLine.style.border = "1px solid #B3B3B3";
           modalSeparLine.style.margin = "30px 0";
 
-          mainAjouterPhoto.appendChild(modalSeparLine);
+          formAddingPic.appendChild(modalSeparLine);
 
           const modalAjoutBtn = document.createElement("button");
           modalAjoutBtn.classList.add("button");
@@ -726,34 +696,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
           modalAjoutBtn.classList.add("btnAjouterPhoto");
           modalAjoutBtn.classList.add("disabled");
+          modalAjoutBtn.setAttribute("id", "modalAjoutBtn");
 
-          mainAjouterPhoto.appendChild(modalAjoutBtn);
+          formAddingPic.appendChild(modalAjoutBtn);
 
-          function updateModalButtonState() {
-            ActivationModalajoutBtn();
-          }
+          modalAjoutBtn.addEventListener("click", (event) => {
+            event.preventDefault();
 
-          if (inputTitrePhoto.value && selectCategoriePhoto.value && inputImagePhoto.files[0]) {
-            console.log("Tous les champs sont remplis. Vous pouvez valider!!!!!!!!!!!!!.");
-          }
+            const formData = new FormData();
+            formData.append("image", fileButtonInput.files[0]);
+            formData.append("title", inputTitrePhoto.value);
+            formData.append("category", parseInt(selectCategoriePhoto.value));
+            fetch("http://localhost:5678/api/works", {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+              body: formData
+            })
+            .then((response) => {
+              if (response.ok) {
+                return response.json();
+              }
+              throw new Error("Erreur lors de l'ajout de l'image.");
+            })
+            .then((data) => {
+            works(data);
+              fileButtonInput.value = "";
+              inputTitrePhoto.value = "";
+              selectCategoriePhoto.value = "";
+              alert("L'image a été ajoutée avec succès !");
+            })
+            .catch((error) => {
+              console.error("Erreur :", error);
+            });
 
-          function ActivationModalajoutBtn() {
-            if (inputImagePhoto.files == "" || inputTitrePhoto.value == "" || selectCategoriePhoto.value == "") {
-              alert("Veuillez remplir tous les champs avant de valider.");
-              modalAjoutBtn.classList.add("disabled");
-              modalAjoutBtn.classList.add("inactive");
-              alert("Veuillez remplir tous les champs avant de valider.");
-            } else if (inputImagePhoto.files[0] && inputTitrePhoto.value && selectCategoriePhoto.value) {
-              alert("C est bon! .Tous les champs sont remplis. Vous pouvez valider.");
-              modalAjoutBtn.classList.add("enabled");
-              modalAjoutBtn.classList.add("active");
-              modalAjoutBtn.classList.add("btnAjouterPhoto");
-              console.log("le bouton de validation est activé");
-            }
-          }
+            
+          });
+
         }
         openModaleAjouterPhoto();
       });
+
+
+
 
       // je crée tout en bas ici l insertion de de figrModal parceque plus haut a sa bonne place,
       //  sous, " FIGUREMODALE.STYLE.BORDER = 1px solid red",
