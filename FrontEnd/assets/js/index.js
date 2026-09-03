@@ -23,25 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
     banniere.id = "banniereEdition";
     banniere.innerHTML = `
         <div id="banniere">
-        	<span id="modifierBanniere">
+        	<span id="modifier-banniere">
 		        <i class="fa-solid fa-pen-to-square"></i>
 	        </span>
-            <button id="texteBanniere">Mode édition</button>
+            <button id="texte-banniere">Mode édition</button>
         </div>    
         `;
     document.body.prepend(banniere);
-    const texteBanniere = document.getElementById("texteBanniere");
-    const modifierBanniere = document.querySelector("#modifierBanniere i");
-
-    texteBanniere.style.color = "white";
-    texteBanniere.style.backgroundColor = "black";
-    texteBanniere.style.border = "none";
-    texteBanniere.style.fontWeight = "light";
-    texteBanniere.style.fontSize = "16px";
-
-    modifierBanniere.style.color = "white";
-    modifierBanniere.style.fontSize = "18px";
-    modifierBanniere.style.marginRight = "8px";
+    const texteBanniere = document.getElementById("texte-banniere");
+    const modifierBanniere = document.querySelector("#modifier-banniere i");
 
     // Creation de la section portfolio .. ezst ce utile ? ci dessous .
     const portfolioSection = document.getElementById("portfolio");
@@ -115,6 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       closeButton.addEventListener("click", closeModale);
       function closeModale() {
+        alert("2");
         laModale.remove();
         laModale.style.display = "none";
       }
@@ -348,6 +339,7 @@ document.addEventListener("DOMContentLoaded", () => {
           closeModaleAjoutPhoto.addEventListener("click", enleverCloseModaleAjoutPhoto);
 
           function enleverCloseModaleAjoutPhoto() {
+            alert("1");
             modaleAjouterPhoto.remove();
             laModale.remove();
             modaleAjouterPhoto.style.display = "none";
@@ -479,6 +471,8 @@ document.addEventListener("DOMContentLoaded", () => {
           displayImage.appendChild(buttonAjouterPhoto);
 
           leftArrowModalAjtPhoto.addEventListener("click", () => {
+            alert("3");
+            formAddingPic.reset();
             modaleAjouterPhoto.style.display = "none";
             modaleWrap.style.display = "flex";
             resetAjouterPhotoForm();
@@ -695,7 +689,7 @@ document.addEventListener("DOMContentLoaded", () => {
           modalAjoutBtn.textContent = "Ajouter";
 
           modalAjoutBtn.classList.add("btnAjouterPhoto");
-          modalAjoutBtn.classList.add("disabled");
+          // modalAjoutBtn.classList.add("disabled");
           modalAjoutBtn.setAttribute("id", "modalAjoutBtn");
 
           formAddingPic.appendChild(modalAjoutBtn);

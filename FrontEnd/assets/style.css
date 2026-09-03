@@ -82,19 +82,20 @@ body {
 
 } */
 #texte-banniere {
-	background-color: black ;
+	background-color: black;
 	color: white;
 	font-family: 'Work Sans', sans-serif;
 	font-size: 16px;
 	font-weight: light;
 	margin-right: 8px;
+	border: none;
 }
 
-/* #modifierBanniere i {
+#modifier-banniere i {
 	color: white;
 	font-size: 18px;
 	margin-right: 8px;
-} */
+}
 
 
 /* button[id="texte-banniere"] {
@@ -171,8 +172,6 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
-
-
 #portfolio h2 {
 	display: flex;
 	justify-content: center;
@@ -201,6 +200,10 @@ aside #laModale {
 /* c est ici normalement les modales ,
  mais il est pour l instant plus bas
   a partir de #btnModifier */
+
+
+
+  
 
 .gallery {
 	width: 100%;
