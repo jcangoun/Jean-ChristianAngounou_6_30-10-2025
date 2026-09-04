@@ -113,6 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const figureModalPhoto = document.createElement("div");
       figureModalPhoto.classList.add("figure-modale-photo");
+      
       figureModalPhoto.style.display = "flex";
       figureModalPhoto.style.justifyContent = "flex-start";
       figureModalPhoto.style.flexWrap = "wrap";
