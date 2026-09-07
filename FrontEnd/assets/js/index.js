@@ -197,6 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log(error);
         }
       }
+
       function delete1Work(id) {
         fetch(`http://localhost:5678/api/works/${id}`, {
           method: "DELETE",
@@ -697,7 +698,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
           modalAjoutBtn.addEventListener("click", (event) => {
             event.preventDefault();
-
+            
+            // ici voir l idee de faire apres la &st fois formData.set
             const formData = new FormData();
             formData.append("image", fileButtonInput.files[0]);
             formData.append("title", inputTitrePhoto.value);
