@@ -154,7 +154,7 @@ li:hover {
 
 
 /* le h2 avec ID h2Project */
-#portfolio h2 {
+#portfolio > h2 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -224,36 +224,40 @@ aside #laModale {
 	font-size: 24px;
 	cursor: pointer;
 	padding: 30px;
-	};
-	
-	/* #laModale .modaleWrap .close-button i { background-color: red;	}; */
-	
-	/* ci dessous h2InModale */
-	
-	#laModale .modaleWrap .ss-titre-modale.galerie-photo {
-		color: black;
+}
+
+/* #laModale .modaleWrap .close-button i { background-color: red; }; */
+
+/* ci dessous h2InModale */
+#laModale .modaleWrap .ss-titre-modale#galerie-photo {
+	color: black;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 400;
+	font-size: 26px;
+	letter-spacing: 0;
+}
+
+	.modaleWrap .ss-titre-modale {
+		display: flex;
+		justify-content: center;
+		margin: 15px;
 		font-family: 'Work Sans', sans-serif;
 		font-weight: 400;
 		font-size: 26px;
-		letter-spacing: 0;		
-
-	};
-
-	/* .modaleWrap .ss-titre-modale {} */
+		letter-spacing: 0;
+	}
 		
 	#laModale .modaleWrap .figure-modale-photo {
 		display: flex;
 		justify-content: flex-start;
+		flex-direction: row;
 		flex-wrap: wrap;
-		gap: 5px;
-		padding: 10px 80px;
-		margin: 24px;
-		background-color: red;
+		padding: 10px;
+		position: relative;
+		left: 20px;
 	}	
 
 	.figure-gallery {
-		padding: 10px;
-		position: relative;
 		display: flex;
 		justify-content: center;
 		align-items: center;

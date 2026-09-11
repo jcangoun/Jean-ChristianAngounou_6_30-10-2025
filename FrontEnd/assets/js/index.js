@@ -85,13 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
       h2InModale.setAttribute("id", "galerie-photo");
       // h2InModale.id = "galerie-photo";
 
-      // h2InModale STYLE ci dessous
-      h2InModale.style.color = "black";
-      h2InModale.style.fontFamily = "work sans, sans-serif";
-      h2InModale.style.fontWeight = "400";
-      h2InModale.style.fontSize = "26px";
-      h2InModale.style.letterSpacing = "0";
-      // h2InModale.style.padding =  "30px";
+      // h2InModale STYLE dans le CSS, pas en inline
 
       // la closeModale
       const closeButton = document.createElement("button");
@@ -113,13 +107,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const figureModalPhoto = document.createElement("div");
       figureModalPhoto.classList.add("figure-modale-photo");
-      
-      figureModalPhoto.style.display = "flex";
-      figureModalPhoto.style.justifyContent = "flex-start";
-      figureModalPhoto.style.flexWrap = "wrap";
-      figureModalPhoto.style.gap = "5px";
-      figureModalPhoto.style.padding = "10px 80px";
-      figureModalPhoto.style.margin = "24px";
 
       modaleWrap.appendChild(figureModalPhoto);
 
@@ -132,11 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
             // FIGURE POUR CHAQUE PHOTO
             const figureGallery = document.createElement("figure");
             figureGallery.classList.add("figure-gallery", "figure-modale-photo");
-            figureGallery.padding = "10px";
-            figureGallery.style.position = "relative";
-            figureGallery.style.display = "flex";
-            figureGallery.style.justifyContent = "center";
-            figureGallery.style.alignItems = "center";
 
             figureGallery.id = `figure-${lesOeuvres.id}`;
 
