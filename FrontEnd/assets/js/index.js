@@ -135,12 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
             // AJOUT FIGURE DANS LE CONTENEUR
             figureModalPhoto.appendChild(figureGallery);
 
-            // STYLE DE L’IMAGE
-            imgGallery.style.width = "77px";
-            imgGallery.style.height = "103px";
-            // imgGallery.style.border = "1px solid red";
-            imgGallery.style.display = "flex";
-
             // POUBELLE
             const poubellePhoto = document.createElement("div");
 
@@ -150,24 +144,13 @@ document.addEventListener("DOMContentLoaded", () => {
             iconePoubelle.classList.add("fa-solid", "fa-trash-can");
 
             poubellePhoto.dataset.id = lesOeuvres.id;
-
-            poubellePhoto.style.fontSize = "11px";
-            poubellePhoto.style.width = "17px";
-            poubellePhoto.style.height = "17px";
-            poubellePhoto.style.backgroundColor = "#000000";
+            
             iconePoubelle.style.color = "white";
-            poubellePhoto.style.top = "-37px";
-            poubellePhoto.style.right = "22px";
-
             poubellePhoto.appendChild(iconePoubelle);
 
-            poubellePhoto.classList.add("poubellePhoto");
-            poubellePhoto.style.display = "flex";
-            poubellePhoto.style.justifyContent = "center";
-            poubellePhoto.style.alignItems = "center";
-            poubellePhoto.style.position = "relative";
-            figureGallery.appendChild(poubellePhoto);
+            poubellePhoto.classList.add("poubellePhoto");          
 
+            figureGallery.appendChild(poubellePhoto);
             // STYLE DU CONTENEUR GLOBAL
 
             poubellePhoto.addEventListener("click", () => {
