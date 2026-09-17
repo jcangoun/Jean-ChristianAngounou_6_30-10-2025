@@ -149,7 +149,6 @@ document.addEventListener("DOMContentLoaded", () => {
             poubellePhoto.appendChild(iconePoubelle);
 
             poubellePhoto.classList.add("poubellePhoto");          
-
             figureGallery.appendChild(poubellePhoto);
             // STYLE DU CONTENEUR GLOBAL
 
@@ -162,7 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log(error);
         }
       }
-
       function delete1Work(id) {
         fetch(`http://localhost:5678/api/works/${id}`, {
           method: "DELETE",
@@ -183,22 +181,18 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Erreur lors de la suppression de l'œuvre :", error);
           });
       }
-
       fetchWorks();
-
       console.log(works());
 
       // Section de presentation photos
-
       const figureModale = document.createElement("figure");
       figureModale.setAttribute("id", "figureModaleId");
       figureModale.style.display = "flex";
       figureModale.style.justifyContent = "center";
       figureModale.style.alignItems = "center";
       figureModale.style.border = "1px solid red";
-      console.log(figureModale);
       figureModale.textContent = "ici la figure de la modale";
-
+      console.log(figureModale);
       // Cette insertion de figureModl ci dessus, marchera seulement plus tard en bas de btnAjouterPhoto
       // là ou on a crée et LIé le "wrapfooter",
       //  car avant le boutton n existe pas et donc le wrapFooter non plus et donc l insertion de figureModale ne marchera pas avant,
@@ -253,12 +247,13 @@ document.addEventListener("DOMContentLoaded", () => {
           laModale.appendChild(modaleAjouterPhoto);
 
           // la modale d ajouts photos
+          modaleAjouterPhoto.style.display = "flex";
+          modaleAjouterPhoto.style.justifyContent = "center";
+          modaleAjouterPhoto.style.flexDirection = "column";
           modaleAjouterPhoto.style.backgroundColor = "white";
           modaleAjouterPhoto.style.width = "630px";
-          modaleAjouterPhoto.style.display = "flex";
-          modaleAjouterPhoto.style.flexDirection = "column";
+          
           // modaleAjouterPhoto.style.alignItems = "center";
-          modaleAjouterPhoto.style.justifyContent = "center";
 
           // modaleAjouterPhoto.style.maxHeight = "688px";
 

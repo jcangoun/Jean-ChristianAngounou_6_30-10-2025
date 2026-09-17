@@ -282,11 +282,11 @@ aside #laModale {
 }	
 
 
-		/* .spar-line {
-		display: flex;
+		.spar-line {
+		/* display: flex;
 		width: 420px;
-		border: 1px solid rgb(179, 179, 179);
-		} */
+		border: 1px solid rgb(179, 179, 179); */
+		}
 
 
 		.btnAjouterPhoto {
@@ -311,13 +311,13 @@ aside #laModale {
 		.button-validation.disabled {
 			background-color: #A7A7A7;
 		}
-		/* #modaleAjouterPhoto {
-			display: flex;
+		#modaleAjouterPhoto {
+			/* display: flex;
 			justify-content: center; 
-			background-color: white;
 			flex-direction: column;
-			width: 630px;
-		} */
+			background-color: white;
+			width: 630px; */
+		}
 		
 		.header-modale-ajouter-photo {
 			display: flex;
