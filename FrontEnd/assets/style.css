@@ -285,13 +285,14 @@ aside #laModale {
 	color: white;
 };
 
-#wrap-footer { 
+#wrapFooter { 
 	/* display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; */
 	display: flex;
 	background-color: red;
+	color: red;
 };
 
 
