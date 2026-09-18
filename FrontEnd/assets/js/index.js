@@ -142,10 +142,9 @@ document.addEventListener("DOMContentLoaded", () => {
             iconePoubelle.width = "9px";
             iconePoubelle.height = "10.30px";
             iconePoubelle.classList.add("fa-solid", "fa-trash-can");
-
+            iconePoubelle.setAttribute("id", "icone-poubelle");
             poubellePhoto.dataset.id = lesOeuvres.id;
             
-            iconePoubelle.style.color = "white";
             poubellePhoto.appendChild(iconePoubelle);
 
             poubellePhoto.classList.add("poubellePhoto");          
@@ -211,11 +210,11 @@ document.addEventListener("DOMContentLoaded", () => {
       // fin presentation photos
 
       const wrapFooter = document.createElement("div");
-      wrapFooter.setAttribute("id", "wrapFooter");
-      wrapFooter.style.display = "flex";
-      wrapFooter.style.flexDirection = "column";
-      wrapFooter.style.justifyContent = "center";
-      wrapFooter.style.alignItems = "center";
+      wrapFooter.setAttribute("id", "wrap-footer");
+      // wrapFooter.style.display = "flex";
+      // wrapFooter.style.flexDirection = "column";
+      // wrapFooter.style.justifyContent = "center";
+      // wrapFooter.style.alignItems = "center";
       modaleWrap.appendChild(wrapFooter);
 
       const separtnLigne = document.createElement("hr");
@@ -223,7 +222,8 @@ document.addEventListener("DOMContentLoaded", () => {
       separtnLigne.classList.add("spar-line");
       separtnLigne.style.display = "flex";
       separtnLigne.style.width = "420px";
-      separtnLigne.style.border = "1px solid #B3B3B3";
+      // separtnLigne.style.border = "1px solid #B3B3B3";
+      // separtnLigne.style.border = "1px solid red";
       separtnLigne.style.margin = "10px 0";
 
       const btnAjouterPhoto = document.createElement("button");
@@ -252,7 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
           modaleAjouterPhoto.style.flexDirection = "column";
           modaleAjouterPhoto.style.backgroundColor = "white";
           modaleAjouterPhoto.style.width = "630px";
-          
+
           // modaleAjouterPhoto.style.alignItems = "center";
 
           // modaleAjouterPhoto.style.maxHeight = "688px";

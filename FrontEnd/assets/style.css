@@ -280,12 +280,26 @@ aside #laModale {
 	top: -37px;
 	right: 22px;
 }	
+.poubellePhoto #icone-poubelle { 
+	font-weight: 900;
+	color: white;
+};
+
+#wrap-footer { 
+	/* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+	display: flex;
+	background-color: red;
+};
 
 
 		.spar-line {
 		/* display: flex;
 		width: 420px;
 		border: 1px solid rgb(179, 179, 179); */
+		border: 1px solid red;
 		}
 
 
