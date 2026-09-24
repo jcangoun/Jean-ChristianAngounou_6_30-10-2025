@@ -212,10 +212,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const wrapFooter = document.createElement("div");
       wrapFooter.setAttribute("id", "wrapFooter");
-      wrapFooter.style.display = "flex";
-      wrapFooter.style.flexDirection = "column";
-      wrapFooter.style.justifyContent = "center";
-      wrapFooter.style.alignItems = "center";
+      // wrapFooter.style.display = "flex";
+      // wrapFooter.style.flexDirection = "column";
+      // wrapFooter.style.justifyContent = "center";
+      // wrapFooter.style.alignItems = "center";
       modaleWrap.appendChild(wrapFooter);
 
       const separtnLigne = document.createElement("hr");
@@ -247,13 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
           laModale.appendChild(modaleAjouterPhoto);
 
           // la modale d ajouts photos
-          modaleAjouterPhoto.style.display = "flex";
-          modaleAjouterPhoto.style.justifyContent = "center";
-          modaleAjouterPhoto.style.flexDirection = "column";
-          modaleAjouterPhoto.style.backgroundColor = "white";
-          modaleAjouterPhoto.style.width = "630px";
 
-          // modaleAjouterPhoto.style.alignItems = "center";
 
           // modaleAjouterPhoto.style.maxHeight = "688px";
 

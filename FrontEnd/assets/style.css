@@ -283,17 +283,17 @@ aside #laModale {
 .poubellePhoto #icone-poubelle { 
 	font-weight: 900;
 	color: white;
-};
+}
 
-#wrapFooter { 
-	/* display: flex;
+.modaleWrap #wrapFooter { 
+	display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; */
+    align-items: center;
 	display: flex;
-	background-color: red;
-	color: red;
-};
+	/* background-color: red;
+	color: red; */
+}
 
 
 		.spar-line {
@@ -327,11 +327,11 @@ aside #laModale {
 			background-color: #A7A7A7;
 		}
 		#modaleAjouterPhoto {
-			/* display: flex;
+			display: flex;
 			justify-content: center; 
 			flex-direction: column;
 			background-color: white;
-			width: 630px; */
+			width: 630px;
 		}
 		
 		.header-modale-ajouter-photo {
