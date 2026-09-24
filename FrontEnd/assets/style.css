@@ -23,34 +23,41 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 /** end reset css**/
 body {
 	max-width: 1140px;
-	margin:auto;
-	font-family: 'Work Sans' ;
+	margin: auto;
+	font-family: 'Work Sans';
 	font-size: 14px;
 }
 
@@ -58,12 +65,13 @@ body {
 
 #banniere {
 	display: flex;
-    justify-content: center;
-    align-items: center;
-    align-items: center;
+	justify-content: center;
+	align-items: center;
+	align-items: center;
 	padding: 25px;
-    background-color: #000000;
+	background-color: #000000;
 }
+
 /* #modifier-banniere { }; */
 
 
@@ -90,10 +98,12 @@ header {
 	justify-content: space-between;
 	margin: 50px 0
 }
+
 section {
 	margin: 50px 0
 }
-h1{
+
+h1 {
 	display: flex;
 	flex-direction: column;
 	font-family: 'Syne';
@@ -101,25 +111,28 @@ h1{
 	font-weight: 800;
 	color: #B1663C
 }
-h1 > span {
+
+h1>span {
 	font-family: 'Work Sans';
-	font-size:10px;
+	font-size: 10px;
 	letter-spacing: 0.1em;
-;
+	;
 }
 
-h2{
+h2 {
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 30px;
 	color: #1D6154
 }
+
 nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
 
 }
+
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
@@ -128,13 +141,16 @@ nav li {
 li:hover {
 	color: #B1663C;
 }
+
 #introduction {
 	display: flex;
 	align-items: center;
 }
+
 #introduction figure {
 	flex: 1
 }
+
 #introduction img {
 	display: block;
 	margin: auto;
@@ -144,6 +160,7 @@ li:hover {
 #introduction article {
 	flex: 1
 }
+
 #introduction h2 {
 	margin-bottom: 1em;
 }
@@ -154,7 +171,7 @@ li:hover {
 
 
 /* le h2 avec ID h2Project */
-#portfolio > h2 {
+#portfolio>h2 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -163,14 +180,13 @@ li:hover {
 }
 
 /* Ci dessous portfolio ci utilme ou pas ? a Voir  */
-#portfolio
-aside #laModale {
+#portfolio aside #laModale {
 	background-color: rgba(0, 0, 0, 0.4);
 	/* position: fixed; */
 	color: red;
 	inset: 0;
 	display: hidden;
-	flex: 100%;	
+	flex: 100%;
 	justify-content: center;
 	align-items: center;
 	border: 1px solid black;
@@ -190,11 +206,9 @@ aside #laModale {
 	font-weight: 400;
 	font-size: 16px;
 	margin: 8px;
- }
-
+}
 
 /* la section de style pour la modale */
-
 
 #laModale {
 	background-color: rgba(0, 0, 0, 0.4);
@@ -214,9 +228,9 @@ aside #laModale {
 	flex-direction: column;
 	background-color: white;
 	width: 630px;
- }
+}
 
-#laModale .modaleWrap .close-button { 
+#laModale .modaleWrap .close-button {
 	display: flex;
 	justify-content: end;
 	background-color: transparent;
@@ -237,38 +251,37 @@ aside #laModale {
 	letter-spacing: 0;
 }
 
-	.modaleWrap .ss-titre-modale {
-		display: flex;
-		justify-content: center;
-		margin: 15px;
-		font-family: 'Work Sans', sans-serif;
-		font-weight: 400;
-		font-size: 26px;
-		letter-spacing: 0;
-	}
-		
-	#laModale .modaleWrap .figure-modale-photo {
-		display: flex;
-		justify-content: flex-start;
-		flex-direction: row;
-		flex-wrap: wrap;
-		padding: 10px;
-		position: relative;
-		left: 20px;
-	}	
+.modaleWrap .ss-titre-modale {
+	display: flex;
+	justify-content: center;
+	margin: 15px;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 400;
+	font-size: 26px;
+	letter-spacing: 0;
+}
 
-	.figure-gallery {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-	.figure-gallery .img-modal-photo {
-		display: flex;
-		width: 77px;
-		height: 103px;
-	}
+#laModale .modaleWrap .figure-modale-photo {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding: 5px;
+}
 
-.poubellePhoto 	{ 
+.figure-gallery {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.figure-gallery .img-modal-photo {
+	display: flex;
+	width: 77px;
+	height: 103px;
+}
+
+.poubellePhoto {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -279,69 +292,109 @@ aside #laModale {
 	background-color: rgb(0, 0, 0);
 	top: -37px;
 	right: 22px;
-}	
-.poubellePhoto #icone-poubelle { 
+}
+
+.poubellePhoto #icone-poubelle {
 	font-weight: 900;
+	width: 9px;
+	height: 10.30px;
 	color: white;
 }
 
-.modaleWrap #wrapFooter { 
+.modaleWrap #wrapFooter {
 	display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	display: flex;
-	/* background-color: red;
-	color: red; */
 }
 
+.modaleWrap #wrapFooter .spar-line {
+	display: flex;
+	width: 420px;
+	border: 1px solid #B3B3B3;
+	margin: 10px 0;
+}
 
-		.spar-line {
-		/* display: flex;
-		width: 420px;
-		border: 1px solid rgb(179, 179, 179); */
-		border: 1px solid red;
-		}
+.btnAjouterPhoto {
+	font-family: "Syne";
+	font-weight: 700;
+	color: white;
+	border: none;
+	margin: 30px;
+	border-radius: 50px;
+	padding: 12px 24px;
+	font-size: 14px;
+	width: 236px;
+	cursor: pointer;
+	background-color: #1D6154;
+}
 
-
-		.btnAjouterPhoto {
-			font-family: "Syne";
-			font-weight: 700;
-			color: white;
-			border: none;
-			margin: 30px;
-			border-radius: 50px;
-			padding: 12px 24px;
-			font-size: 14px;
-			width: 236px;
-			cursor: pointer;
-			background-color: #1D6154;
-		}
-		/* .button-validation {
-
-		} */
-		.button-validation.enabled {
-			background-color: #1D6154;
-		}
-		.button-validation.disabled {
-			background-color: #A7A7A7;
-		}
-		#modaleAjouterPhoto {
-			display: flex;
-			justify-content: center; 
-			flex-direction: column;
-			background-color: white;
-			width: 630px;
-		}
-		
-		.header-modale-ajouter-photo {
-			display: flex;
-			margin: 0;
-		}
-
-		/* .arrow-button {
+/* .button-validation {
 
 		} */
+.button-validation.enabled {
+	background-color: #1D6154;
+}
+
+.button-validation.disabled {
+	background-color: #A7A7A7;
+}
+
+#modaleAjouterPhoto {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	background-color: white;
+	width: 630px;
+}
+
+.header-modale-ajouter-photo {
+	display: flex;
+	margin: 0;
+	border: none;
+	cursor: pointer;
+}
+
+.arrow-button {
+	background-color: transparent;
+	margin: 30px;
+	font-size: 21px;
+	border: none;
+	cursor: pointer;
+}
+
+.close-button {
+	display: flex;
+	justify-content: end;
+	background-color: transparent;
+	border: none;
+	font-size: 24px;
+	cursor: pointer;
+	padding: 25px;
+}
+
+.main-ajouter-photo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center
+}
+
+.h2-ajout-photo {
+	color: black;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 400;
+	font-size: 26px;
+	letter-spacing: 0;
+	padding: 5px 5px 20px 5px;
+}
+
+#form-adding-pic {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 
 /* ici fin des modales et suites des galleries de la page principale  index */
 
@@ -356,20 +409,24 @@ aside #laModale {
 .gallery img {
 	width: 100%;
 }
+
 #contact {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
-#contact > * {
+
+#contact>* {
 	text-align: center;
 
 }
-#contact h2{
+
+#contact h2 {
 	margin-bottom: 20px;
 }
+
 #contact form {
 	text-align: left;
-	margin-top:30px;
+	margin-top: 30px;
 	display: flex;
 	flex-direction: column;
 }
@@ -380,23 +437,25 @@ margin: auto;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+
 #contact label {
 	margin: 2em 0 1em 0;
 }
+
 #contact textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"]{
+input[type="submit"] {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
 	background-color: #1D6154;
-	margin : 2em auto ;
+	margin: 2em auto;
 	width: 180px;
 	text-align: center;
-	border-radius: 60px ;
+	border-radius: 60px;
 }
 
 footer nav ul {
@@ -407,25 +466,26 @@ footer nav ul {
 
 
 
-		/* ici dessous la creation style de la modale " pour "Ajout photo" */	
-		
-		
+/* ici dessous la creation style de la modale " pour "Ajout photo" */
+
+
 .filters {
 	display: flex;
 	justify-content: center;
 	margin: 30px;
 	justify-content: center;
 	/* background-color: blue; */
- }
-
- .filter-btn {
-        font-family: "Syne";
-        border: 1px solid #1D6154;
-        color: #1D6154;
-        border-radius: 60px;
-        padding: 8px 16px;
-        margin: 5px;
 }
+
+.filter-btn {
+	font-family: "Syne";
+	border: 1px solid #1D6154;
+	color: #1D6154;
+	border-radius: 60px;
+	padding: 8px 16px;
+	margin: 5px;
+}
+
 .active {
 	background-color: #1D6154;
 	color: white;

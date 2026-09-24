@@ -137,18 +137,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // POUBELLE
             const poubellePhoto = document.createElement("div");
+            poubellePhoto.classList.add("poubellePhoto");          
 
             const iconePoubelle = document.createElement("i");
-            iconePoubelle.width = "9px";
-            iconePoubelle.height = "10.30px";
             iconePoubelle.classList.add("fa-solid", "fa-trash-can");
             iconePoubelle.setAttribute("id", "icone-poubelle");
             poubellePhoto.dataset.id = lesOeuvres.id;
             
-            // iconePoubelle.style.color = "white";
             poubellePhoto.appendChild(iconePoubelle);
 
-            poubellePhoto.classList.add("poubellePhoto");          
             figureGallery.appendChild(poubellePhoto);
             // STYLE DU CONTENEUR GLOBAL
 
@@ -185,6 +182,10 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log(works());
 
       // Section de presentation photos
+       
+      //  "A NE PAS EFFACER"
+
+
       const figureModale = document.createElement("figure");
       figureModale.setAttribute("id", "figureModaleId");
       figureModale.style.display = "flex";
@@ -212,26 +213,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const wrapFooter = document.createElement("div");
       wrapFooter.setAttribute("id", "wrapFooter");
-      // wrapFooter.style.display = "flex";
-      // wrapFooter.style.flexDirection = "column";
-      // wrapFooter.style.justifyContent = "center";
-      // wrapFooter.style.alignItems = "center";
+
       modaleWrap.appendChild(wrapFooter);
 
       const separtnLigne = document.createElement("hr");
       wrapFooter.appendChild(separtnLigne);
       separtnLigne.classList.add("spar-line");
-      separtnLigne.style.display = "flex";
-      separtnLigne.style.width = "420px";
-      separtnLigne.style.border = "1px solid #B3B3B3";
-      separtnLigne.style.margin = "10px 0";
+      // separtnLigne.classList.add("modale-ajouter-photo-spar-line");
 
       const btnAjouterPhoto = document.createElement("button");
-      // btnAjouterPhoto.classList.add("button", "btnAjouterPhoto");
-      btnAjouterPhoto.classList.add("enabled");
       btnAjouterPhoto.classList.add("button");
+      btnAjouterPhoto.classList.add("enabled");
       btnAjouterPhoto.classList.add("btnAjouterPhoto");
       btnAjouterPhoto.textContent = "Ajouter une photo";
+
       wrapFooter.appendChild(btnAjouterPhoto);
 
       btnAjouterPhoto.addEventListener("click", () => {
@@ -248,9 +243,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
           // la modale d ajouts photos
 
-
-          // modaleAjouterPhoto.style.maxHeight = "688px";
-
           // header ds ajtmodelaPhoto
           const headerAjouterPhoto = document.createElement("header");
           headerAjouterPhoto.classList.add("header-modale-ajouter-photo");
@@ -258,33 +250,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
           // Fleche Retour
           const arrowButton = document.createElement("button");
-          // arrowButton.classList.add("arrow-button");
-          arrowButton.style.display = "flex";
+          arrowButton.classList.add("arrow-button");
+          // arrowButton.style.display = "flex";
           // arrowButton.style.justifyContent = "start";
-          arrowButton.style.margin = "30px";
-
-          arrowButton.style.backgroundColor = "transparent";
-          arrowButton.style.border = "none";
-          arrowButton.style.cursor = "pointer";
 
           const leftArrowModalAjtPhoto = document.createElement("i");
           leftArrowModalAjtPhoto.classList.add("fa-solid", "fa-arrow-left");
-          leftArrowModalAjtPhoto.style.fontSize = "21px";
-          leftArrowModalAjtPhoto.style.cursor = "pointer";
+
           arrowButton.prepend(leftArrowModalAjtPhoto);
 
+          
           //puis
           headerAjouterPhoto.prepend(arrowButton);
-
+          
+          leftArrowModalAjtPhoto.addEventListener("click", (event) => {
+            console.log(event);
+          });
           const closeModaleAjoutPhoto = document.createElement("button");
           closeModaleAjoutPhoto.classList.add("close-button");
-          closeModaleAjoutPhoto.style.display = "flex";
-          closeModaleAjoutPhoto.style.justifyContent = "end";
-          closeModaleAjoutPhoto.style.backgroundColor = "transparent";
-          closeModaleAjoutPhoto.style.border = "none";
-          closeModaleAjoutPhoto.style.fontSize = "24px";
-          closeModaleAjoutPhoto.style.cursor = "pointer";
-          closeModaleAjoutPhoto.style.padding = "25px";
 
           const iconeCloseBtnAjtPhoto = document.createElement("i");
           iconeCloseBtnAjtPhoto.classList.add("fa-solid", "fa-xmark");
@@ -295,7 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
           closeModaleAjoutPhoto.addEventListener("click", enleverCloseModaleAjoutPhoto);
 
           function enleverCloseModaleAjoutPhoto() {
-            alert("1");
+            console.log("CloseModale de choix de pics 1");
             modaleAjouterPhoto.remove();
             laModale.remove();
             modaleAjouterPhoto.style.display = "none";
@@ -303,27 +286,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const mainAjouterPhoto = document.createElement("main");
           mainAjouterPhoto.classList.add("main-ajouter-photo");
-          mainAjouterPhoto.style.display = "flex";
-          mainAjouterPhoto.style.flexDirection = "column";
-          mainAjouterPhoto.style.alignItems = "center";
-          mainAjouterPhoto.style.justifyContent = "center";
 
           modaleAjouterPhoto.appendChild(mainAjouterPhoto);
+
           const h2AjoutPhoto = document.createElement("h2");
+          h2AjoutPhoto.classList.add("h2-ajout-photo");
           h2AjoutPhoto.textContent = "Ajouter une photo";
-          h2AjoutPhoto.style.color = "black";
-          h2AjoutPhoto.style.fontFamily = "work sans, sans-serif";
-          h2AjoutPhoto.style.fontWeight = "400";
-          h2AjoutPhoto.style.fontSize = "26px";
-          h2AjoutPhoto.style.letterSpacing = "0";
 
           mainAjouterPhoto.appendChild(h2AjoutPhoto);
 
           const formAddingPic = document.createElement("form");
           formAddingPic.setAttribute("id", "form-adding-pic");
-          formAddingPic.style.display = "flex";
-          formAddingPic.style.flexDirection = "column";
-          formAddingPic.style.alignItems = "center";
 
           mainAjouterPhoto.appendChild(formAddingPic);
 
