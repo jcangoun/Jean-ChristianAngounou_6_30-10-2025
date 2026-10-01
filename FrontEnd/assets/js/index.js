@@ -84,8 +84,9 @@ document.addEventListener("DOMContentLoaded", () => {
       h2InModale.setAttribute("id", "galerie-photo");
       // h2InModale.id = "galerie-photo";
 
-      // h2InModale STYLE dans le CSS, pas en inline
-
+  // ici faire le conteuneur qui envelppera le close button ,
+  // il occupe tout le header
+      
       // la closeModale
       const closeButton = document.createElement("button");
       closeButton.classList.add("close-button");
@@ -186,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((data) => {
           console.log(data);
         });
-
+              console.log(works());
       // fin presentation photos
 
       const wrapFooter = document.createElement("div");
