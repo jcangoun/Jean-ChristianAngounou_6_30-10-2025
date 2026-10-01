@@ -293,6 +293,9 @@ li:hover {
 	top: -37px;
 	right: 22px;
 }
+.poubellePhoto:hover {
+	cursor: pointer;
+}
 
 .poubellePhoto #icone-poubelle {
 	font-weight: 900;

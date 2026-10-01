@@ -79,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const h2InModale = document.createElement("h2");
       h2InModale.classList.add("ss-titre-modale");
       modaleWrap.appendChild(h2InModale);
-      console.log(modaleWrap);
 
       h2InModale.textContent = "Galerie photo";
       h2InModale.setAttribute("id", "galerie-photo");
@@ -99,7 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       closeButton.addEventListener("click", closeModale);
       function closeModale() {
-        alert("2");
         laModale.remove();
         laModale.style.display = "none";
       }
@@ -182,32 +180,12 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log(works());
 
       // Section de presentation photos
-       
-      //  "A NE PAS EFFACER"
-
-
-      const figureModale = document.createElement("figure");
-      figureModale.setAttribute("id", "figureModaleId");
-      figureModale.style.display = "flex";
-      figureModale.style.justifyContent = "center";
-      figureModale.style.alignItems = "center";
-      figureModale.style.border = "1px solid red";
-      figureModale.textContent = "ici la figure de la modale";
-      console.log(figureModale);
-      // Cette insertion de figureModl ci dessus, marchera seulement plus tard en bas de btnAjouterPhoto
-      // là ou on a crée et LIé le "wrapfooter",
-      //  car avant le boutton n existe pas et donc le wrapFooter non plus et donc l insertion de figureModale ne marchera pas avant,
 
       fetch("http://localhost:5678/api/works")
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
         });
-
-      const imgModale = document.createElement("img");
-      figureModale.appendChild(imgModale);
-      imgModale.src = "assets/icons/instagram.png";
-      imgModale.alt = "image à ajouter";
 
       // fin presentation photos
 
@@ -251,8 +229,6 @@ document.addEventListener("DOMContentLoaded", () => {
           // Fleche Retour
           const arrowButton = document.createElement("button");
           arrowButton.classList.add("arrow-button");
-          // arrowButton.style.display = "flex";
-          // arrowButton.style.justifyContent = "start";
 
           const leftArrowModalAjtPhoto = document.createElement("i");
           leftArrowModalAjtPhoto.classList.add("fa-solid", "fa-arrow-left");
@@ -266,6 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
           leftArrowModalAjtPhoto.addEventListener("click", (event) => {
             console.log(event);
           });
+
           const closeModaleAjoutPhoto = document.createElement("button");
           closeModaleAjoutPhoto.classList.add("close-button");
 
@@ -400,7 +377,7 @@ document.addEventListener("DOMContentLoaded", () => {
           displayImage.appendChild(buttonAjouterPhoto);
 
           leftArrowModalAjtPhoto.addEventListener("click", () => {
-            alert("3");
+
             formAddingPic.reset();
             modaleAjouterPhoto.style.display = "none";
             modaleWrap.style.display = "flex";
@@ -554,39 +531,6 @@ document.addEventListener("DOMContentLoaded", () => {
               console.log("la categorie de la photo est bonne : n°" + selectCategoriePhoto.value);
             }
           });
-          
-
-          // A voir
-
-          // fetch("http://localhost:5678/api/categories")
-          //   .then((response) => response.json())
-          //   .then((categories) => {
-          //     categories.forEach((category) => {
-          //       const option = document.createElement("option");
-          //       option.value = category.id;
-          //       option.textContent = category.name;
-          //       selectCategoriePhoto.appendChild(option);
-          //     });
-          //   });
-
-          // A voir
-
-          //   const choixCategoriePhotoMisAJour = () => {
-          //     categoriePhotoValid();
-          //   };
-          // }
-          // function categoriePhotoValid() {
-          //   {
-          //     if (selectCategoriePhoto.value === "") {
-          //       selectCategoriePhoto.classList.add("invalid");
-          //     } else {
-          //       selectCategoriePhoto.classList.remove("invalid");
-          //       selectCategoriePhoto.classList.add("valid");
-          //       console.log("la categorie de la photo est bonne : " + selectCategoriePhoto.value);
-          //     }
-          //   }
-
-          // ------------------------------------------------------- //
 
           if (selectCategoriePhoto.value === "") {
             selectCategoriePhoto.classList.add("invalid");
@@ -649,12 +593,11 @@ document.addEventListener("DOMContentLoaded", () => {
               fileButtonInput.value = "";
               inputTitrePhoto.value = "";
               selectCategoriePhoto.value = "";
-              alert("L'image a été ajoutée avec succès !");
+              console.log("L'image a été ajoutée avec succès !")
             })
             .catch((error) => {
               console.error("Erreur :", error);
             });
-
             
           });
 
