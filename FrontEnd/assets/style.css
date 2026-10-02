@@ -384,6 +384,27 @@ li:hover {
 	flex-direction: column;
 	align-items: center;
 }
+.display-image {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px 0;
+	background-color: #E8F1F6;
+	min-width: 420px;
+	min-height: 169px;
+}
+.contain-def-icone-image { 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+.contain-def-icone-image i {
+	font-size: 76px;
+	color: #B3B3B3;
+}
 
 /* ici fin des modales et suites des galleries de la page principale  index */
 
