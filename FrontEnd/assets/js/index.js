@@ -1,7 +1,7 @@
 // import "./modale.js"; pret a l emploi
 
 // import { xModale } from "./modale.js";
-
+          const fileButtonInput = document.createElement("input");
 const token = localStorage.getItem("token");
 document.addEventListener("DOMContentLoaded", () => {
   const btnModifier = document.getElementById("btnModifier");
@@ -242,7 +242,6 @@ document.addEventListener("DOMContentLoaded", () => {
           
           leftArrowModalAjtPhoto.addEventListener("click", (event) => {
             console.log(event);
-            formaddingPic.reset();
           });
 
           const closeModaleAjoutPhoto = document.createElement("button");
@@ -300,7 +299,7 @@ document.addEventListener("DOMContentLoaded", () => {
           textButtonAjouterPhoto.textContent = "+ Ajouter Photo";
           buttonAjouterPhoto.appendChild(textButtonAjouterPhoto);
 
-          const fileButtonInput = document.createElement("input");
+          // const fileButtonInput = document.createElement("input");
           fileButtonInput.id = "fileButtonInput";
           buttonAjouterPhoto.setAttribute("for", "fileButtonInput");
           fileButtonInput.type = "file";
@@ -357,10 +356,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
           leftArrowModalAjtPhoto.addEventListener("click", () => {
 
-            formAddingPic.reset();
-            // modaleAjouterPhoto.style.display = "none";
-            // modaleWrap.style.display = "flex";
-            // resetAjouterPhotoForm();
+            console.log([formAddingPic]);
+            console.log([categorie])
+            // reinitrialiseForm();
+            // formAddingPic.reset();
+
+            modaleAjouterPhoto.style.display = "none";
+            modaleWrap.style.display = "flex";
+
+            resetAjouterPhotoForm();
           });
 
           buttonAjouterPhoto.addEventListener("click", () => {
@@ -545,10 +549,16 @@ document.addEventListener("DOMContentLoaded", () => {
           modalAjoutBtn.setAttribute("id", "modalAjoutBtn");
 
           formAddingPic.appendChild(modalAjoutBtn);
+          // const reinitialiseForm = () => {
+          //   formAddingPic.reset();
+          //   displayPhoto.src = "";
+          //   displayPhoto.style.display = "none";
+          //   defaultIconeImage.style.display = "flex";
+          //   textButtonAjouterPhoto.style.display = "inline";};
 
           modalAjoutBtn.addEventListener("click", (event) => {
             event.preventDefault();
-            
+            console.log(event);
             // ici voir l idee de faire apres la &st fois formData.set
             const formData = new FormData();
             formData.append("image", fileButtonInput.files[0]);
@@ -705,3 +715,6 @@ function handeuleuFilteur() {
     });
   });
 }
+
+
+
