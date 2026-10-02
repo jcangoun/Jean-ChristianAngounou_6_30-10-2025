@@ -242,6 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
           
           leftArrowModalAjtPhoto.addEventListener("click", (event) => {
             console.log(event);
+            formaddingPic.reset();
           });
 
           const closeModaleAjoutPhoto = document.createElement("button");
@@ -294,15 +295,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const buttonAjouterPhoto = document.createElement("label");
           buttonAjouterPhoto.classList.add("label", "button-ajouter-Photo");
-          buttonAjouterPhoto.style.fontFamily = "work sans, sans-serif";
-          buttonAjouterPhoto.style.fontWeight = "medium";
-          buttonAjouterPhoto.style.backgroundColor = "#CBD6DC";
-          buttonAjouterPhoto.style.color = "#306685";
-          buttonAjouterPhoto.style.border = "none";
-          buttonAjouterPhoto.style.margin = "30px";
-          buttonAjouterPhoto.style.padding = "12px 24px";
-          buttonAjouterPhoto.style.fontSize = "16px";
-          buttonAjouterPhoto.style.cursor = "pointer";
 
           const textButtonAjouterPhoto = document.createElement("span");
           textButtonAjouterPhoto.textContent = "+ Ajouter Photo";
@@ -326,12 +318,13 @@ document.addEventListener("DOMContentLoaded", () => {
             displayPhoto.style.display = "none";
             defaultIconeImage.style.display = "flex";
             textButtonAjouterPhoto.style.display = "inline";
-
+            
             buttonAjouterPhoto.style.display = "flex";
             buttonAjouterPhoto.style.justifyContent = "center";
             buttonAjouterPhoto.style.alignItems = "center";
             buttonAjouterPhoto.style.margin = "30px";
             buttonAjouterPhoto.style.padding = "12px 24px";
+            
             buttonAjouterPhoto.style.width = "auto";
 
             displayImage.style.backgroundColor = "#E8F1F6";
@@ -365,9 +358,9 @@ document.addEventListener("DOMContentLoaded", () => {
           leftArrowModalAjtPhoto.addEventListener("click", () => {
 
             formAddingPic.reset();
-            modaleAjouterPhoto.style.display = "none";
-            modaleWrap.style.display = "flex";
-            resetAjouterPhotoForm();
+            // modaleAjouterPhoto.style.display = "none";
+            // modaleWrap.style.display = "flex";
+            // resetAjouterPhotoForm();
           });
 
           buttonAjouterPhoto.addEventListener("click", () => {

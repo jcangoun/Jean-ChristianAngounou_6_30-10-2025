@@ -405,6 +405,19 @@ li:hover {
 	font-size: 76px;
 	color: #B3B3B3;
 }
+.button-ajouter-Photo {
+	font-family: "work Sans", sans-serif;
+	/* font-weight: medium; */
+	background-color: #CBD6DC;
+	color: #306685;
+	border: none;
+	margin: 30px;
+	padding: 12px 24px;
+	font-size: 16px;
+	cursor: pointer;
+
+}
+
 
 /* ici fin des modales et suites des galleries de la page principale  index */
 
