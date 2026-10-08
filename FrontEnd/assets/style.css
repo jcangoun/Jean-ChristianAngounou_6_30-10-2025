@@ -418,6 +418,56 @@ li:hover {
 
 }
 
+.button-ajouter-Photo span {
+
+}
+
+#fileButtonInput {
+	display: none;
+}
+.champ-titre-photo {
+	display: flex;
+	flex-direction: column;
+	padding: 15px;
+}
+.champ-titre-photo label {
+	font-family: "work Sans", sans-serif;
+	font-weight: 500;
+	font-size: 14px;
+	padding: 10px 0;
+}
+.input-titre-photo {
+	border: none;
+	height: 51px;
+	width: 420px;
+	box-shadow: 0px 4px 14px 0px rgba(0, 0, 255, 0.09);
+}
+
+.champ-categorie-photo {
+	display: flex;
+	flex-direction: column;
+}
+
+#categorie-photo {
+	font-family: "work Sans", sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	padding: 10px 0;
+}
+#categorie {
+	border: none;
+	height: 51px;
+	width: 420px;
+	box-shadow: 0px 4px 14px 0px rgba(0, 0, 255, 0.09);
+
+}
+
+#form-adding-pic .spar-line {
+	display: flex;
+	width: 420px;
+	border: 1px solid #B3B3B3;
+	margin: 30px 0;
+}
 
 /* ici fin des modales et suites des galleries de la page principale  index */
 

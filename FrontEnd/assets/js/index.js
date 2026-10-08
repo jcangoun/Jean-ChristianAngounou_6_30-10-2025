@@ -303,7 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
           fileButtonInput.id = "fileButtonInput";
           buttonAjouterPhoto.setAttribute("for", "fileButtonInput");
           fileButtonInput.type = "file";
-          fileButtonInput.style.display = "none";
+        
           fileButtonInput.accept = "image/*";
           buttonAjouterPhoto.appendChild(fileButtonInput);
 
@@ -357,9 +357,7 @@ document.addEventListener("DOMContentLoaded", () => {
           leftArrowModalAjtPhoto.addEventListener("click", () => {
 
             console.log([formAddingPic]);
-            console.log([categorie])
-            // reinitrialiseForm();
-            // formAddingPic.reset();
+            console.log([categorie]);
 
             modaleAjouterPhoto.style.display = "none";
             modaleWrap.style.display = "flex";
@@ -393,22 +391,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const ChampTitrePhoto = document.createElement("div");
           ChampTitrePhoto.classList.add("champ-titre-photo");
-          // ChampTitrePhoto.textContent = "le champ titre de la modale d ajout de photo";
-          ChampTitrePhoto.style.display = "flex";
-          ChampTitrePhoto.style.flexDirection = "column";
-          ChampTitrePhoto.style.padding = "15px";
-          // ChampTitrePhoto.style.alignItems = "center";
 
           formAddingPic.appendChild(ChampTitrePhoto);
 
           const labelTitrePhoto = document.createElement("label");
           labelTitrePhoto.setAttribute("for", "titrePhoto");
           labelTitrePhoto.textContent = "Titre";
-          labelTitrePhoto.style.fontWeight = "500";
-          labelTitrePhoto.fontFamily = "work sans, sans-serif";
-          labelTitrePhoto.fontSize = "14px";
-          labelTitrePhoto.fontWeight = "500";
-          labelTitrePhoto.style.padding = "10px 0";
 
           ChampTitrePhoto.appendChild(labelTitrePhoto);
           const inputTitrePhoto = document.createElement("input");
@@ -418,10 +406,6 @@ document.addEventListener("DOMContentLoaded", () => {
           inputTitrePhoto.placeholder = "Entrez le titre de la photo";
           inputTitrePhoto.id = "titre";
           inputTitrePhoto.name = "titre";
-          inputTitrePhoto.style.border = "none";
-          inputTitrePhoto.style.height = "51px";
-          inputTitrePhoto.style.width = "420px";
-          inputTitrePhoto.style.boxShadow = "0px 4px 14px 0px rgba(0, 0, 255, 0.09)";
 
           ChampTitrePhoto.appendChild(inputTitrePhoto);
 
@@ -442,19 +426,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const champCategoriePhoto = document.createElement("div");
           champCategoriePhoto.classList.add("champ-categorie-photo");
-          champCategoriePhoto.style.display = "flex";
-          champCategoriePhoto.style.flexDirection = "column";
-          // champCategoriePhoto.style.alignItems = "center";
+
           champCategoriePhoto.style.padding = "15px";
           const labelCategoriePhoto = document.createElement("label");
 
           labelCategoriePhoto.setAttribute("for", "categoriePhoto");
           labelCategoriePhoto.setAttribute("id", "categorie-photo");
           labelCategoriePhoto.textContent = "Catégorie";
-          labelCategoriePhoto.fontFamily = "work sans, sans-serif";
-          labelCategoriePhoto.fontSize = "14px";
-          labelCategoriePhoto.fontWeight = "500";
-          labelCategoriePhoto.style.padding = "10px 0";
 
           formAddingPic.appendChild(champCategoriePhoto);
           // Et ensuite alors
@@ -462,37 +440,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const selectCategoriePhoto = document.createElement("select");
 
-          // selectCategoriePhoto.type = "text";
+
           selectCategoriePhoto.id = "categorie";
           selectCategoriePhoto.name = "categorie";
-          selectCategoriePhoto.style.border = "none";
-          selectCategoriePhoto.style.height = "51px";
-          selectCategoriePhoto.style.width = "420px";
-          selectCategoriePhoto.style.boxShadow = "0px 4px 14px 0px rgba(0, 0, 255, 0.09)";
-
           champCategoriePhoto.appendChild(selectCategoriePhoto);
 
           const optionCategorieObjet = document.createElement("option");
 
-          // optionCategorieObjet.value = "";
-          // optionCategorieObjet.textContent = "Choisir une catégorie";
           const optionCategorieVide = document.createElement("option");
           optionCategorieVide.value = "";
           optionCategorieVide.textContent = "Choisir une catégorie";
           selectCategoriePhoto.appendChild(optionCategorieVide);
 
           optionCategorieObjet.value = "1";
-          // optionCategorieObjet.name = "name";
           optionCategorieObjet.textContent = "Objets";
 
           const optionCategorieAppartements = document.createElement("option");
           optionCategorieAppartements.value = "2";
-          // optionCategorieAppartements.name = "name";
           optionCategorieAppartements.textContent = "Appartements";
 
           const optionCategorieHotelsEtRestaurants = document.createElement("option");
           optionCategorieHotelsEtRestaurants.value = "3";
-          // optionCategorieHotelsEtRestaurants.name = "name";
           optionCategorieHotelsEtRestaurants.textContent = "Hotels & Restaurants";
 
           selectCategoriePhoto.appendChild(optionCategorieObjet);
@@ -530,31 +498,19 @@ document.addEventListener("DOMContentLoaded", () => {
           modalSeparLine.classList.add("spar-line");
           // proprietes en doublons la simplifier plus tard avec separlign
           modalSeparLine.classList.add("spar-line");
-          modalSeparLine.style.display = "flex";
-          modalSeparLine.style.width = "420px";
-          modalSeparLine.style.border = "1px solid #B3B3B3";
-          modalSeparLine.style.margin = "30px 0";
 
           formAddingPic.appendChild(modalSeparLine);
 
           const modalAjoutBtn = document.createElement("button");
           modalAjoutBtn.classList.add("button");
           modalAjoutBtn.classList.add("button-validation");
-          // modalAjoutBtn.classList.add("enabled");
 
           modalAjoutBtn.textContent = "Ajouter";
 
           modalAjoutBtn.classList.add("btnAjouterPhoto");
-          // modalAjoutBtn.classList.add("disabled");
           modalAjoutBtn.setAttribute("id", "modalAjoutBtn");
 
           formAddingPic.appendChild(modalAjoutBtn);
-          // const reinitialiseForm = () => {
-          //   formAddingPic.reset();
-          //   displayPhoto.src = "";
-          //   displayPhoto.style.display = "none";
-          //   defaultIconeImage.style.display = "flex";
-          //   textButtonAjouterPhoto.style.display = "inline";};
 
           modalAjoutBtn.addEventListener("click", (event) => {
             event.preventDefault();
@@ -593,9 +549,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         openModaleAjouterPhoto();
       });
-
-
-
 
       // je crée tout en bas ici l insertion de de figrModal parceque plus haut a sa bonne place,
       //  sous, " FIGUREMODALE.STYLE.BORDER = 1px solid red",
