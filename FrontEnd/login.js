@@ -51,13 +51,14 @@ console.log("Token bon :", token);
 
 const loginConnection = document.getElementById("loginConnection");
 console.log(loginConnection);
+console.log(monBody);
 if (token) {
-  console.log("c est bon");
   const modifBanniere = document.createElement("div");
   modifBanniere.setAttribute("id", "banniere");
-  console.log(modifBanniere);
   const monBody = document.querySelector("body");
-  console.log(modifBanniere);
+  console.log(monBody);
+  console.log(loginConnection);
+  
   monBody.insertBefore(modifBanniere, monBody.firstChild);
   modifBanniere.style.display = "flex";
   loginConnection.textContent = "logout";

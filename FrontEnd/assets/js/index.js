@@ -4,13 +4,10 @@
           const fileButtonInput = document.createElement("input");
 const token = localStorage.getItem("token");
 document.addEventListener("DOMContentLoaded", () => {
-  const btnModifier = document.getElementById("btnModifier");
+  const btnModifier = document.getElementById("btn-modifier");
 
   const filters = document.createElement("div");
   filters.classList.add("filters");
-  filters.style.display = "flex";
-  filters.style.justifyContent = "center";
-  filters.style.margin = "38px";
 
   const gallery = document.querySelector(".gallery");
 
@@ -36,10 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Creation de la section portfolio .. ezst ce utile ? ci dessous .
     const portfolioSection = document.getElementById("portfolio");
 
-    // Je crée le bouton enfant de h2 dont l id sera btnModifier
+    // Je crée le bouton enfant de h2 dont l id sera btn-modifier
     const h2Btn = document.createElement("button");
-    //  important la variable qui est bouton prend la variable btnModifier qui est son  id
-    h2Btn.id = "btnModifier";
+    //  important la variable qui est bouton prend la variable btn-modifier qui est son  id
+    h2Btn.id = "btn-modifier";
     const iconeModifier = document.createElement("i");
     iconeModifier.classList.add("fa-solid", "fa-pen-to-square");
     h2Btn.innerText = " Modifier";
@@ -256,7 +253,6 @@ document.addEventListener("DOMContentLoaded", () => {
           closeModaleAjoutPhoto.addEventListener("click", enleverCloseModaleAjoutPhoto);
 
           function enleverCloseModaleAjoutPhoto() {
-            console.log("CloseModale de choix de pics 1");
             modaleAjouterPhoto.remove();
             laModale.remove();
             modaleAjouterPhoto.style.display = "none";
@@ -351,14 +347,9 @@ document.addEventListener("DOMContentLoaded", () => {
               displayPhoto.onload = () => URL.revokeObjectURL(objectUrl);
             }
           });
-
           displayImage.appendChild(buttonAjouterPhoto);
 
           leftArrowModalAjtPhoto.addEventListener("click", () => {
-
-            console.log([formAddingPic]);
-            console.log([categorie]);
-
             modaleAjouterPhoto.style.display = "none";
             modaleWrap.style.display = "flex";
 
@@ -382,7 +373,6 @@ document.addEventListener("DOMContentLoaded", () => {
             imgAjtImage.style.height = "100%";
             imgAjtImage.style.objectFit = "cover";
             displayImage.appendChild(imgAjtImage);
-
           });
 
 
@@ -391,7 +381,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const ChampTitrePhoto = document.createElement("div");
           ChampTitrePhoto.classList.add("champ-titre-photo");
-
           formAddingPic.appendChild(ChampTitrePhoto);
 
           const labelTitrePhoto = document.createElement("label");
@@ -406,7 +395,6 @@ document.addEventListener("DOMContentLoaded", () => {
           inputTitrePhoto.placeholder = "Entrez le titre de la photo";
           inputTitrePhoto.id = "titre";
           inputTitrePhoto.name = "titre";
-
           ChampTitrePhoto.appendChild(inputTitrePhoto);
 
           inputTitrePhoto.addEventListener("input", () => {
@@ -550,11 +538,6 @@ document.addEventListener("DOMContentLoaded", () => {
         openModaleAjouterPhoto();
       });
 
-      // je crée tout en bas ici l insertion de de figrModal parceque plus haut a sa bonne place,
-      //  sous, " FIGUREMODALE.STYLE.BORDER = 1px solid red",
-      //  le boutoon n existe pas encore
-      // cela donc n aurait pas fonctionné avant,
-      //  alors que là il fonctionnera car le boutton est créé et lié a son wrapFooter
     });
 
     loginConnection.textContent = "logout";
@@ -597,6 +580,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// 
 const gallery = document.querySelector(".gallery");
 
 function createFilters(tag, classes = [], content) {
