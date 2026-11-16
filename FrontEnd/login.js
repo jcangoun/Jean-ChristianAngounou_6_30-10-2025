@@ -1,4 +1,4 @@
-console.log("login.js loaded bien meme");
+console.log("login.js loaded");
 
 const url = "http://localhost:5678/api/";
 const form = document.querySelector("form");
@@ -45,10 +45,9 @@ form.addEventListener("submit", (e) => {
 
 // le stocker dans le local storage
 const token = localStorage.getItem("token");
-console.log("Token bon :", token);
+console.log("Mon Token status:", token);
 
 // puis dans la page d accueil je dois vérifier si le token est présent
-
 const loginConnection = document.getElementById("loginConnection");
 console.log(loginConnection);
 console.log(monBody);

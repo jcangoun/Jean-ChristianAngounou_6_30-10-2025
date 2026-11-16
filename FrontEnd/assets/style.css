@@ -534,10 +534,7 @@ footer nav ul {
 	margin: 2em
 }
 
-
-
 /* ici dessous la creation style de la modale " pour "Ajout photo" */
-
 
 .filters {
 	display: flex;
@@ -549,6 +546,7 @@ footer nav ul {
 .filter-btn {
 	font-family: "Syne";
 	border: 1px solid #1D6154;
+	background-color: transparent;
 	color: #1D6154;
 	border-radius: 60px;
 	padding: 8px 16px;

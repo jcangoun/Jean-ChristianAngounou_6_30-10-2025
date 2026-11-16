@@ -580,7 +580,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// 
 const gallery = document.querySelector(".gallery");
 
 function createFilters(tag, classes = [], content) {
@@ -625,7 +624,6 @@ function work(data) {
 
 // Je crée le filtre qui permet d afficher le type choisI et
 //  les styles d affichage du choix effectué
-
 function handeuleuFilteur() {
   const filters = document.querySelectorAll("div.filters > button");
   console.log(filters);
